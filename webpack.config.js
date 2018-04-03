@@ -1,29 +1,63 @@
 var Encore = require('@symfony/webpack-encore');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 Encore
-    // the project directory where compiled assets will be stored
+    .setOutputPath('public/build/front')
+    .setPublicPath('/build/front')
+    .cleanupOutputBeforeBuild()
+    .addEntry('js/app',[
+        "./assets/front/js/plugins.js",
+        "./assets/front/js/functions.js"
+    ])
+    .addStyleEntry('css/bundle', [
+        './assets/front/style.scss',
+        './assets/front/css/swiper.css',
+        './assets/front/css/dark.css',
+        './assets/front/css/font-icons.css',
+        './assets/front/css/animate.css',
+        './assets/front/css/magnific-popup.css',
+        './assets/front/css/responsive.css'
+    ])
+    .createSharedEntry('vendor', ["jquery", "./assets/front/css/bootstrap.css"])
+    .enableSassLoader()
+    .enableBuildNotifications()
+    // .enableLessLoader()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableSourceMaps(true)
+    .enableVersioning(Encore.isProduction())
+    .autoProvideVariables({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    })
+    .addPlugin(new CopyWebpackPlugin([
+        { from: './assets/front/images/static', to: 'static' }
+    ]))
+;
+
+const firstConfig = Encore.getWebpackConfig();
+firstConfig.name = 'firstConfig';
+
+Encore.reset();
+
+/* Encore
     .setOutputPath('public/build/')
-    // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
-    // uncomment to create hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
-
-    // uncomment to define the assets of the project
-    .addEntry('js/app', './assets/js/app.js')
-    .addStyleEntry('css/app', './assets/css/app.scss')
-
-    // uncomment if you use Sass/SCSS files
+    .addEntry('js/back/app', './assets/js/back/app.js')
+    .addStyleEntry('css/back/app', './assets/css/back/app.scss')
     .enableSassLoader()
-    // uncomment if you use Less/LESS files
     .enableLessLoader()
-
-    // uncomment for legacy applications that require $/jQuery as a global variable
     .autoProvideVariables({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
     });
+*/
+// const secondConfig = Encore.getWebpackConfig();
+// secondConfig.name = 'secondConfig';
 
-module.exports = Encore.getWebpackConfig();
+module.exports = [firstConfig];

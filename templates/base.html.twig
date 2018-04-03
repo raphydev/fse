@@ -2,11 +2,38 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('build/front/vendor.css','front') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('build/front/css/bundle.css','front') }}" type="text/css">
+        <title>
+            {% block title %}Welcome!{% endblock %}
+        </title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div id="wrapper" class="clearfix">
+            <header id="header">
+            </header>
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="container clearfix">
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer id="footer" class="dark">
+            <div class="container"></div>
+            <div id="copyrights">
+                <div class="container clearfix"></div>
+            </div>
+        </footer>
+        {% block javascripts %}
+            <script src="{{ asset('build/front/manifest.js','front') }}"></script>
+            <script src="{{ asset('build/front/vendor.js','front') }}"></script>
+            <script src="{{ asset('build/front/js/app.js','front') }}"></script>
+        {% endblock %}
     </body>
 </html>

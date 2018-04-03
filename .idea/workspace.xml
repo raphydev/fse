@@ -2,15 +2,275 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16fd4fdf-6bce-48da-af27-c5e56c6415d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/packages/imagine.yaml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/routes/imagine.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/rangeslider/sprite-skin-nice.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/Simple-Line-Icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/Simple-Line-Icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/Simple-Line-Icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons-snapchat.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons-snapchat.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons-snapchat.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/lined-icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/lined-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/lined-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/camera_skins.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/dotted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/footer-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/footer-logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/footer-logo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/footer-widget-logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/footer-widget-logo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/grid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/dotted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/flag.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/map.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/performance.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/responsive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/retina.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/seo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/support.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/features/tools.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/flags/french.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/flags/german.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/flags/italian.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/macbook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/mainsubmenu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/mainsubmenuh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/map-icon-red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/map-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/menu-divider.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/menu-dividerd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/cup-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/cup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/fork-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/fork.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/glass-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/glass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/tea-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/restaurant/tea.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/submenu-dark-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/submenu-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/submenu-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/submenu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/video-play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-comment-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-comment-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-comment.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-comment@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-dark-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-dark-rtl@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link-rtl@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/widget-link@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-resto-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-resto-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-resto.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-resto@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-side-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-side-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-side.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo-side@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/logo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/mac.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/macbook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/mainsubmenu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/mainsubmenuh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/map-icon-red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/map-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/menu-divider.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/menu-dividerd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/bgpattern.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/blur1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/blur2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/calendar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/10.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/home/9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/parallax/parallax-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/pattern.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/pattern2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/preloader-dark.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/preloader-dark@2x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/preloader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/preloader@2x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/submenu-dark-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/submenu-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/submenu-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/submenu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/video-play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-comment-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-comment-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-comment.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-comment@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-dark-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-dark-rtl@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-dark@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-rtl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link-rtl@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/widget-link@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/world-map.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/bootstrap-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/calendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/colors-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/colors-rtl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/colors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/colors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/bs-datatable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/bs-filestyle.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/bs-rating.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/bs-select.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/bs-switches.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/dark-components.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/daterangepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/ion.rangeslider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/pricing-table.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/radio-checkbox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/select-boxes.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/components/timepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/dark-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/font-icons-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/font-icons-snapchat.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/font-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/Simple-Line-Icons.dev.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/Simple-Line-Icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons-snapchat.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/font-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/fonts/lined-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/blog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/content.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/events.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/extras.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/footer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/header.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/helpers.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/layouts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/pagetitle.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/portfolio.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shop.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/alerts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/buttons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/clients.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/countdown.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/counter-skills.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/dividers.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/faqs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/feature-box.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/headings.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/misc.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/overlay.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/pricing.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/process-steps.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/promo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/social-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/styled-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/tabs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/team.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/testimonials.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/toggles-accordions.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/shortcodes/youtubebg.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/sliders.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/topbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/typography.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/imports/widgets.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/intro-fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/magnific-popup.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/responsive-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/css/swiper.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/blank.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/iconalt.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/images/icons/iconalt.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/blog.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/content.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/dark.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/events.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/extras.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/footer.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/header.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/helpers.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/layouts.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/pagetitle.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/portfolio.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/responsive.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shop.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/alerts.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/carousel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/clients.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/countdown.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/counter-skills.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/dividers.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/faqs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/feature-box.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/headings.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/misc.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/overlay.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/pricing.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/process-steps.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/promo.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/social-icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/styled-icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/tabs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/team.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/testimonials.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/toggles-accordions.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/shortcodes/youtubebg.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/sliders.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/topbar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/typography.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/front/sass/widgets.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env.dist" afterPath="$PROJECT_DIR$/.env.dist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/bundles.php" afterPath="$PROJECT_DIR$/config/bundles.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/packages/framework.yaml" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
@@ -30,18 +290,69 @@
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="imagine.yaml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/packages/imagine.yaml">
+    <leaf>
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <folding>
+                <element signature="e#300#325#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/default/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="framework.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$headerWrap.offset</find>
+      <find>pattern2.png</find>
+      <find>font-family</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,13 +367,25 @@
       <list>
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/twig_extensions.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/.env.dist" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/config/packages/stof_doctrine_extensions.yaml" />
+        <option value="$PROJECT_DIR$/../../lafinancesengage/canvas-html v503/Package-HTML/HTML/index.html" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/assets/front/sass/variables.scss" />
+        <option value="$PROJECT_DIR$/assets/front/sass/helpers.scss" />
+        <option value="$PROJECT_DIR$/assets/front/css/fonts.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -79,9 +402,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1245" />
-    <option name="height" value="777" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -108,21 +430,43 @@
             <path>
               <item name="fse" type="b2602c69:ProjectViewProjectNode" />
               <item name="fse" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fse" type="b2602c69:ProjectViewProjectNode" />
               <item name="fse" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fse" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fse" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fse" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fse" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -130,6 +474,18 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/public/build/front/js/app.js&#10;/Users/raphael/workspace/server-fse/fse/public/build/front/css/bundle.css" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/front" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/front/images/static" />
+      <recent name="$PROJECT_DIR$/assets/front/images" />
+      <recent name="$PROJECT_DIR$/assets/front" />
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -237,12 +593,13 @@
       <option name="presentableId" value="Default" />
       <updated>1522248091576</updated>
       <workItem from="1522248108085" duration="7299000" />
-      <workItem from="1522331059434" duration="4593000" />
+      <workItem from="1522331059434" duration="7648000" />
+      <workItem from="1522660718136" duration="27051000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11892000" />
+    <option name="totallyTimeSpent" value="41998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -258,7 +615,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2463651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25040388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -284,7 +641,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -292,207 +657,399 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/typography.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#22#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/helpers.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="206">
+          <caret line="196" column="29" lean-forward="false" selection-start-line="196" selection-start-column="18" selection-end-line="196" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symfony.lock">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/layouts.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-27">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../server-api/toudeal-api/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services_test.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/topbar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-27">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/routing.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/monolog.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/prod/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/prod/monolog.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="21" />
-          <folding>
-            <element signature="e#23#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#22#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/header.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="201">
+          <caret line="88" column="15" lean-forward="false" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/sliders.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/pagetitle.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/content.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="19" column="62" lean-forward="true" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/portfolio.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/blog.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shop.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/events.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/countdown.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2600">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/alerts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/dividers.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1915">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/clients.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2049">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/headings.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="319" column="62" lean-forward="true" selection-start-line="319" selection-start-column="62" selection-end-line="319" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/team.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/pricing.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/carousel.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/overlay.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/youtubebg.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes/misc.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="770" column="19" lean-forward="false" selection-start-line="770" selection-start-column="8" selection-end-line="770" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/shortcodes.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/footer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/widgets.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="442" column="23" lean-forward="false" selection-start-line="442" selection-start-column="12" selection-end-line="442" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/sass/extras.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/animate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="2" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/colors.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="353" column="84" lean-forward="false" selection-start-line="353" selection-start-column="72" selection-end-line="353" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/font-icons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/font-icons-snapchat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/intro-fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="55" column="15" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/magnific-popup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="142" column="15" lean-forward="false" selection-start-line="142" selection-start-column="4" selection-end-line="142" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/responsive.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/front/css/swiper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/front/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="37" column="3" lean-forward="false" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="621">
+          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#300#325#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        <state relative-caret-position="458">
+          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        <state relative-caret-position="360">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/imagine.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="253">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
