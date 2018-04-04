@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ asset('build/front/vendor.css','front') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('build/front/css/bundle.css','front') }}" type="text/css">
-        <title>
-            {% block title %}Welcome!{% endblock %}
-        </title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <div id="wrapper" class="clearfix">
-            <header id="header">
-            </header>
-            <section id="content">
-                <div class="content-wrap">
-                    <div class="container clearfix">
-                        {% block body %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </section>
-        </div>
-        <footer id="footer" class="dark">
-            <div class="container"></div>
-            <div id="copyrights">
-                <div class="container clearfix"></div>
-            </div>
-        </footer>
-        {% block javascripts %}
-            <script src="{{ asset('build/front/manifest.js','front') }}"></script>
-            <script src="{{ asset('build/front/vendor.js','front') }}"></script>
-            <script src="{{ asset('build/front/js/app.js','front') }}"></script>
-        {% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('build/front/css/bootstrap.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/css/swiper.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/css/dark.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/css/font-icons.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/css/animate.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('build/front/css/magnific-popup.css') }}" type="text/css" />
+
+    <link rel="stylesheet" href="{{ asset('build/front/css/responsive.css') }}" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="stretched">
+<div id="wrapper" class="clearfix">
+    {{ include('includes/nav.html.twig') }}
+    {% block body %}{% endblock %}
+</div>
+<div id="gotoTop" class="icon-angle-up"></div>
+{% block javascripts %}
+    <script src="{{ asset('build/front/js/jquery.js') }}"></script>
+    <script src="{{ asset('build/front/js/plugins.js') }}"></script>
+    <script src="{{ asset('build/front/js/functions.js') }}"></script>
+{% endblock %}
+</body>
 </html>

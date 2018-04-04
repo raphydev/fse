@@ -6,21 +6,26 @@ Encore
     .setOutputPath('public/build/front')
     .setPublicPath('/build/front')
     .cleanupOutputBeforeBuild()
+    // Jquery entries
     .addEntry('js/app',[
-        "./assets/front/js/plugins.js",
-        "./assets/front/js/functions.js"
+        './assets/front/js/plugins.js',
+        './assets/front/js/functions.js'
     ])
-    .addStyleEntry('css/bundle', [
-        './assets/front/style.scss',
-        './assets/front/css/swiper.css',
+    // css entry
+    .addStyleEntry('css/swiper', './assets/front/css/swiper.css')
+    .addStyleEntry('style', './assets/front/style.css')
+    .addStyleEntry('css/app', [
         './assets/front/css/dark.css',
         './assets/front/css/font-icons.css',
-        './assets/front/css/animate.css',
         './assets/front/css/magnific-popup.css',
+        './assets/front/css/animate.css',
         './assets/front/css/responsive.css'
     ])
-    .createSharedEntry('vendor', ["jquery", "./assets/front/css/bootstrap.css"])
-    .enableSassLoader()
+    .createSharedEntry('js/common', [
+        'jquery',
+        './assets/front/css/bootstrap.css'
+    ])
+    //.enableSassLoader()
     .enableBuildNotifications()
     // .enableLessLoader()
     .enableSourceMaps(!Encore.isProduction())
@@ -32,14 +37,14 @@ Encore
         'window.jQuery': 'jquery'
     })
     .addPlugin(new CopyWebpackPlugin([
-        { from: './assets/front/images/static', to: 'static' }
+        { from: './assets/front/static', to: 'static' }
     ]))
 ;
 
-const firstConfig = Encore.getWebpackConfig();
+/* const firstConfig = Encore.getWebpackConfig();
 firstConfig.name = 'firstConfig';
 
-Encore.reset();
+Encore.reset(); */
 
 /* Encore
     .setOutputPath('public/build/')
@@ -60,4 +65,5 @@ Encore.reset();
 // const secondConfig = Encore.getWebpackConfig();
 // secondConfig.name = 'secondConfig';
 
-module.exports = [firstConfig];
+//module.exports = [firstConfig];
+module.exports = Encore.getWebpackConfig();
