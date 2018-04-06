@@ -2,8 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16fd4fdf-6bce-48da-af27-c5e56c6415d8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/index.html.twig" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/css/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/Simple-Line-Icons.596814ca.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/Simple-Line-Icons.f19a7f6c.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/Simple-Line-Icons.ff94ad94.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/font-icons.0ac0548e.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/font-icons.35370862.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/font-icons.49d544be.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/lined-icons.443ebef0.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/lined-icons.8027104c.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/fonts/lined-icons.d95f626e.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/Simple-Line-Icons.5db2ea1b.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/close.c02ac9fe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/dotted.c4adcb05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/font-icons.4b7974d6.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/grid.bac74139.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/iconalt.a58e7305.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/lined-icons.396f0950.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/menu-divider.b54fdd39.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/parallax-bg.b6a078ec.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/pattern.15fc79f2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/pattern2.86fdd8c4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/play.6ab59b3c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/preloader-dark.6bfa8318.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/preloader-dark@2x.88c21708.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/preloader.451f2495.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/preloader@2x.7bf2f87e.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/submenu-dark.e08dd0b9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/submenu.a8a9d50a.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-comment-dark.46672226.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-comment-dark@2x.92eaf895.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-comment.eb18281c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-comment@2x.e4909630.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-link-dark.708d95c9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-link-dark@2x.76a42069.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-link.7c6b3a52.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/images/widget-link@2x.1a741e35.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/20.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/21.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/bg_full_old_page.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/home_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/logo-dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/logo-dark@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/logo@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/sized/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/sized/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/sized/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/11-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/12-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/13-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/15-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/7-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/swiper/thumbs/9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/videos/explore-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/videos/explorer.mp4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/front/static/videos/explorer.webm" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +100,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
-              <caret line="136" column="82" lean-forward="true" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+              <caret line="136" column="82" lean-forward="false" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -230,19 +328,6 @@
             <path>
               <item name="fse" type="b2602c69:ProjectViewProjectNode" />
               <item name="fse" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fse" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fse" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,7 +356,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/public/build/front/js/app.js&#10;/Users/raphael/workspace/server-fse/fse/public/build/front/css/bundle.css" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/public/build/front/js/app.js&#10;/Users/raphael/workspace/server-fse/fse/assets/.gitignore&#10;/Users/raphael/workspace/server-fse/fse/public/build/front/css/bundle.css" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -396,12 +481,12 @@
       <workItem from="1522248108085" duration="7299000" />
       <workItem from="1522331059434" duration="7648000" />
       <workItem from="1522660718136" duration="94629000" />
-      <workItem from="1523037120149" duration="234000" />
+      <workItem from="1523037120149" duration="668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109810000" />
+    <option name="totallyTimeSpent" value="110244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -443,7 +528,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/build/front/vendor.js" />
     <entry file="file://$PROJECT_DIR$/public/build/front/manifest.js" />
     <entry file="file://$PROJECT_DIR$/public/build/front/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -596,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/nav.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -742,7 +819,23 @@
     <entry file="file://$PROJECT_DIR$/templates/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="136" column="82" lean-forward="true" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+          <caret line="136" column="82" lean-forward="false" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding />
         </state>
       </provider>
