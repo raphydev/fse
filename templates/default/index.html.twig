@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ 'L\'Ecosystème la finance s\'engage' }}{% endblock %}
+{% block title %}
+    {{ 'L\'Ecosystème la finance s\'engage' }}
+{% endblock %}
 {% block body %}
-    {{ include('includes/slides.html.twig') }}
+    <!-- slide block -->
+    {{ include('includes/simple_banner.html.twig') }}
+    <!-- content block -->
     <section id="content">
         <div class="content-wrap">
             <div class="container center clearfix">

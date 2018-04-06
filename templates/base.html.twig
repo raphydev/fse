@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('build/front/css/bootstrap.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/style.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/css/swiper.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/css/dark.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/css/font-icons.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/css/animate.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('build/front/css/magnific-popup.css') }}" type="text/css" />
-
-    <link rel="stylesheet" href="{{ asset('build/front/css/responsive.css') }}" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('build/global/css/bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('build/front/css/app.css') }}" type="text/css" />
+    {% endblock %}
 </head>
 <body class="stretched">
 <div id="wrapper" class="clearfix">
@@ -25,9 +17,9 @@
 </div>
 <div id="gotoTop" class="icon-angle-up"></div>
 {% block javascripts %}
-    <script src="{{ asset('build/front/js/jquery.js') }}"></script>
-    <script src="{{ asset('build/front/js/plugins.js') }}"></script>
-    <script src="{{ asset('build/front/js/functions.js') }}"></script>
+    <script src="{{ asset('build/global/js/jquery.js') }}"></script>
+    <script src="{{ asset('build/global/js/plugins.js') }}"></script>
+    <script src="{{ asset('build/global/js/functions.js') }}"></script>
 {% endblock %}
 </body>
 </html>
