@@ -138,12 +138,12 @@
                     </div>
                 </div>
             </div>
-            <div class="section">
+            <div class="section dark">
                 <div class="container clearfix">
                     <div class="fancy-title title-dotted-border title-center">
                         <h3>{{ 'Ils ont participé'|upper }}</h3>
                     </div>
-                    <div id="oc-clients-full" class="owl-carousel owl-carousel-full image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
+                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
                         {% for i in 1..10 %}
                             <div class="oc-item card">
                                 <div class="feature-box media-box">
@@ -159,11 +159,30 @@
                     </div>
                 </div>
             </div>
-            <div class="container center clearfix">
-                <div class="heading-block">
-                    <h2>{{ 'Actualités' }}</h2>
+            <div class="section">
+                <div class="container clearfix">
+                    <div class="heading-block center">
+                        <h2>{{ 'Actualités' }}</h2>
+                    </div>
+                    <div class="row">
+                        {% for i in 1..5 %}
+                            <div class="{{ (loop.index == 1) ? 'col-lg-8' : 'col-lg-4'}} mb-5">
+                                <div class="card shadow">
+                                    <a href="#"><img class="image_fade card-img" src="{{ asset('build/front/static/17.jpg')}}" alt="Image"></a>
+                                    <div class="card-header"><i class="icon-calendar3"></i> 10th Nov 2014</div>
+                                    <div class="card-body {% if loop.index == 2 %} h-345 {% endif %}">
+                                        <h4 class="card-title">Card Title</h4>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, at, vitae, veritatis, temporibus soluta accusamus eum accusantium incidunt eius quisquam suscipit inventore neque. Distinctio, impedit.</p>
+                                    </div>
+                                    <div class="card-footer center border-color">
+                                        <a href="#" class="button button-rounded button-reveal button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'Lire l\'article' }}</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="clear"></div>
                 </div>
-
             </div>
         </div>
     </section><!-- #content end -->
