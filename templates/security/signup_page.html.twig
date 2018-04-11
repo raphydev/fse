@@ -19,25 +19,36 @@
   </div>
   <!-- section Login -->
   <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
-    <div class="px-80 py-30">
+    <div class="px-40 py-30">
       <div><img src="{{ asset('build/back/static/logo-web.png') }}" alt="La finance s'engage"></div>
-      <h5>{{ 'Connexion à votre compte' }}</h5><br>
-        {% if error %}
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-              {{ error.messageKey|trans(error.messageData, 'security') }}
-          </div>
-        {% endif %}
-      <form class="card" action="{{ path('signin_page') }}" method="post">
-        <div class="form-group">
-          <label for="username">{{ 'Entrez votre adresse email' }}</label>
-          <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="E-mail">
+      <h5>{{ 'Créer votre compte FSE' }}</h5><br>
+
+      {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card'} } ) }}
+        <div class="row">
+            <div class="form-group col-md-6">
+              <label for="lastname">{{ 'Entrez votre Nom' }}</label>
+                {{ form_row(form.lastname, {'attr': {'class' :"form-control", 'placeholder' : 'ex: Konan'}}) }}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="firstname">{{ 'Entrez votre Prénom' }}</label>
+                {{ form_row(form.firstname, {'attr': {'class' :"form-control", 'placeholder' : 'ex: Peter'}}) }}
+            </div>
         </div>
         <div class="form-group">
-          <label for="password">{{ 'Entrez le mot de passe' }}</label>
-          <input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe">
+          <label for="firstname">{{ 'Entez une adresse Email' }}</label>
+            {{ form_row(form.email, {'attr': {'class' : "form-control", 'placeholder' : 'ex: test@example.com'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="phone.country">{{ 'Choix de votre Pays' }}</label>
+            {{ form_row(form.phone.country, {'label': false, 'attr': {'class' :"form-control"}}) }}
+        </div>
+        <div class="form-group">
+            <label for="phone.number">{{ 'Entrez votre Téléphone' }}</label>
+            {{ form_row(form.phone.number, {'label': false, 'attr': {'class' :"form-control", 'placeholder' : '07000007'}} ) }}
+        </div>
+        <div class="form-group">
+          <label for="password">{{ ' Mot de passe' }}</label>
+            {{ form_row(form.plainPassword, {'attr': {'class' :"form-control", 'placeholder' : 'Mot de passe'}}) }}
         </div>
 
         <!--<div class="form-group flexbox">
@@ -51,13 +62,11 @@
         </div> -->
 
         <div class="form-group">
-          <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Se connecter' }}</button>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Créer mon compte' }}</button>
         </div>
-      </form>
-      <hr class="w-30px">
+      {{ form_end(form) }}
       <p class="text-center text-muted fs-13 mt-10">
-          {{ 'Vous n\'avez pas encore réjoint' }} <strong>{{'l\'Initiative la Finance s\'engage en tant qu\'entrepreuneur ?'}}</strong><br/>
-        <a class="text-primary fw-500" href="{{ path('register') }}">{{ 'Créer un compte'|capitalize }}</a>
+          {{ 'Vous avez un compte ?' }} <a class="text-primary fw-500" href="{{ path('signin_page') }}">{{ 'Se connecter'|capitalize }}</a>
       </p>
     </div>
   </div>

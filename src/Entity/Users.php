@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use libphonenumber\PhoneNumber;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -11,7 +12,7 @@ use Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber as AssertPhoneNumbe
 
 /**
  * @ORM\Table(name="app_users")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @UniqueEntity(fields={"email"},message="Cette adresse email existe déjà ")
  * @UniqueEntity(fields={"phone"},message="Ce numero de téléphone est déjà utilisé")
  */
@@ -35,6 +36,13 @@ class Users implements UserInterface, \Serializable
      * @Assert\NotBlank(message="Veuillez renseignez un mot de passe")
      */
     protected $password;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
+
 
     /**
      * @var
@@ -61,6 +69,7 @@ class Users implements UserInterface, \Serializable
      * @AssertPhoneNumber(type="mobile", message="Numero de téléphone incorrect")
      * @Assert\NotBlank(message="Veuillez entrez votre numero de téléphone")
      * @Assert\NotNull(message="Entrez un numero de téléphone")
+     * @Serializer\Type()
      */
     protected $phone;
 
@@ -278,6 +287,11 @@ class Users implements UserInterface, \Serializable
         return $this->password;
     }
 
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
     /**
      * Returns the salt that was originally used to encode the password.
      *
@@ -350,6 +364,23 @@ class Users implements UserInterface, \Serializable
     public function getLastLogin()
     {
         return $this->lastLogin;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 
 }
