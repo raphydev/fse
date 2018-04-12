@@ -8,7 +8,7 @@
         <img src="{{ asset('build/front/static/logo.png') }}" alt="la finance s'engage">
         <br><br><br>
         <h4 class="text-white">
-          {{ 'une initiative privée pour le financement des pme'|upper }}
+          {{ 'Une initiative privée pour le financement des pme'|upper }}
         </h4>
         <p class="text-white">
           {{ 'Conçu par ESPartners et porté par le Patronat ivoirien et plus particulièrement avec la création de la Commission de Financement du Secteur Privé de la CGECI en partenariat avec la Banque Africaine de Développement dans le but de mobiliser le secteur privé pour offrir des solutions concrètes au financement de l’économie ivoirienne'}}
@@ -23,7 +23,7 @@
       <div><img src="{{ asset('build/back/static/logo-web.png') }}" alt="La finance s'engage"></div>
       <h5>{{ 'Créer votre compte FSE' }}</h5><br>
 
-      {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card'} } ) }}
+      {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
         <div class="row">
             <div class="form-group col-md-6">
               <label for="lastname">{{ 'Entrez votre Nom' }}</label>
@@ -40,11 +40,16 @@
         </div>
         <div class="form-group">
             <label for="phone.country">{{ 'Choix de votre Pays' }}</label>
-            {{ form_row(form.phone.country, {'label': false, 'attr': {'class' :"form-control"}}) }}
+            {{ form_widget(form.phone.country, {'label': false, 'attr': {'class' :"form-control"}}) }}
         </div>
         <div class="form-group">
             <label for="phone.number">{{ 'Entrez votre Téléphone' }}</label>
-            {{ form_row(form.phone.number, {'label': false, 'attr': {'class' :"form-control", 'placeholder' : '07000007'}} ) }}
+            {% set class = 'form-control' %}
+            {% if form.phone.vars.errors|length > 0 %}
+                {% set class = 'form-control is-invalid' %}
+            {% endif %}
+            {{ form_widget(form.phone.number, {'label': false, 'attr': {'class' :class, 'placeholder' : '07000007'}} ) }}
+            {{ form_errors(form.phone) }}
         </div>
         <div class="form-group">
           <label for="password">{{ ' Mot de passe' }}</label>

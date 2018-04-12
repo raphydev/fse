@@ -23,7 +23,8 @@ class RegisterType extends AbstractType
                 'label' => false,
                 'format' => PhoneNumberFormat::NATIONAL,
                 'widget' => PhoneNumberType::WIDGET_COUNTRY_CHOICE,
-                'preferred_country_choices' => array('CI', 'GN', 'Bj', 'NG', 'TG', 'FR')
+                'preferred_country_choices' => array('CI', 'GN', 'Bj', 'NG', 'TG', 'FR'),
+                'invalid_message' => 'Numero de téléphone incorrect'
             ])
             ->add('email', EmailType::class, ['label' => false])
             ->add('plainPassword', PasswordType::class, array(

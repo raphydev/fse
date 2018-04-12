@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as Serializer;
 use libphonenumber\PhoneNumber;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -26,22 +25,29 @@ class Users implements UserInterface, \Serializable
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @ORM\Column(type="string", length=25, unique=true, name="username")
      */
     protected $username;
 
     /**
-     * @ORM\Column(type="string", length=64)
-     * @Assert\NotNull(message="Entrez un mot de passe")
-     * @Assert\NotBlank(message="Veuillez renseignez un mot de passe")
+     * @ORM\Column(type="string", length=64, name="password")
+     * @Assert\NotNull(message="Veuillez renseignez un mot de passe")
      */
     protected $password;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Mot de passe obligatoire")
      * @Assert\Length(max=4096)
      */
     protected $plainPassword;
+
+    /**
+     * @ORM\Column(name="email", type="string", unique=true, nullable=true)
+     * @Assert\NotNull(message="Entrez une adresse mail")
+     * @Assert\Email(message="Adresse Email nom Valide")
+     */
+    protected $email;
+
 
 
     /**
@@ -51,35 +57,25 @@ class Users implements UserInterface, \Serializable
     protected $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, name="firstname")
      * @Assert\NotBlank(message="Entrez votre nom")
-     * @Assert\NotNull(message="Veuillez entrez votre nom")
      */
     protected $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, name="lastname")
      * @Assert\NotBlank(message="Entrez votre prénom")
-     * @Assert\NotNull(message="Veuillez entrez votre prénom")
      */
     protected $lastname;
 
     /**
-     * @ORM\Column(type="phone_number")
+     * @var PhoneNumber
+     * @ORM\Column(type="phone_number", nullable=false, length=35, unique=true, name="phone")
      * @AssertPhoneNumber(type="mobile", message="Numero de téléphone incorrect")
-     * @Assert\NotBlank(message="Veuillez entrez votre numero de téléphone")
-     * @Assert\NotNull(message="Entrez un numero de téléphone")
-     * @Serializer\Type()
+     * @Assert\NotNull(message="Entrez votre numero de téléphone")
      */
     protected $phone;
 
-    /**
-     * @var PhoneNumber
-     * @ORM\Column(name="email", type="string", unique=true, nullable=true)
-     * @Assert\NotBlank(message="Vous n'avez pas entrez d'adresse email")
-     * @Assert\NotNull(message="Entrez une adresse mail")
-     */
-    protected $email;
 
     /**
      * @var \DateTime
@@ -102,7 +98,7 @@ class Users implements UserInterface, \Serializable
     public function __construct()
     {
         $this->created = new \DateTime('now');
-        $this->isActive = true;
+        $this->isActive = false;
     }
 
     /**
@@ -152,7 +148,7 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @return mixed
+     * @return PhoneNumber|null
      */
     public function getPhone()
     {
@@ -160,10 +156,10 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @param $phone
+     * @param PhoneNumber $phone
      * @return Users
      */
-    public function setPhone($phone): self
+    public function setPhone(PhoneNumber $phone): self
     {
         $this->phone = $phone;
 
@@ -382,5 +378,4 @@ class Users implements UserInterface, \Serializable
     {
         $this->plainPassword = $plainPassword;
     }
-
 }

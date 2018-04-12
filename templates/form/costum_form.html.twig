@@ -1,4 +1,4 @@
-{% use "bootstrap_3_layout.html.twig" %}
+{% use "bootstrap_4_layout.html.twig" %}
 
 {# Widgets #}
 
@@ -7,11 +7,18 @@
 {# Rows #}
 
 {% block form_row -%}
-    <div class="form-group {% if (not compound or force_error|default(false)) and not valid %} has-error has-feedback {% endif %}">
-        {{- form_label(form) -}}
-        {{- form_widget(form) -}}
-        {{- form_errors(form) -}}
-    </div>
+    {%- if compound is defined and compound -%}
+        {%- set element = 'fieldset' -%}
+    {%- endif -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+    <{{ element|default('div') }} class="form-group">
+    {{- form_label(form) -}}
+    {{- form_widget(form, widget_attr) -}}
+    {{- form_help(form) -}}
+    </{{ element|default('div') }}>
 {%- endblock form_row %}
 
 {% block checkbox_row -%}
