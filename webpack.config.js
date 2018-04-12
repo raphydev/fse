@@ -1,53 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// var ExtractTextPlugin = require("extract-text-webpack-plugin");
-/* const plugins = [
-    './assets/front/js/plugins/jquery.chart.js',
-    './assets/front/js/plugins/jquery.color.js',
-    './assets/front/js/plugins/jquery.cookie.js',
-    './assets/front/js/plugins/jquery.countdown.js',
-    './assets/front/js/plugins/jquery.countto.js',
-    './assets/front/js/plugins/jquery.dribbble.js',
-    './assets/front/js/plugins/jquery.fitvids.js',
-    './assets/front/js/plugins/jquery.flexslider.js',
-    './assets/front/js/plugins/jquery.flickrfeed.js',
-    './assets/front/js/plugins/jquery.form.js',
-    './assets/front/js/plugins/jquery.important.js',
-    './assets/front/js/plugins/jquery.infinitescroll.js',
-    './assets/front/js/plugins/jquery.instagram.js',
-    './assets/front/js/plugins/jquery.isotope.js',
-    './assets/front/js/plugins/jquery.magnific.js',
-    './assets/front/js/plugins/jquery.owlcarousel.js',
-    './assets/front/js/plugins/jquery.pagetransition.js',
-    './assets/front/js/plugins/jquery.paginate.js',
-    './assets/front/js/plugins/jquery.parallax.js',
-    './assets/front/js/plugins/jquery.piechart.js',
-    './assets/front/js/plugins/jquery.superfish.js',
-    './assets/front/js/plugins/jquery.swiper.js',
-    './assets/front/js/plugins/jquery.tabs.js',
-    './assets/front/js/plugins/jquery.textrotator.js',
-    './assets/front/js/plugins/jquery.toastr.js',
-    './assets/front/js/plugins/jquery.twitterfeed.js',
-    './assets/front/js/plugins/jquery.validation.js',
-    './assets/front/js/plugins/jquery.youtube.js',
-    './assets/front/js/components/bs-filestyle.js',
-    './assets/front/js/components/bs-select.js',
-    './assets/front/js/components/bs-switches.js',
-    './assets/front/js/components/rangeslider.min.js',
-    './assets/front/js/components/responsive-tabs.js',
-    './assets/front/js/components/select-boxes.js',
-    './assets/front/js/components/selectsplitter.js',
-    './assets/front/js/components/star-rating.js',
-    './assets/front/js/components/timepicker.js',
-    './assets/front/js/components/typehead.js',
-    './assets/front/js/jquery.mousewheel.min.js',
-    './assets/front/js/jquery.gmap.js',
-    './assets/front/js/jquery.calendario.js',
-    './assets/front/js/holder.js',
-    './assets/front/js/events-data.js',
-    './assets/front/js/chart-utils.js',
-    './assets/front/js/functions.js'
-]; */
 
 Encore
     .setOutputPath('public/build/front')
@@ -76,29 +28,36 @@ Encore
     ]))
 ;
 
-/* const firstConfig = Encore.getWebpackConfig();
+const firstConfig = Encore.getWebpackConfig();
 firstConfig.name = 'firstConfig';
 
-Encore.reset(); */
+Encore.reset();
 
-/* Encore
-    .setOutputPath('public/build/')
-    .setPublicPath('/build')
+Encore
+    .setOutputPath('public/build/back')
+    .setPublicPath('/build/back')
     .cleanupOutputBeforeBuild()
-    .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
-    .addEntry('js/back/app', './assets/js/back/app.js')
-    .addStyleEntry('css/back/app', './assets/css/back/app.scss')
+    .enableBuildNotifications()
+    .addStyleEntry('css/core', [
+        './assets/back/vendor/bootstrap/css/bootstrap.min.css',
+        './assets/back/vendor/font-awesome/css/font-awesome.min.css',
+        './assets/back/vendor/themify-icons/css/themify-icons.css',
+        './assets/back/vendor/animsition/css/animsition.min.css',
+        './assets/back/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css'
+    ])
+    .addStyleEntry('css/app', [
+        './assets/back/css/scss/app.scss',
+        './assets/back/css/style.scss'
+    ])
     .enableSassLoader()
-    .enableLessLoader()
-    .autoProvideVariables({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-    });
-*/
-// const secondConfig = Encore.getWebpackConfig();
-// secondConfig.name = 'secondConfig';
+    .enableSourceMaps(!Encore.isProduction())
+    .enableSourceMaps(true)
+    .enableVersioning(Encore.isProduction())
+    .addPlugin(new CopyWebpackPlugin([
+        { from: './assets/back/static', to: 'static' }
+    ]))
+;
+const secondConfig = Encore.getWebpackConfig();
+secondConfig.name = 'secondConfig';
 
-//module.exports = [firstConfig];
-module.exports = Encore.getWebpackConfig();
+module.exports = [firstConfig, secondConfig];

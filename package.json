@@ -15,7 +15,8 @@
     "private": true,
     "scripts": {
         "dev-server": "encore dev-server",
-        "dev": "encore dev",
+        "dev:first": "encore dev --config-name firstConfig",
+        "dev:second": "encore dev --config-name secondConfig",
         "watch": "encore dev --watch",
         "build": "encore production"
     },
