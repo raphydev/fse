@@ -8,8 +8,8 @@
     <!-- content block -->
     <section id="content">
         <div class="content-wrap">
+            <!-- block organisateurs -->
             <div class="container clearfix">
-                <!-- block organisateurs -->
                 <div class="fancy-title title-dotted-border title-center">
                     <h3>{{ 'les organisateurs'|upper }}</h3>
                 </div>
@@ -40,10 +40,10 @@
                     </div>
                 </div>
             </div>
+            <!-- block ecosystème -->
             <div class="container clearfix">
-                <!-- block ecosystème -->
                 <div class="fancy-title title-dotted-border title-center">
-                    <h3>{{ 'Ecosystème FSE'|upper }}</h3>
+                    <h3>{{ 'Programmes'|upper }}</h3>
                 </div>
                 <div class="section">
                     <div class="col_one_third nobottommargin mt-5 card">
@@ -138,28 +138,6 @@
                     </div>
                 </div>
             </div>
-            <!-- block intervenant -->
-            <div class="section dark">
-                <div class="container clearfix">
-                    <div class="fancy-title title-dotted-border title-center">
-                        <h3>{{ 'Ils ont participé'|upper }}</h3>
-                    </div>
-                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
-                        {% for i in 1..10 %}
-                            <div class="oc-item card">
-                                <div class="feature-box media-box">
-                                    <div class="fbox-media">
-                                        <img src="{{ asset('build/front/static/17.jpg')}}" class="card-img-top" alt="Why choose Us?">
-                                    </div>
-                                    <div class="fbox-desc text-center">
-                                        <h3>{{ '{{ Name intervenants}}' }}<span class="subtitle">{{ '{{ intervenant fonction }}' }}</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
             <!-- block actualites -->
             <div class="section">
                 <div class="container clearfix">
@@ -189,6 +167,28 @@
                     </div>
                 </div>
             </div>
+            <!-- block intervenant -->
+            <div class="section dark">
+                <div class="container clearfix">
+                    <div class="fancy-title title-dotted-border title-center">
+                        <h3>{{ 'Les grands chefs d\'entreprises au rendez-vous depuis 2016'|upper }}</h3>
+                    </div>
+                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
+                        {% for i in 1..10 %}
+                            <div class="oc-item card">
+                                <div class="feature-box media-box">
+                                    <div class="fbox-media">
+                                        <img src="{{ asset('build/front/static/17.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                                    </div>
+                                    <div class="fbox-desc text-center">
+                                        <h3>{{ '{{ Name intervenants}}' }}<span class="subtitle">{{ '{{ intervenant fonction }}' }}</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
             <!-- block partenaires -->
             <div class="container clearfix">
                 <div class="fancy-title title-dotted-border title-center">
@@ -209,6 +209,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            <!-- block intervention participant -->
             <div class="container clearfix">
                 <div class="fancy-title title-dotted-border title-center">
                     <h3>{{ 'Interventions des participants'|upper }}</h3>
@@ -235,6 +236,7 @@
                     <a href="#" class="button button-rounded button-reveal button-border button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'découvrez toutes les interventions'|upper }}</span></a>
                 </div>
             </div>
+            <!-- block document -->
             <a href="#" class="button button-full center tright">
                 <div class="container clearfix">
                     {{ 'Téléchargement des ressources (rapports, documents, ...)' }} <strong>{{ 'Cliquez ici' }}</strong> <i class="icon-download-alt" style="top:4px;"></i>
