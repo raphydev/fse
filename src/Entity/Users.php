@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints AS Assert;
 use Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber as AssertPhoneNumber;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="app_users")
@@ -25,13 +26,13 @@ class Users implements UserInterface, \Serializable
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true, name="username")
+     * @ORM\Column(type="string", length=128, unique=true, name="username")
+     * @Gedmo\Slug(fields={"firstname", "lastname"}, separator="_", updatable=false)
      */
     protected $username;
 
     /**
      * @ORM\Column(type="string", length=64, name="password")
-     * @Assert\NotNull(message="Veuillez renseignez un mot de passe")
      */
     protected $password;
 
@@ -58,21 +59,21 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true, name="firstname")
-     * @Assert\NotBlank(message="Entrez votre nom")
+     * @Assert\NotBlank(message="Nom obligatoire")
      */
     protected $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true, name="lastname")
-     * @Assert\NotBlank(message="Entrez votre prénom")
+     * @Assert\NotBlank(message="Prénom obligatoire")
      */
     protected $lastname;
 
     /**
      * @var PhoneNumber
-     * @ORM\Column(type="phone_number", nullable=false, length=35, unique=true, name="phone")
+     * @ORM\Column(type="phone_number", nullable=true, length=35, unique=true, name="phone")
      * @AssertPhoneNumber(type="mobile", message="Numero de téléphone incorrect")
-     * @Assert\NotNull(message="Entrez votre numero de téléphone")
+     * @Assert\NotBlank(message="Numero de téléphone obligatoire")
      */
     protected $phone;
 
@@ -156,13 +157,12 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @param PhoneNumber $phone
+     * @param null|string $phone
      * @return Users
      */
-    public function setPhone(PhoneNumber $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
-
         return $this;
     }
 

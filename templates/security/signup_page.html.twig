@@ -24,36 +24,40 @@
       <h5>{{ 'Créer votre compte FSE' }}</h5><br>
 
       {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
+        {% set class = 'form-control' %}
+        {% if form.phone.vars.errors|length > 0 %}
+            {% set class = 'form-control is-invalid' %}
+        {% endif %}
         <div class="row">
             <div class="form-group col-md-6">
               <label for="lastname">{{ 'Entrez votre Nom' }}</label>
-                {{ form_row(form.lastname, {'attr': {'class' :"form-control", 'placeholder' : 'ex: Konan'}}) }}
+                {{ form_widget(form.lastname, {'attr': {'class' :class, 'placeholder' : 'ex: Konan'}}) }}
+                {{ form_errors(form.lastname) }}
             </div>
             <div class="form-group col-md-6">
               <label for="firstname">{{ 'Entrez votre Prénom' }}</label>
-                {{ form_row(form.firstname, {'attr': {'class' :"form-control", 'placeholder' : 'ex: Peter'}}) }}
+                {{ form_widget(form.firstname, {'attr': {'class' :class, 'placeholder' : 'ex: Peter'}}) }}
+                {{ form_errors(form.firstname) }}
             </div>
         </div>
         <div class="form-group">
           <label for="firstname">{{ 'Entez une adresse Email' }}</label>
-            {{ form_row(form.email, {'attr': {'class' : "form-control", 'placeholder' : 'ex: test@example.com'}}) }}
+            {{ form_widget(form.email, {'attr': {'class' : class, 'placeholder' : 'ex: test@example.com'}}) }}
+            {{ form_errors(form.email) }}
         </div>
         <div class="form-group">
             <label for="phone.country">{{ 'Choix de votre Pays' }}</label>
-            {{ form_widget(form.phone.country, {'label': false, 'attr': {'class' :"form-control"}}) }}
+            {{ form_widget(form.phone.country, {'label': false, 'attr': {'class' :class}}) }}
         </div>
         <div class="form-group">
             <label for="phone.number">{{ 'Entrez votre Téléphone' }}</label>
-            {% set class = 'form-control' %}
-            {% if form.phone.vars.errors|length > 0 %}
-                {% set class = 'form-control is-invalid' %}
-            {% endif %}
             {{ form_widget(form.phone.number, {'label': false, 'attr': {'class' :class, 'placeholder' : '07000007'}} ) }}
             {{ form_errors(form.phone) }}
         </div>
         <div class="form-group">
           <label for="password">{{ ' Mot de passe' }}</label>
-            {{ form_row(form.plainPassword, {'attr': {'class' :"form-control", 'placeholder' : 'Mot de passe'}}) }}
+            {{ form_widget(form.plainPassword, {'attr': {'class' :class, 'placeholder' : 'Mot de passe'}}) }}
+            {{ form_errors(form.plainPassword) }}
         </div>
 
         <!--<div class="form-group flexbox">

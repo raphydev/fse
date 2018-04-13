@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\AppEvents;
 use App\Entity\Users;
+use App\Event\UserEvent;
 use App\Form\RegisterType;
+use Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -43,10 +46,13 @@ class SecurityController extends Controller
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $passwordEncoder->encodePassword($users, $users->getPlainPassword());
             $users->setPassword($password);
+            $users->setRoles(['ROLE_USER']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($users);
             $entityManager->flush();
-            $this->redirectToRoute('default');
+            //$event = new UserEvent($users);
+            //$dispatcher->dispatch(AppEvents::AUTO_LOGGED_USER, $event);
+            return $this->redirectToRoute('account', array(), 301);
         }
         return $this->render('security/signup_page.html.twig', [
            'form' => $form->createView()
