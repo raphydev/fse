@@ -12,8 +12,6 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return $this->render('account_page.html.twig', [
-            'controller_name' => 'AccountController',
-        ]);
+        return $this->render('account/account_page.html.twig');
     }
 }

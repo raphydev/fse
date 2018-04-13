@@ -1,18 +1,30 @@
 security:
     encoders:
-        App\Entity\Users: bcrypt
+        App\Entity\Users:
+            algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
     providers:
-        in_memory: { memory: ~ }
+        fse_db_provider:
+            entity:
+                class: App\Entity\Users
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: ~
+            anonymous: true
+            pattern: ^/
             form_login:
                 login_path: signin_page
                 check_path: signin_page
+            logout:
+                path: /logout
+                target: /
 
             # activate different ways to authenticate
 
