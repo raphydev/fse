@@ -30,3 +30,8 @@ services:
     App\EventListener\Doctrine\HashPasswordListener:
         tags:
             - { name: doctrine.event_subscriber }
+
+    App\EventListener\Kernel\RedirectUserListener:
+        arguments: ['@security.authorization_checker', '@router']
+        tags:
+            - { name: kernel.event_subscriber }
