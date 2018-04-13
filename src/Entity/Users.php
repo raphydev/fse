@@ -157,10 +157,10 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @param null|string $phone
+     * @param PhoneNumber|null $phone
      * @return Users
      */
-    public function setPhone(?string $phone): self
+    public function setPhone(?PhoneNumber $phone): self
     {
         $this->phone = $phone;
         return $this;

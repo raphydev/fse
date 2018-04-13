@@ -36,7 +36,7 @@ class UserSubscriber implements EventSubscriberInterface{
     public static function getSubscribedEvents()
     {
         return [
-            AppEvents::AUTO_LOGGED_USER => "autoLoggedUser"
+            AppEvents::APP_AUTO_LOGGED_USER => "autoLoggedUser"
         ];
     }
 

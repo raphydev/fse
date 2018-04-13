@@ -14,5 +14,5 @@ final class AppEvents
     /**
      * @Event("App\Event\UserEvent")
      */
-    const AUTO_LOGGED_USER = "auto_logged_user";
+    const APP_AUTO_LOGGED_USER = "app.auto_logged_user";
 }
