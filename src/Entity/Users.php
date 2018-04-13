@@ -12,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="app_users")
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @UniqueEntity(fields={"email"},message="Cette adresse email existe déjà ")
  * @UniqueEntity(fields={"phone"},message="Ce numero de téléphone est déjà utilisé")
@@ -33,14 +34,10 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=64, name="password")
+     * @Assert\NotNull(message="Entrez un mot de passe", groups={"registration"})
      */
     protected $password;
 
-    /**
-     * @Assert\NotBlank(message="Mot de passe obligatoire")
-     * @Assert\Length(max=4096)
-     */
-    protected $plainPassword;
 
     /**
      * @ORM\Column(name="email", type="string", unique=true, nullable=true)
@@ -48,8 +45,6 @@ class Users implements UserInterface, \Serializable
      * @Assert\Email(message="Adresse Email nom Valide")
      */
     protected $email;
-
-
 
     /**
      * @var
@@ -157,10 +152,10 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @param null|string $phone
+     * @param PhoneNumber|n $phone
      * @return Users
      */
-    public function setPhone(?string $phone): self
+    public function setPhone(PhoneNumber $phone): self
     {
         $this->phone = $phone;
         return $this;
@@ -362,20 +357,4 @@ class Users implements UserInterface, \Serializable
         return $this->lastLogin;
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    /**
-     * @param mixed $plainPassword
-     */
-    public function setPlainPassword($plainPassword)
-    {
-        $this->plainPassword = $plainPassword;
-    }
 }

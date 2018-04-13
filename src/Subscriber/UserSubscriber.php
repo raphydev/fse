@@ -12,8 +12,28 @@ namespace App\Subscriber;
 use App\AppEvents;
 use App\Event\UserEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class UserSubscriber implements EventSubscriberInterface{
+
+
+    /**
+     * @var TokenStorageInterface
+     */
+    private $tokenStorage;
+
+    /**
+     * @var SessionInterface
+     */
+    private $session;
+
+    public function __construct(TokenStorageInterface $tokenStorage, SessionInterface $session)
+    {
+        $this->tokenStorage = $tokenStorage;
+        $this->session = $session;
+    }
 
     /**
      * Returns an array of event names this subscriber wants to listen to.
@@ -36,14 +56,18 @@ class UserSubscriber implements EventSubscriberInterface{
     public static function getSubscribedEvents()
     {
         return [
-            AppEvents::AUTO_LOGGED_USER => "autoLoggedUser"
+            AppEvents::APP_AUTO_LOGGED_USER => "autoLoggedUser"
         ];
     }
 
-
+    /**
+     * @param UserEvent $event
+     */
     public function autoLoggedUser(UserEvent $event)
     {
-        dump($event);
-        die ('ok');
+        $user = $event->getUser();
+        $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+        $this->tokenStorage->setToken($token);
+        $this->session->set('_security_main', serialize($token));
     }
 }

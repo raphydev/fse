@@ -27,7 +27,7 @@ class RegisterType extends AbstractType
                 'invalid_message' => 'Numero de téléphone incorrect'
             ])
             ->add('email', EmailType::class, ['label' => false])
-            ->add('plainPassword', PasswordType::class, array(
+            ->add('password', PasswordType::class, array(
                 'label' => false
             ))
         ;
