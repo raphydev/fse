@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\AppEvents;
 use App\Entity\Users;
-use App\Event\UserEvent;
 use App\Form\RegisterType;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends Controller
@@ -47,11 +43,10 @@ class SecurityController extends Controller
 
     /**
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/accounts/register", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(Request $request)
     {
         $users = new Users();
         $form = $this->createForm(RegisterType::class, $users);
