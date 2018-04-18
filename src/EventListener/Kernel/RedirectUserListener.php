@@ -47,14 +47,14 @@ class RedirectUserListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::RESPONSE => ['RedirectUser']
+            KernelEvents::RESPONSE => ['RedirectUserLogged']
         ];
     }
 
     /**
      * @param FilterResponseEvent $event
      */
-    public function RedirectUser(FilterResponseEvent $event)
+    public function RedirectUserLogged(FilterResponseEvent $event)
     {
         $isPath = false;
         if(in_array($event->getRequest()->getPathInfo(), $this->arrayControllerList())){

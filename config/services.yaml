@@ -35,3 +35,7 @@ services:
         arguments: ['@security.authorization_checker', '@router']
         tags:
             - { name: kernel.event_subscriber }
+
+    App\EventListener\Security\LoginListener:
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login }
