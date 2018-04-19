@@ -1,0 +1,12 @@
+<!-- creer une extension twig qui prend en parametre le nom de la route ou son pathname ,
+ ensuite la class activeet compare a la route courante si return true , la class avec actif -->
+    <div class="header-action">
+        <nav class="nav">
+            <a class="nav-link d-none d-sm-block" href="#">{{ 'initiative' }}</a>
+            <a class="nav-link d-none d-sm-block" href="{{ path('partner_type_index') }}">{{ 'Type Partenaire' }}</a>
+            <a class="nav-link d-none d-sm-block" href="{{ path('partner_index') }}">{{ 'Partenaires' }}</a>
+            <a class="nav-link d-none d-sm-block" href="{{ path('organizer_index') }}">{{ 'organisateurs' }}</a>
+            <a class="nav-link d-none d-sm-block" href="{{ path('intervenant_index') }}">{{ 'intervenants' }}</a>
+            <a class="nav-link d-none d-sm-block" href="#">{{ 'donnée de la croissance' }}</a>
+        </nav>
+    </div>

@@ -1,0 +1,25 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        partner_image:
+            uri_prefix: /images/partner
+            upload_destination: '%kernel.project_dir%/public/images/partner'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+            namer: vich_uploader.namer_uniqid
+        intervenant_image:
+            uri_prefix: /images/intervenant
+            upload_destination: '%kernel.project_dir%/public/images/intervenant'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+            namer: vich_uploader.namer_uniqid
+        organizer_image:
+            uri_prefix: /images/organizer
+            upload_destination: '%kernel.project_dir%/public/images/organizer'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+            namer: vich_uploader.namer_uniqid

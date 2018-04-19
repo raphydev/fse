@@ -1,0 +1,58 @@
+<header id="header" class="full-header" data-sticky-class="not-dark">
+    <div id="header-wrap">
+        <div class="container clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="#" class="standard-logo" data-dark-logo="{{ asset('build/front/static/logo.png') }}"><img src="{{ asset('build/front/static/logo.png') }}" alt="La Finance S'engage"></a>
+                <a href="#" class="retina-logo" data-dark-logo="{{ asset('build/front/static/logo@2x.png') }}"><img src="{{ asset('build/front/static/logo@2x.png') }}" alt="La Finance S'engage"></a>
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="dark">
+                <ul>
+                    <li><a href=""><div>{{ 'A propos' }}</div></a>
+                        <ul>
+                            <li><a href=""><div>{{ 'L\'initiative' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Les organisateurs' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Les intervenants' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Les partenaires' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Les données de la croissance' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Témoignages Participants' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Galeries Photos' }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""><div>{{ 'Entrepreneurs' }}</div></a>
+                        <ul>
+                            <li><a href=""><div>{{ 'Renforcement des capacités' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Education financière' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Bourse aux projets' }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""><div>{{ 'Acteurs financiers'|upper }}</div></a>
+                        <ul>
+                            <li><a href=""><div>{{ 'Engagements' }}</div></a></li>
+                            <li><a href=""><div>{{ 'Awards' }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""><div>{{ 'Eco-finance' }}</div></a></li>
+                    <li>
+                        {% if app.user %}
+                            <a href="{{ path('admin') }}" class="button-border button-border-thin button-amber" style="color:#fff;">
+                                <div>{{ 'Accedez à l\'admin' }}</div>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('signin_page') }}" class="button-border button-border-thin button-amber" style="color:#fff;">
+                                <div>{{ 's\'inscrire' }}</div>
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+
+</header><!-- #header end -->
