@@ -19,7 +19,7 @@ class PartnerType
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false, name="title")
-     * @Assert\NotNull(message="entrez un titre svp")
+     * @Assert\NotNull(message="Entrez un titre svp")
      */
     protected $title;
 
@@ -28,6 +28,12 @@ class PartnerType
      * @Assert\NotNull(message="Entrez la position d'affichage du pack")
      */
     protected $position;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Partner", inversedBy="partnerType")
+     */
+    protected $partner;
 
 
     public function getId()
@@ -55,6 +61,18 @@ class PartnerType
     public function setPosition(int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getPartner(): ?Partner
+    {
+        return $this->partner;
+    }
+
+    public function setPartner(?Partner $partner): self
+    {
+        $this->partner = $partner;
 
         return $this;
     }

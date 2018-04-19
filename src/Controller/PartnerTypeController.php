@@ -74,7 +74,7 @@ class PartnerTypeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('partner_type_edit', ['id' => $partnerType->getId()]);
+            return $this->redirectToRoute('partner_type_index');
         }
 
         return $this->render('partner_type/edit.html.twig', [

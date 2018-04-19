@@ -152,7 +152,7 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @param PhoneNumber|n $phone
+     * @param PhoneNumber|null $phone
      * @return Users
      */
     public function setPhone(PhoneNumber $phone): self
@@ -355,6 +355,13 @@ class Users implements UserInterface, \Serializable
     public function getLastLogin()
     {
         return $this->lastLogin;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
 }
