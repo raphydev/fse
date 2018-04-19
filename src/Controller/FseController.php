@@ -2,17 +2,24 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AdminController extends Controller
+/**
+ * Class FseController
+ * @package App\Controller
+ * @Route("/admin/fse")
+ */
+class FseController extends Controller
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/", name="fse")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig');
+        return $this->render('fse/index.html.twig');
     }
+
 }
