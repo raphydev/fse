@@ -1,0 +1,43 @@
+{% extends 'fse/fse_layout.html.twig' %}
+
+{% block title %} {{ 'Type de partenaires' }} {% endblock %}
+{% block fse_title %} {{ '| Type de partenaire'|upper }}{% endblock %}
+
+{% block fse_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Informations Type de partenaire'|upper }}</h4>
+                {{ include('partner_type/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ partner_type.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ partner_type.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>{{ partner_type.position }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-label btn-dark" href="{{ path('partner_type_index') }}">
+                    <label><i class="ti-arrow-left"></i></label>
+                    {{ 'Retour à la liste'}}
+                </a>
+                <a class="btn btn-label btn-danger" href="{{ path('partner_type_edit', {'id': partner_type.id}) }}">
+                    <label><i class="ti-pencil-alt"></i></label>
+                    {{ 'Modifier' }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

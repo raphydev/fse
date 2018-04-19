@@ -1,0 +1,18 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+    <header class="header">
+        <div class="header-info">
+            <div class="left">
+                <h3 class="header-title">
+                    <strong>{{ 'section Fse'|upper }} {% block fse_title %}{%endblock %}</strong>
+                </h3>
+            </div>
+        </div>
+        {{ include('fse/includes/sub_general_nav.html.twig') }}
+    </header>
+    <div class="main-content">
+        <div class="row">
+            {% block fse_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'fse/fse_layout.html.twig' %}
+
+{% block title %} {{ 'Type de partenaires' }} {% endblock %}
+{% block fse_title %} {{ '| Type de partenaire'|upper }}{% endblock %}
+
+{% block fse_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des types de partenaires'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('partner_type_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>Réference</th>
+                        <th>Title</th>
+                        <th>Position</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Réference</th>
+                        <th>Title</th>
+                        <th>Position</th>
+                        <th>actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for partner_type in partner_types %}
+                        <tr>
+                            <td>{{ partner_type.id }}</td>
+                            <td>{{ partner_type.title }}</td>
+                            <td>{{ partner_type.position }}</td>
+                            <td>
+                                <a class="btn btn-label btn-info-outline" href="{{ path('partner_type_show', {'id': partner_type.id}) }}">
+                                    <label><i class="ti-eye"></i></label> {{ 'afficher'|capitalize }}
+                                </a>
+                                <a class="btn btn-label btn-danger-outline" href="{{ path('partner_type_edit', {'id': partner_type.id}) }}">
+                                    <label><i class="ti-eye"></i></label> {{ 'modifier'|capitalize }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td class="align-content-center">{{ 'Aucun resultat trouvé' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
