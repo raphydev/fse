@@ -26,14 +26,14 @@ class Organizer
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
      *
-     * @Vich\UploadableField(mapping="partner_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="organizer_image", fileNameProperty="imageName", size="imageSize")
      *
      * @var File $imageFile
      */
     protected $imageFile;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var integer
      */
