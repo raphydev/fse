@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/fse/intervenant")
+ * @Route("/admin/fse/intervenant")
  */
 class IntervenantController extends Controller
 {

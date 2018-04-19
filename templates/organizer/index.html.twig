@@ -1,0 +1,59 @@
+{% extends 'fse/fse_layout.html.twig' %}
+
+{% block title %} {{ 'Organisateur' }} {% endblock %}
+{% block fse_title %} {{ '| Organisateur'|upper }}{% endblock %}
+
+{% block fse_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des Organisateur'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('organizer_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>ImageSize</th>
+                        <th>ImageName</th>
+                        <th>Name</th>
+                        <th>Website</th>
+                        <th>Content</th>
+                        <th>Created</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for organizer in organizers %}
+                        <tr>
+                            <td>{{ organizer.id }}</td>
+                            <td>{{ organizer.imageSize }}</td>
+                            <td>{{ organizer.imageName }}</td>
+                            <td>{{ organizer.name }}</td>
+                            <td>{{ organizer.website }}</td>
+                            <td>{{ organizer.content }}</td>
+                            <td>{{ organizer.created ? organizer.created|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>
+                                <a class="btn btn-label btn-info-outline" href="{{ path('organizer_show', {'id': organizer.id}) }}">
+                                    <label><i class="ti-eye"></i></label> {{ 'afficher'|capitalize }}
+                                </a>
+                                <a class="btn btn-label btn-danger-outline" href="{{ path('organizer_edit', {'id': organizer.id}) }}">
+                                    <label><i class="ti-eye"></i></label> {{ 'modifier'|capitalize }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">Pas de resulat trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

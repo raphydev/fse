@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\IntervenantRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\OrganizerRepository")
  * @Vich\Uploadable
  */
-class Intervenant
+class Organizer
 {
     /**
      * @ORM\Id()
@@ -26,7 +26,7 @@ class Intervenant
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
      *
-     * @Vich\UploadableField(mapping="organizer_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="partner_image", fileNameProperty="imageName", size="imageSize")
      *
      * @var File $imageFile
      */
@@ -49,28 +49,27 @@ class Intervenant
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull(message="Entrez le nom de l'intervenant")
+     * @Assert\NotNull(message="Entrez le nom l'organisateur")
      */
     protected $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull(message="Entrez son poste")
+     * @Assert\NotNull(message="Entrez le website l'organisateur")
      */
-    protected $office;
+    protected $website;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\NotNull(message="Entrez la position d'affichage")
-     * @Assert\Type(type="integer", message="La  valeur n'est pas numerique")
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotNull(message="Entrez le contenu")
      */
-    protected $position;
-
+    protected $content;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $created;
+
 
     /**
      * Intervenant constructor.
@@ -79,7 +78,6 @@ class Intervenant
     {
         $this->created = new \DateTime('now');
     }
-
 
     public function getId()
     {
@@ -98,26 +96,46 @@ class Intervenant
         return $this;
     }
 
-    public function getOffice(): ?string
+    public function getWebsite(): ?string
     {
-        return $this->office;
+        return $this->website;
     }
 
-    public function setOffice(string $office): self
+    public function setWebsite(string $website): self
     {
-        $this->office = $office;
+        $this->website = $website;
 
         return $this;
     }
 
-    public function getPosition(): ?int
+    public function getContent(): ?string
     {
-        return $this->position;
+        return $this->content;
     }
 
-    public function setPosition(int $position): self
+    public function setContent(?string $content): self
     {
-        $this->position = $position;
+        $this->content = $content;
+
+        return $this;
+    }
+
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $created
+     * @return Organizer
+     */
+    public function setCreated(?\DateTimeInterface $created): self
+    {
+        $this->created = $created;
 
         return $this;
     }
@@ -171,7 +189,7 @@ class Intervenant
     public function getUploadDir()
     {
         // On retourne le chemin relatif vers l'image pour un navigateur
-        return 'images/intervenant';
+        return 'images/organizer';
     }
     protected function getUploadRootDir()
     {
@@ -184,24 +202,5 @@ class Intervenant
     public function getAssertPath()
     {
         return $this->getUploadDir().'/'.$this->imageName;
-    }
-
-    /**
-     * @return \DateTimeInterface|null
-     */
-    public function getCreated(): ?\DateTimeInterface
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param \DateTimeInterface|null $created
-     * @return Intervenant
-     */
-    public function setCreated(?\DateTimeInterface $created): self
-    {
-        $this->created = $created;
-
-        return $this;
     }
 }
