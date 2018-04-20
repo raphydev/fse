@@ -67,11 +67,6 @@ class Users implements UserInterface, \Serializable
     protected $phone;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
-     */
-    protected $roles;
-
-    /**
      * @var \DateTime
      */
     protected $lastLogin;
@@ -237,31 +232,13 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getRoles()
     {
-        $roles = $this->roles;
-        return array_unique($roles);
+        return array('ROLE_USER');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function hasRole($role)
-    {
-        return in_array(strtoupper($role), $this->getRoles(), true);
-    }
-
-    /**
-     * @param array $roles
-     * @return $this
-     */
-    public function setRoles( array $roles)
-    {
-        $this->roles = $roles;
-        return $this;
-    }
 
     /**
      * Returns the password used to authenticate the user.
