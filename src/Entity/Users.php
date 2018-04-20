@@ -33,8 +33,15 @@ class Users implements UserInterface, \Serializable
     protected $username;
 
     /**
+     * A non-persisted field that's used to create the encoded password.
+     *
+     * @var string
+     * @Assert\NotNull(message="Entrez un mot de passe")
+     */
+    protected $plainPassword;
+
+    /**
      * @ORM\Column(type="string", length=64, name="password")
-     * @Assert\NotNull(message="Entrez un mot de passe", groups={"registration"})
      */
     protected $password;
 
@@ -286,7 +293,9 @@ class Users implements UserInterface, \Serializable
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials(){}
+    public function eraseCredentials(){
+        $this->plainPassword = null;
+    }
 
     /**
      * @return mixed
@@ -337,6 +346,17 @@ class Users implements UserInterface, \Serializable
         $this->username = $username;
 
         return $this;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        $this->password = null;
     }
 
 }

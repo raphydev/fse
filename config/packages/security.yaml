@@ -1,7 +1,7 @@
 security:
     encoders:
-        App\Entity\Users:
-            algorithm: bcrypt
+        App\Entity\Users: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     role_hierarchy:
         ROLE_USER:       ROLE_USER

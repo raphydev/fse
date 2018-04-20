@@ -27,7 +27,7 @@ class RegisterType extends AbstractType
                 'invalid_message' => 'Numero de téléphone incorrect'
             ])
             ->add('email', EmailType::class, ['label' => false])
-            ->add('password', PasswordType::class, array(
+            ->add('plainPassword', PasswordType::class, array(
                 'label' => false
             ))
         ;
@@ -36,7 +36,7 @@ class RegisterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Users::class,
+            'data_class' => Users::class
         ]);
     }
 }

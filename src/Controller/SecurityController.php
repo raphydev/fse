@@ -57,18 +57,12 @@ class SecurityController extends Controller
         $form = $this->createForm(RegisterType::class, $users);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $users->setRoles(['ROLE_USER']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($users);
             $entityManager->flush();
-
-            //$event = new UserEvent($users);
-            //$dispatcher->dispatch(AppEvents::APP_AUTO_LOGGED_USER, $event);
             $this->authenticateUser($users);
             return $this->redirectToRoute('account', array(), 301);
         }
-
         return $this->render('security/signup_page.html.twig', [
            'form' => $form->createView()
         ]);
