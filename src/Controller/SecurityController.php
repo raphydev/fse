@@ -10,11 +10,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * Class SecurityController
+ * @package App\Controller
+ */
 class SecurityController extends Controller
 {
 
     /**
-     * @Route("/accounts/signin", name="signin_page")
+     * @Route("/secure/signin", name="signin_page")
      * @param Request $request
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\Response
@@ -45,7 +49,7 @@ class SecurityController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/accounts/register", name="register")
+     * @Route("/secure/register", name="register")
      */
     public function register(Request $request)
     {

@@ -7,10 +7,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ * Class AccountController
+ * @package App\Controller
+ * @Route("/account")
+ */
 class AccountController extends Controller
 {
     /**
-     * @Route("/account", name="account")
+     * @Route("/", name="account")
      * @param TokenStorageInterface $storage
      * @return \Symfony\Component\HttpFoundation\Response
      */

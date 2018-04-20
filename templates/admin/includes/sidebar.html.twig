@@ -11,7 +11,7 @@
 
         <div class="sidebar-profile">
             <div class="dropdown">
-                <span class="dropdown-toggle no-caret" data-toggle="dropdown"><img class="avatar" src="{{ asset('build/back/static/avatar/1.jpg', 'back') }}" alt="{{ app.user.username }}"></span>
+                <span class="dropdown-toggle no-caret" data-toggle="dropdown"><img class="avatar" src="{{ asset('build/back/static/avatar/1.jpg', 'back') }}" alt="{# app.user.username #}"></span>
                 <div class="dropdown-menu open-top-center">
                     <a class="dropdown-item" href="#"><i class="ti-user"></i> Profile</a>
                     <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="profile-info">
-                <h4>{{ app.user.lastname|capitalize }} {{ app.user.firstname|capitalize }}</h4>
+                <h4>{# app.user.lastname|capitalize #} {# app.user.firstname|capitalize #}</h4>
                 <p>{{ '{{ fonction }}' }}</p>
             </div>
         </div>

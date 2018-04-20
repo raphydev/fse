@@ -74,8 +74,8 @@ class RedirectUserListener implements EventSubscriberInterface
     protected function arrayControllerList()
     {
         return array(
-            '/accounts/register',
-            '/accounts/signin'
+            '/secure/register',
+            '/secure/signin'
         );
     }
 }
