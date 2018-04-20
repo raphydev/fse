@@ -47,13 +47,7 @@ class Users implements UserInterface, \Serializable
     protected $email;
 
     /**
-     * @var
-     * @ORM\Column(type="json")
-     */
-    protected $roles;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true, name="firstname")
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Nom obligatoire")
      */
     protected $firstname;
@@ -72,6 +66,10 @@ class Users implements UserInterface, \Serializable
      */
     protected $phone;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    protected $roles;
 
     /**
      * @var \DateTime
