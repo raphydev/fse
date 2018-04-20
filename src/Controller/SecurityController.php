@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
@@ -51,16 +52,24 @@ class SecurityController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/secure/register", name="register")
      */
-    public function register(Request $request)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $users = new Users();
         $form = $this->createForm(RegisterType::class, $users);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $password = $passwordEncoder->encodePassword($users, $users->getPlainPassword());
+            $users->setPassword($password);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($users);
             $entityManager->flush();
+
             $this->authenticateUser($users);
+
             return $this->redirectToRoute('account', array(), 301);
         }
         return $this->render('security/signup_page.html.twig', [

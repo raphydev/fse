@@ -33,15 +33,16 @@ class Users implements UserInterface, \Serializable
     protected $username;
 
     /**
-     * A non-persisted field that's used to create the encoded password.
-     *
-     * @var string
+     * @Assert\Length(max=4096)
      * @Assert\NotNull(message="Entrez un mot de passe")
      */
     protected $plainPassword;
 
     /**
-     * @ORM\Column(type="string", length=64, name="password")
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
      */
     protected $password;
 
@@ -260,6 +261,9 @@ class Users implements UserInterface, \Serializable
         return $this->password;
     }
 
+    /**
+     * @param $password
+     */
     public function setPassword($password)
     {
         $this->password = $password;
@@ -341,6 +345,10 @@ class Users implements UserInterface, \Serializable
         return $this->lastLogin;
     }
 
+    /**
+     * @param string $username
+     * @return Users
+     */
     public function setUsername(string $username): self
     {
         $this->username = $username;
@@ -348,15 +356,20 @@ class Users implements UserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPlainPassword()
     {
         return $this->plainPassword;
     }
 
-    public function setPlainPassword(string $plainPassword)
+    /**
+     * @param null|string $password
+     */
+    public function setPlainPassword(?string $password)
     {
-        $this->plainPassword = $plainPassword;
-        $this->password = null;
+        $this->plainPassword = $password;
     }
 
 }
