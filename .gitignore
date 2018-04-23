@@ -3,6 +3,7 @@
 /.env
 /public/bundles/
 /public/images/
+/public/media/
 /assets/
 /var/
 /vendor/

@@ -44,6 +44,7 @@ class Classification
     }
 
 
+
     public function getId()
     {
         return $this->id;
@@ -73,16 +74,12 @@ class Classification
         return $this;
     }
 
-    public function getPartner(): ?Partner
+    /**
+     * @return Collection|Partner[]
+     */
+    public function getPartner(): Collection
     {
         return $this->partner;
-    }
-
-    public function setPartner(?Partner $partner): self
-    {
-        $this->partner = $partner;
-
-        return $this;
     }
 
     public function addPartner(Partner $partner): self

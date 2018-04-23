@@ -19,6 +19,17 @@ class ClassificationRepository extends ServiceEntityRepository
         parent::__construct($registry, Classification::class);
     }
 
+    public function findAllByPosition()
+    {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.partner','p')
+            ->addSelect('p')
+            ->orderBy('c.position', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Classification[] Returns an array of Classification objects
 //     */

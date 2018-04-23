@@ -26,7 +26,7 @@ class Intervenant
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
      *
-     * @Vich\UploadableField(mapping="organizer_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="intervenant_image", fileNameProperty="imageName", size="imageSize")
      *
      * @var File $imageFile
      */

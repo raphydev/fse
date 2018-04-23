@@ -19,22 +19,17 @@ class IntervenantRepository extends ServiceEntityRepository
         parent::__construct($registry, Intervenant::class);
     }
 
-//    /**
-//     * @return Intervenant[] Returns an array of Intervenant objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Intervenant[] findAllGreaterThanIntervenant
+     */
+    public function findAllGreaterThanIntervenant()
     {
         return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('i.position', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Intervenant

@@ -19,6 +19,7 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
+
 //    /**
 //     * @return Partner[] Returns an array of Partner objects
 //     */
