@@ -208,15 +208,11 @@
                     <div class="row">
                         <div class="clear"></div>
                         {% for partner in classification.partner %}
-                            <div class="col-lg-3 mb-5">
-                                <div class="card shadow">
-                                    <a href="{{ partner.website }}" target="_blank">
-                                        <img class="image_fade card-img" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_253x145'))}}" alt="{{ partner.name }}">
-                                    </a>
-                                    <div class="card-header h-70">
-                                        {{ partner.name|upper }}
-                                    </div>
-                                    <div class="card-footer center border-color bg-fse2">
+                            <div class="col-md-6 col-lg-4 mb-5">
+                                <div class="card shadow p-2" style="width: 18rem;">
+                                    <img class="card-img-top image_fade" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}"/>
+                                    <div class="card-body">
+                                        <h5 class="card-text text-center">&nbsp;</h5>
                                         <a href="{{ partner.website }}" class="button button-rounded button-reveal button-large button-amber" target="_blank"><i class="icon-share"></i><span>{{ 'Voir le Site web' }}</span></a>
                                     </div>
                                 </div>
