@@ -16,30 +16,35 @@
                     <h3>{{ 'les organisateurs'|upper }}</h3>
                 </div>
                 <div class="section nobg topmargin-lg nobottommargin">
-                    <div class="container clearfix">
-                        <div class="col_half nobottommargin center">
-                            <img src="{{ asset('build/front/static/20.png')}}" alt="Image" data-animate="fadeInLeft">
-                        </div>
-                        <div class="col_half nobottommargin col_last">
-                            <div class="heading-block" style="padding-top: 10px;">
-                                <h2>{{ '{{ Organisateur name }}' }}</h2>
+                    {% for organizer in organizers %}
+                        {% if loop.first %}
+                        <div class="container clearfix">
+                            <div class="col_half nobottommargin center ">
+                                <img src="{{ asset(organizer.assertPath | imagine_filter('thumb_medium'))}}" alt="{{ organizer.name }}" data-animate="{% if loop.first %} fadeInLeft {% else %} fadeInRight {% endif %}">
                             </div>
-                            <p>{{ '{{ Description example }}' }}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, repudiandae, maxime, earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.</p>
-                            <a href="#" class="button button-border button-large button-rounded topmargin-sm noleftmargin">Voir le site</a>
-                        </div>
-                    </div>
-                    <div class="container clearfix">
-                        <div class="col_half nobottommargin col_last">
-                            <div class="heading-block" style="padding-top: 10px;">
-                                <h2>{{ '{{ Organisateur name }}' }}</h2>
+                            <div class="col_half nobottommargin col_last">
+                                <div class="heading-block" style="padding-top: 10px;">
+                                    <h2>{{ organizer.name }}</h2>
+                                </div>
+                                <p>{{ organizer.content|striptags|truncate(300) }}</p>
+                                <a href="{{ organizer.website }}" target="_blank" class="button button-border button-large button-rounded topmargin-sm noleftmargin">{{ 'en savoir plus' }}</a>
                             </div>
-                            <p>{{ '{{ Description example }}' }}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, repudiandae, maxime, earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.</p>
-                            <a href="#" class="button button-border button-large button-rounded topmargin-sm noleftmargin">Voir le site</a>
                         </div>
-                        <div class="col_half nobottommargin center">
-                            <img src="{{ asset('build/front/static/20.png')}}" alt="Image" data-animate="fadeInRight">
-                        </div>
-                    </div>
+                        {% else %}
+                          <div class="container clearfix">
+                                <div class="col_half nobottommargin col_last">
+                                    <div class="heading-block" style="padding-top: 10px;">
+                                        <h2>{{ organizer.name }}</h2>
+                                    </div>
+                                    <p>{{ organizer.content|striptags|truncate(300) }}</p>
+                                    <a href="{{ organizer.website }}" target="_blank" class="button button-border button-large button-rounded topmargin-sm noleftmargin">{{ 'en savoir plus' }}</a>
+                                </div>
+                                <div class="col_half nobottommargin center">
+                                    <img src="{{ asset(organizer.assertPath | imagine_filter('thumb_medium'))}}" alt="{{ organizer.name }}" data-animate="{% if loop.first %} fadeInLeft {% else %} fadeInRight {% endif %}">
+                                </div>
+                          </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
             <!-- block ecosystème -->

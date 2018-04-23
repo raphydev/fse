@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\PartnerType;
+use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method PartnerType|null find($id, $lockMode = null, $lockVersion = null)
- * @method PartnerType|null findOneBy(array $criteria, array $orderBy = null)
- * @method PartnerType[]    findAll()
- * @method PartnerType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Post|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Post|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Post[]    findAll()
+ * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PartnerTypeRepository extends ServiceEntityRepository
+class PostRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, PartnerType::class);
+        parent::__construct($registry, Post::class);
     }
 
 //    /**
-//     * @return PartnerType[] Returns an array of PartnerType objects
+//     * @return Post[] Returns an array of Post objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class PartnerTypeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?PartnerType
+    public function findOneBySomeField($value): ?Post
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

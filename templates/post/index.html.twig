@@ -1,14 +1,14 @@
 {% extends 'fse/fse_layout.html.twig' %}
 
-{% block title %} {{ 'Organisateur' }} {% endblock %}
-{% block fse_title %} {{ '| Organisateur'|upper }}{% endblock %}
+{% block title %} {{ 'Article' }} {% endblock %}
+{% block fse_title %} {{ '| Article'|upper }}{% endblock %}
 
 {% block fse_content %}
     <div class="col-12">
         <div class="card">
             <header class="card-header">
-                <h4 class="card-title">{{ 'Liste des Organisateur'|upper }}</h4>
-                <a class="btn btn-label btn-info" href="{{ path('organizer_new') }}">
+                <h4 class="card-title">{{ 'Liste des articles'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('post_new') }}">
                     <label><i class="ti-plus"></i></label>
                     {{ 'Ajouter un nouveau'}}
                 </a>
@@ -18,47 +18,40 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>ImageSize</th>
-                            <th>ImageName</th>
-                            <th>Name</th>
-                            <th>Website</th>
-                            <th>Content</th>
+                            <th>Title</th>
                             <th>Created</th>
+                            <th>Online</th>
                             <th>actions</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>ImageSize</th>
-                            <th>ImageName</th>
-                            <th>Name</th>
-                            <th>Website</th>
-                            <th>Created</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Online</th>
                             <th>actions</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                    {% for organizer in organizers %}
+                    {% for post in posts %}
                         <tr>
-                            <td>{{ organizer.id }}</td>
-                            <td>{{ organizer.imageSize }}</td>
-                            <td>{{ organizer.imageName }}</td>
-                            <td>{{ organizer.name }}</td>
-                            <td>{{ organizer.website }}</td>
-                            <td>{{ organizer.created ? organizer.created|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.created ? post.created|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ post.online ? 'En ligne' : 'Hors ligne' }}</td>
                             <td>
-                                <a class="btn btn-label btn-info-outline" href="{{ path('organizer_show', {'id': organizer.id}) }}">
+                                <a class="btn btn-label btn-info-outline" href="{{ path('post_show', {'id': post.id}) }}">
                                     <label><i class="ti-eye"></i></label> {{ 'afficher'|capitalize }}
                                 </a>
-                                <a class="btn btn-label btn-danger-outline" href="{{ path('organizer_edit', {'id': organizer.id}) }}">
+                                <a class="btn btn-label btn-danger-outline" href="{{ path('post_edit', {'id': post.id}) }}">
                                     <label><i class="ti-eye"></i></label> {{ 'modifier'|capitalize }}
                                 </a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="8">Pas de resulat trouvé</td>
+                            <td  colspan="7" class="align-content-center">{{ 'Aucun resultat trouvé' }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

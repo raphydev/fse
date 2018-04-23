@@ -61,7 +61,7 @@ jQuery.fn.scrollToEnd = function() {
 //
 +function($, window){
   var app = {
-    name:       'TheAdmin',
+    name:       'FseAdmin',
     version:    '1.0.0',
     corejs:     $('script[src*="core.min.js"]').attr('src'),
   };
@@ -196,8 +196,8 @@ jQuery.fn.scrollToEnd = function() {
   // Fonts
   //
   app.font = {
-    body:  'Roboto, sans-serif',
-    title: 'Roboto, sans-serif',
+    body:  'Open Sans, sans-serif',
+    title: 'Open Sans, sans-serif',
   }
 
   // Local variables
@@ -443,19 +443,6 @@ jQuery.fn.scrollToEnd = function() {
     }
 
 
-    // Google Analytics
-    //
-    if ( app.defaults.googleAnalyticsKey ) {
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', app.defaults.googleAnalyticsKey, 'auto');
-      ga('send', 'pageview');
-    }
-
-
     // Recover saved states
     //
     if ( app.defaults.saveState ) {
@@ -521,43 +508,6 @@ jQuery.fn.scrollToEnd = function() {
     return options;
   }
 
-
-
-  // Save app state
-  //
-  app.state = function(key, value) {
-    if ( localStorage.theadmin === undefined ) {
-      localStorage.theadmin = '{}';
-    }
-
-    var states = JSON.parse(localStorage.theadmin);
-    if (arguments.length == 0) {
-      return states;
-    }
-    else if (arguments.length == 1) {
-      return states[key];
-    }
-    else if (arguments.length == 2 && app.defaults.saveState) {
-      states[key] = value;
-      localStorage.theadmin = JSON.stringify(states);
-    }
-  }
-
-  app.toggleState = function(key) {
-    if ( app.defaults.saveState ) {
-      var states = app.state();
-      states[key] = !states[key];
-      localStorage.theadmin = JSON.stringify(states);
-    }
-  }
-
-  app.state.remove = function(key) {
-    localStorage.removeItem(key);
-  }
-
-  app.state.clear = function() {
-    localStorage.clear();
-  }
 
 
   // Generate an almost unique ID

@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints AS Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PartnerTypeRepository")
+ * @ORM\Table(name="classification")
+ * @ORM\Entity(repositoryClass="App\Repository\ClassificationRepository")
  */
-class PartnerType
+class Classification
 {
     /**
      * @ORM\Id()
@@ -31,9 +34,14 @@ class PartnerType
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Partner", inversedBy="partnerType")
+     * @ORM\OneToMany(targetEntity="App\Entity\Partner", mappedBy="classification")
      */
     protected $partner;
+
+    public function __construct()
+    {
+        $this->partner = new ArrayCollection();
+    }
 
 
     public function getId()
@@ -73,6 +81,29 @@ class PartnerType
     public function setPartner(?Partner $partner): self
     {
         $this->partner = $partner;
+
+        return $this;
+    }
+
+    public function addPartner(Partner $partner): self
+    {
+        if (!$this->partner->contains($partner)) {
+            $this->partner[] = $partner;
+            $partner->setClassification($this);
+        }
+
+        return $this;
+    }
+
+    public function removePartner(Partner $partner): self
+    {
+        if ($this->partner->contains($partner)) {
+            $this->partner->removeElement($partner);
+            // set the owning side to null (unless already changed)
+            if ($partner->getClassification() === $this) {
+                $partner->setClassification(null);
+            }
+        }
 
         return $this;
     }

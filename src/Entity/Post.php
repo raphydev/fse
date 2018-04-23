@@ -2,19 +2,17 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints AS Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @Vich\Uploadable
  */
-class Partner
+class Post
 {
     /**
      * @ORM\Id()
@@ -24,12 +22,40 @@ class Partner
     protected $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Entrez un titre")
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotNull(message="Entrez un contenu")
+     */
+    protected $content;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Gedmo\Slug(fields={"title", "id"}, separator="_", updatable=false)
+     */
+    protected $slug;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $online;
+
+    /**
      * @Assert\File(
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
      *
-     * @Vich\UploadableField(mapping="partner_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="post_image", fileNameProperty="imageName", size="imageSize")
      *
      * @var File $imageFile
      */
@@ -50,87 +76,47 @@ class Partner
      */
     protected $imageName;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull(message="Entrez le nom svp")
-     */
-    protected $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull(message="Entrez le nom du site web")
-     */
-    protected $website;
+    public function __construct()
+    {
+        $this->created = new \DateTime('now');
+        $this->online = true;
+    }
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    protected $created;
-
-    /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Classification", inversedBy="partner")
-     */
-    protected $classification;
-
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    /**
-     * @param string $name
-     * @return Partner
-     */
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getWebsite(): ?string
+    public function getContent(): ?string
     {
-        return $this->website;
+        return $this->content;
     }
 
-    /**
-     * @param string $website
-     * @return Partner
-     */
-    public function setWebsite(string $website): self
+    public function setContent(string $content): self
     {
-        $this->website = $website;
+        $this->content = $content;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreated(): ?\DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param \DateTime|null $created
-     * @return Partner
-     */
     public function setCreated(?\DateTime $created): self
     {
         $this->created = $created;
@@ -138,6 +124,29 @@ class Partner
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getOnline(): ?bool
+    {
+        return $this->online;
+    }
+
+    public function setOnline(bool $online): self
+    {
+        $this->online = $online;
+
+        return $this;
+    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -188,7 +197,7 @@ class Partner
     public function getUploadDir()
     {
         // On retourne le chemin relatif vers l'image pour un navigateur
-        return 'images/partner';
+        return 'images/post';
     }
     protected function getUploadRootDir()
     {
@@ -202,17 +211,4 @@ class Partner
     {
         return $this->getUploadDir().'/'.$this->imageName;
     }
-
-    public function getClassification(): ?Classification
-    {
-        return $this->classification;
-    }
-
-    public function setClassification(?Classification $classification): self
-    {
-        $this->classification = $classification;
-
-        return $this;
-    }
-
 }

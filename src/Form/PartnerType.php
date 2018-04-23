@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Partner;
+use App\Entity\Classification;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +23,11 @@ class PartnerType extends AbstractType
             ->add('website', TextType::class, [
                 'label' => 'Renseignez le site web du partenaires',
                 'attr' => ['placeholder' => 'le site web du partenaires']
+            ])
+            ->add('classification', EntityType::class, [
+                'class' => Classification::class,
+                'choice_label' => 'title',
+                'label' => 'choix de la classification des partenaires'
             ])
             ->add('imageFile', VichImageType::class, [
                 'required' => false,

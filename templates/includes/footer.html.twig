@@ -51,12 +51,13 @@
                             <abbr title="Fax"><strong>Fax:</strong></abbr> +225 2242 7954<br>
                             <abbr title="Email Address"><strong>Email:</strong></abbr> info@lafinancesengage.com
                         </div>
-                        <div class="col-lg-3 col-6 bottommargin-sm widget_links">
-                            <img src="{{ asset('build/front/static/20.png')}}" alt="Image">
-                        </div>
-                        <div class="col-lg-3 col-6 bottommargin-sm widget_links">
-                            <img src="{{ asset('build/front/static/20.png')}}" alt="Image" class="grid-6">
-                        </div>
+                        {% for organizer in organizers %}
+                            <div class="col-lg-3 col-6 bottommargin-sm widget_links">
+                                <a href="{{ organizer.website }}" target="_blank">
+                                    <img src="{{ asset(organizer.assertPath | imagine_filter('thumb_small'))}}" alt="{{ organizer.name }}" class="grid-6">
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -1,14 +1,14 @@
 {% extends 'fse/fse_layout.html.twig' %}
 
-{% block title %} {{ 'Type de partenaires' }} {% endblock %}
-{% block fse_title %} {{ '| Type de partenaire'|upper }}{% endblock %}
+{% block title %} {{ 'Classification des spornsors & partenaires' }} {% endblock %}
+{% block fse_title %} {{ '| Classification des spornsors & partenaires'|upper }}{% endblock %}
 
 {% block fse_content %}
     <div class="col-12">
         <div class="card">
             <header class="card-header">
-                <h4 class="card-title">{{ 'Liste des types de partenaires'|upper }}</h4>
-                <a class="btn btn-label btn-info" href="{{ path('partner_type_new') }}">
+                <h4 class="card-title">{{ 'Classification des spornsors & partenairess'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('classification_new') }}">
                     <label><i class="ti-plus"></i></label>
                     {{ 'Ajouter un nouveau'}}
                 </a>
@@ -32,16 +32,16 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    {% for partner_type in partner_types %}
+                    {% for classification in classifications %}
                         <tr>
-                            <td>{{ partner_type.id }}</td>
-                            <td>{{ partner_type.title }}</td>
-                            <td>{{ partner_type.position }}</td>
+                            <td>{{ classification.id }}</td>
+                            <td>{{ classification.title }}</td>
+                            <td>{{ classification.position }}</td>
                             <td>
-                                <a class="btn btn-label btn-info-outline" href="{{ path('partner_type_show', {'id': partner_type.id}) }}">
+                                <a class="btn btn-label btn-info-outline" href="{{ path('classification_show', {'id': classification.id}) }}">
                                     <label><i class="ti-eye"></i></label> {{ 'afficher'|capitalize }}
                                 </a>
-                                <a class="btn btn-label btn-danger-outline" href="{{ path('partner_type_edit', {'id': partner_type.id}) }}">
+                                <a class="btn btn-label btn-danger-outline" href="{{ path('classification_edit', {'id': classification.id}) }}">
                                     <label><i class="ti-eye"></i></label> {{ 'modifier'|capitalize }}
                                 </a>
                             </td>
