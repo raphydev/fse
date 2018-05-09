@@ -31,7 +31,9 @@ class IntervenantType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-                'image_uri' => true
+                'image_uri' => true,
+                'attr'  => ['data-provide' => 'dropify'],
+                'label' => false
             ]);
         ;
     }

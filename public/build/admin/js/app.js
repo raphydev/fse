@@ -3088,7 +3088,13 @@ jQuery.fn.scrollToEnd = function() {
     }
 
     provider.provide('dropify', function(){
-      $(this).dropify();
+      $(this).dropify({
+          messages: {
+              'default': 'Glissez & deposer un fichier ici ou cliquez',
+              'replace': 'Glissez & deposer un fichier ici ou cliquez pour remplacer',
+              'remove':  'Supprimer',
+          }
+      });
     });
 
   }

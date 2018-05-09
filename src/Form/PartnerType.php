@@ -30,10 +30,12 @@ class PartnerType extends AbstractType
                 'label' => 'choix de la classification des partenaires'
             ])
             ->add('imageFile', VichImageType::class, [
+                'label' => false,
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-                'image_uri' => true
+                'image_uri' => true,
+                'attr'  => ['data-provide' => 'dropify']
             ]);
         ;
     }

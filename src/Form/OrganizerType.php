@@ -24,10 +24,12 @@ class OrganizerType extends AbstractType
                 'attr' => ['placeholder' => 'le site web de l\'organisateur']
             ])
             ->add('imageFile', VichImageType::class, [
+                'label' => false,
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-                'image_uri' => true
+                'image_uri' => true,
+                'attr'  => ['data-provide' => 'dropify']
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Description',

@@ -27,10 +27,12 @@ class PostType extends AbstractType
                 ]
             ])
             ->add('imageFile', VichImageType::class, [
+                'label' => false,
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-                'image_uri' => true
+                'image_uri' => true,
+                'attr'  => ['data-provide' => 'dropify']
             ])
             ->add('online', CheckboxType::class, ['attr' =>
                 ['class' => 'custom-control-success']
