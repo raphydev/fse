@@ -1,0 +1,259 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'L\'Ecosystème la finance s\'engage' }}
+{% endblock %}
+
+{% block body %}
+    <!-- slide block -->
+    {{ include('home_front/includes/simple_banner.html.twig') }}
+    <!-- content block -->
+    <section id="content">
+        <div class="content-wrap">
+            <!-- block organisateurs -->
+            <div class="container clearfix">
+                <div class="fancy-title title-dotted-border title-center">
+                    <h3>{{ 'les organisateurs'|upper }}</h3>
+                </div>
+                <div class="section nobg topmargin-lg nobottommargin">
+                    {% for organizer in organizers %}
+                        {% if loop.first %}
+                        <div class="container clearfix">
+                            <div class="col_half nobottommargin center ">
+                                <img src="{{ asset(organizer.assertPath | imagine_filter('thumb_medium'))}}" alt="{{ organizer.name }}" data-animate="{% if loop.first %} fadeInLeft {% else %} fadeInRight {% endif %}">
+                            </div>
+                            <div class="col_half nobottommargin col_last">
+                                <div class="heading-block" style="padding-top: 10px;">
+                                    <h2>{{ organizer.name }}</h2>
+                                </div>
+                                <p>{{ organizer.content|striptags|truncate(300) }}</p>
+                                <a href="{{ organizer.website }}" target="_blank" class="button button-border button-large button-rounded topmargin-sm noleftmargin">{{ 'en savoir plus' }}</a>
+                            </div>
+                        </div>
+                        {% else %}
+                          <div class="container clearfix">
+                                <div class="col_half nobottommargin col_last">
+                                    <div class="heading-block" style="padding-top: 10px;">
+                                        <h2>{{ organizer.name }}</h2>
+                                    </div>
+                                    <p>{{ organizer.content|striptags|truncate(300) }}</p>
+                                    <a href="{{ organizer.website }}" target="_blank" class="button button-border button-large button-rounded topmargin-sm noleftmargin">{{ 'en savoir plus' }}</a>
+                                </div>
+                                <div class="col_half nobottommargin center">
+                                    <img src="{{ asset(organizer.assertPath | imagine_filter('thumb_medium'))}}" alt="{{ organizer.name }}" data-animate="{% if loop.first %} fadeInLeft {% else %} fadeInRight {% endif %}">
+                                </div>
+                          </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- block ecosystème -->
+            <div class="container clearfix">
+                <div class="fancy-title title-dotted-border title-center">
+                    <h3>{{ 'Programmes'|upper }}</h3>
+                </div>
+                <div class="section">
+                    <div class="col_one_third nobottommargin mt-5 card">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/17.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_one_third nobottommargin mt-5 card">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/18.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_one_third nobottommargin mt-5 card col_last">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/19.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_one_third nobottommargin mt-5 card">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/20.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_one_third nobottommargin mt-5 card">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/21.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_one_third nobottommargin mt-5 card col_last">
+                        <div class="feature-box media-box">
+                            <div class="fbox-media">
+                                <img src="{{ asset('build/front/static/22.jpg')}}" class="card-img-top" alt="Why choose Us?">
+                            </div>
+                            <div class="fbox-desc text-center">
+                                <h3><span class="subtitle">trouvre une petite description de 2 lignes.</span></h3>
+                            </div>
+                            <div class="card-body center">
+                                <a href="#" class="button button-rounded">En savoir <i class="icon-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- block actualites -->
+            <div class="section">
+                <div class="container clearfix">
+                    <div class="heading-block center">
+                        <h2>{{ 'Actualités' }}</h2>
+                    </div>
+                    <div class="row">
+                        {% for i in 1..5 %}
+                            <div class="{{ (loop.index == 1) ? 'col-lg-8' : 'col-lg-4'}} mb-5">
+                                <div class="card shadow">
+                                    <a href="#"><img class="image_fade card-img" src="{{ asset('build/front/static/test.jpg')}}" alt="Image"></a>
+                                    <div class="card-header"><i class="icon-calendar3"></i> 10th Nov 2014</div>
+                                    <div class="card-body {% if loop.index == 2 %} h-345 {% endif %}">
+                                        <h4 class="card-title">Card Title</h4>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, at, vitae, veritatis, temporibus soluta accusamus eum accusantium incidunt eius quisquam suscipit inventore neque. Distinctio, impedit.</p>
+                                    </div>
+                                    <div class="card-footer center border-color">
+                                        <a href="#" class="button button-rounded button-reveal button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'Lire l\'article' }}</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="clear"></div>
+                    <div class="center">
+                        <a href="#" class="button button-rounded button-reveal button-border button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'découvrez plus d\'articles'|upper }}</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- block video -->
+            <div class="section parallax full-screen dark nomargin noborder" style="background-image: url({{ asset('build/front/static/10.jpg') }});"  data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+                <div class="container center clearfix">
+                    <div class="heading-block">
+                        <h2>{{ 'la finance s\'engage' }}</h2>
+                        <span>{{ 'Une initiative unique pour le financement des PME'}}</span>
+                    </div>
+                    <div class="divcenter bottommargin" style="max-width: 800px;">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/p_tGJR0rE34" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- block intervenant -->
+            <div class="section">
+                <div class="container clearfix">
+                    <div class="fancy-title title-dotted-border title-center">
+                        <h3>{{ 'Les Acteurs clés de l\'écosystème financier'|upper }}</h3>
+                    </div>
+                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
+                        {% for intervenant in intervenants %}
+                            <div class="card shadow">
+                                <img class="image_fade card-img" src="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" alt="Image">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">{{ intervenant.name }}</h4>
+                                    <p class="card-text text-center">{{ intervenant.office }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- block partenaires -->
+            <div class="container clearfix">
+                <div class="title-block">
+                    <h2 class="color">{{ 'Nos partenaires & sponsors'|upper }}</h2>
+                </div>
+                {% for classification in classifications %}
+                    <div class="fancy-title title-dotted-border title-center">
+                        <h4 class="color">{{ classification.title|upper }}</h4>
+                    </div>
+                    <div class="row">
+                        <div class="clear"></div>
+                        {% for partner in classification.partner %}
+                            <div class="col-md-6 col-lg-4 mb-5">
+                                <div class="card shadow p-2" style="width: 18rem;">
+                                    <img class="card-img-top image_fade" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}"/>
+                                    <div class="card-body">
+                                        <h5 class="card-text">&nbsp;</h5>
+                                        <div class="center">
+                                            <a href="{{ partner.website }}" class="button button-rounded button-reveal button-large button-amber" target="_blank"><i class="icon-share"></i><span>{{ '+'|upper }}</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="clear"></div>
+            </div>
+            <!-- block intervention participant -->
+            <div class="container clearfix">
+                <div class="fancy-title title-dotted-border title-center">
+                    <h3>{{ 'Interventions des participants'|upper }}</h3>
+                </div>
+                <div class="row">
+                    {% for i in 1..4 %}
+                        <div class="col-lg-6 mb-5">
+                            <div class="card shadow feature-box media-box">
+                                <a href="#">
+                                    <img class="image_fade card-img" src="{{ asset('build/front/static/test.jpg')}}" alt="Image"/>
+                                    <div class="fbox-icon">
+                                        <i class="icon-play"></i>
+                                    </div>
+                                </a>
+                                <div class="card-header fbox-desc text-center">
+                                    <h3>{{ '{{ Name intervenants }}' }}<span class="subtitle">To Redefine your Brand.</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="clear"></div>
+                <div class="center">
+                    <a href="#" class="button button-rounded button-reveal button-border button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'découvrez toutes les interventions'|upper }}</span></a>
+                </div>
+            </div>
+            <!-- block document -->
+            <a href="#" class="button button-full center tright">
+                <div class="container clearfix">
+                    {{ 'Téléchargement des ressources (rapports, documents, ...)' }} <strong>{{ 'Cliquez ici' }}</strong> <i class="icon-download-alt" style="top:4px;"></i>
+                </div>
+            </a>
+        </div>
+    </section><!-- #content end -->
+{% endblock %}

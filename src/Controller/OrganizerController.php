@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/fse/organizer")
+ * @Route("/admin/forum/organizer")
  */
 class OrganizerController extends Controller
 {
@@ -22,7 +22,7 @@ class OrganizerController extends Controller
      */
     public function index(OrganizerRepository $organizerRepository): Response
     {
-        return $this->render('organizer/index.html.twig', ['organizers' => $organizerRepository->findAll()]);
+        return $this->render('admin/forum/organizer/index.html.twig', ['organizers' => $organizerRepository->findAll()]);
     }
 
     /**
@@ -44,7 +44,7 @@ class OrganizerController extends Controller
             return $this->redirectToRoute('organizer_index');
         }
 
-        return $this->render('organizer/new.html.twig', [
+        return $this->render('admin/forum/organizer/new.html.twig', [
             'organizer' => $organizer,
             'form' => $form->createView(),
         ]);
@@ -57,7 +57,7 @@ class OrganizerController extends Controller
      */
     public function show(Organizer $organizer): Response
     {
-        return $this->render('organizer/show.html.twig', ['organizer' => $organizer]);
+        return $this->render('admin/forum/organizer/show.html.twig', ['organizer' => $organizer]);
     }
 
     /**
@@ -77,7 +77,7 @@ class OrganizerController extends Controller
             return $this->redirectToRoute('organizer_index');
         }
 
-        return $this->render('organizer/edit.html.twig', [
+        return $this->render('admin/forum/organizer/edit.html.twig', [
             'organizer' => $organizer,
             'form' => $form->createView(),
         ]);

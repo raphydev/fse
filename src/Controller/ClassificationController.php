@@ -5,15 +5,15 @@ namespace App\Controller;
 use App\Entity\Classification;
 use App\Form\ClassificationType;
 use App\Repository\ClassificationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/fse/classification")
+ * @Route("/admin/forum/classification")
  */
-class ClassificationController extends Controller
+class ClassificationController extends AbstractController
 {
     /**
      * @Route("/", name="classification_index", methods="GET")
@@ -22,7 +22,7 @@ class ClassificationController extends Controller
      */
     public function index(ClassificationRepository $classificationRepository): Response
     {
-        return $this->render('classification/index.html.twig', ['classifications' => $classificationRepository->findAll()]);
+        return $this->render('admin/forum/classification/index.html.twig', ['classifications' => $classificationRepository->findAll()]);
     }
 
     /**
@@ -44,7 +44,7 @@ class ClassificationController extends Controller
             return $this->redirectToRoute('classification_index');
         }
 
-        return $this->render('classification/new.html.twig', [
+        return $this->render('admin/forum/classification/new.html.twig', [
             'classification' => $classification,
             'form' => $form->createView(),
         ]);
@@ -57,7 +57,7 @@ class ClassificationController extends Controller
      */
     public function show(Classification $classification): Response
     {
-        return $this->render('classification/show.html.twig', ['classification' => $classification]);
+        return $this->render('admin/forum/classification/show.html.twig', ['classification' => $classification]);
     }
 
     /**
@@ -77,7 +77,7 @@ class ClassificationController extends Controller
             return $this->redirectToRoute('classification_index');
         }
 
-        return $this->render('classification/edit.html.twig', [
+        return $this->render('admin/forum/classification/edit.html.twig', [
             'classification' => $classification,
             'form' => $form->createView(),
         ]);

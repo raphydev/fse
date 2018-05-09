@@ -2,17 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AdminController extends Controller
+class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin", name="admin", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
-    {
+    public function index(){
         return $this->render('admin/index.html.twig');
     }
 }

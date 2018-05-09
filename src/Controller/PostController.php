@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/fse/post")
+ * @Route("/admin/forum/post")
  */
 class PostController extends Controller
 {
@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function index(PostRepository $postRepository): Response
     {
-        return $this->render('post/index.html.twig', ['posts' => $postRepository->findAll()]);
+        return $this->render('admin/forum/post/index.html.twig', ['posts' => $postRepository->findAll()]);
     }
 
     /**
@@ -42,7 +42,7 @@ class PostController extends Controller
 
             return $this->redirectToRoute('post_index');
         }
-        return $this->render('post/new.html.twig', [
+        return $this->render('admin/forum/post/new.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
         ]);
@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function show(Post $post): Response
     {
-        return $this->render('post/show.html.twig', ['post' => $post]);
+        return $this->render('admin/forum/post/show.html.twig', ['post' => $post]);
     }
 
     /**
@@ -73,7 +73,7 @@ class PostController extends Controller
 
             return $this->redirectToRoute('post_edit', ['id' => $post->getId()]);
         }
-        return $this->render('post/edit.html.twig', [
+        return $this->render('admin/forum/post/edit.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
         ]);

@@ -1,0 +1,25 @@
+{% extends 'admin/admin.html.twig' %}
+{% block body %}
+    <div class="main-content">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Dashboard | Section Forum' }} {% block forum_title %}{% endblock %}</h4>
+                <div class="card-header-actions">
+                    <a href="{{ path('admin') }}" class="btn btn-sm btn-primary">
+                        <i class="icon ti-home"></i>
+                        {{ 'Dashboard'|upper }}
+                    </a>
+                    <a href="{{ path('forum') }}" class="btn btn-sm btn-info">
+                        <i class="ti-arrow-left"></i>
+                        {{ 'retour à liste'|upper }}
+                    </a>
+                </div>
+            </header>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% block forum_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+    {% block title %} {{ 'Articles' }} {% endblock %}
+    {% block forum_title %} {{ '| Articles'|upper }}{% endblock %}
+    {% block forum_content %}
+    <div class="col-6">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Articles détail'|upper }}</h4>
+                {{ include('post/_delete_form.html.twig') }}
+            </header>
+            <img class="card-img-top" src="{{ asset(post.assertPath) }}" alt="Card image cap">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ post.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ post.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Content</th>
+                        <td>{{ post.content|raw}}</td>
+                    </tr>
+                    <tr>
+                        <th>Created</th>
+                        <td>{{ post.created ? post.created|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Online</th>
+                        <td>{{ post.online ? 'En ligne ' : 'Hors Ligne' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-label btn-dark" href="{{ path('post_index') }}">
+                    <label><i class="ti-arrow-left"></i></label>
+                    {{ 'Retour à la liste'}}
+                </a>
+                <a class="btn btn-label btn-danger" href="{{ path('post_edit', {'id': post.id}) }}">
+                    <label><i class="ti-pencil-alt"></i></label>
+                    {{ 'Modifier' }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

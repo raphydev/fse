@@ -1,8 +1,8 @@
-{% extends 'security.html.twig' %}
+{% extends 'security/security_layout.html.twig' %}
 {% block title %} {% endblock %}
 {% block body %}
     <!-- section image -->
-  <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(../assets/img/gallery/11.jpg)" data-overlay="5">
+  <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url({{ asset('build/front/static/security/bg_signin_1.jpg') }})" data-overlay="7">
     <div class="row h-100 pl-50">
       <div class="col-md-10 col-lg-8 align-self-end">
         <img src="{{ asset('build/front/static/logo.png') }}" alt="la finance s'engage">
@@ -61,5 +61,15 @@
       </p>
     </div>
   </div>
-
+{% endblock %}
+{% block javascripts %}
+ {{ parent() }}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+      $(".bg-img").backstretch([
+          "{{ asset('build/front/static/security/bg_signin_1.jpg') }}",
+          "{{ asset('build/front/static/security/bg_signin_2.jpg') }}",
+          "{{ asset('build/front/static/security/bg_signin_3.jpg') }}"
+      ], {duration: 4000, fade:750});
+  </script>
 {% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/fse/intervenant")
+ * @Route("/admin/forum/intervenant")
  */
 class IntervenantController extends Controller
 {
@@ -22,7 +22,7 @@ class IntervenantController extends Controller
      */
     public function index(IntervenantRepository $intervenantRepository): Response
     {
-        return $this->render('intervenant/index.html.twig', ['intervenants' => $intervenantRepository->findAll()]);
+        return $this->render('admin/forum/intervenant/index.html.twig', ['intervenants' => $intervenantRepository->findAll()]);
     }
 
     /**
@@ -44,7 +44,7 @@ class IntervenantController extends Controller
             return $this->redirectToRoute('intervenant_index');
         }
 
-        return $this->render('intervenant/new.html.twig', [
+        return $this->render('admin/forum/intervenant/new.html.twig', [
             'intervenant' => $intervenant,
             'form' => $form->createView(),
         ]);
@@ -57,7 +57,7 @@ class IntervenantController extends Controller
      */
     public function show(Intervenant $intervenant): Response
     {
-        return $this->render('intervenant/show.html.twig', ['intervenant' => $intervenant]);
+        return $this->render('admin/forum/intervenant/show.html.twig', ['intervenant' => $intervenant]);
     }
 
     /**
@@ -77,7 +77,7 @@ class IntervenantController extends Controller
             return $this->redirectToRoute('intervenant_index');
         }
 
-        return $this->render('intervenant/edit.html.twig', [
+        return $this->render('admin/forum/intervenant/edit.html.twig', [
             'intervenant' => $intervenant,
             'form' => $form->createView(),
         ]);

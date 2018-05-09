@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/fse/partner")
+ * @Route("/admin/forum/partner/")
  */
 class PartnerController extends Controller
 {
@@ -22,7 +22,7 @@ class PartnerController extends Controller
      */
     public function index(PartnerRepository $partnerRepository): Response
     {
-        return $this->render('partner/index.html.twig', ['partners' => $partnerRepository->findAll()]);
+        return $this->render('admin/forum/partner/index.html.twig', ['partners' => $partnerRepository->findAll()]);
     }
 
     /**
@@ -44,7 +44,7 @@ class PartnerController extends Controller
             return $this->redirectToRoute('partner_index');
         }
 
-        return $this->render('partner/new.html.twig', [
+        return $this->render('admin/forum/partner/new.html.twig', [
             'partner' => $partner,
             'form' => $form->createView(),
         ]);
@@ -57,7 +57,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner): Response
     {
-        return $this->render('partner/show.html.twig', ['partner' => $partner]);
+        return $this->render('admin/forum/partner/show.html.twig', ['partner' => $partner]);
     }
 
     /**
@@ -77,7 +77,7 @@ class PartnerController extends Controller
             return $this->redirectToRoute('partner_index');
         }
 
-        return $this->render('partner/edit.html.twig', [
+        return $this->render('admin/forum/partner/edit.html.twig', [
             'partner' => $partner,
             'form' => $form->createView(),
         ]);
