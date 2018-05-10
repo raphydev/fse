@@ -38,7 +38,8 @@ Encore
     .setPublicPath('/build/back')
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
-    .addEntry('js/app', [
+    .addEntry('js/script/editor', './assets/back/js/editor.js')
+    /*.addEntry('js/app', [
         './assets/back/js/src/jquery-extends.js',
         './assets/back/js/src/app.js',
         // Providers
@@ -80,11 +81,10 @@ Encore
         './assets/back/vendor/animsition/js/animsition.min.js',
         './assets/back/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js'
     ])
-    .addEntry('js/script', './assets/back/js/script/main.js')
     .createSharedEntry('vendor', [
         './assets/back/vendor/jquery/jquery.min.js',
         './assets/back/vendor/bootstrap/js/bootstrap.min.js',
-    ])
+    ])*/
     .addStyleEntry('css/core', [
         './assets/back/vendor/bootstrap/css/bootstrap.min.css',
         './assets/back/vendor/font-awesome/css/font-awesome.min.css',

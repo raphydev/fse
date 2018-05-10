@@ -9,6 +9,8 @@
 namespace App\Controller;
 
 
+use App\Entity\Post;
+use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,5 +26,28 @@ class ForumFrontController extends AbstractController
      */
     public function initiativePage(){
         //return $this->render('')
+    }
+
+    /**
+     * @Route("/news", name="page_new", methods={"GET"})
+     * @param PostRepository $postRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function blog(PostRepository $postRepository){
+        return $this->render("front/forum/news.html.twig",[
+            'posts' => $postRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/news/{slug}", name="new_detail", methods={"GET"})
+     * @param Post $post
+     * @param PostRepository $postRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function blogDetail( Post $post ,PostRepository $postRepository) {
+        return $this->render("front/forum/new_detail.html.twig", [
+            'post' => $post
+        ]);
     }
 }

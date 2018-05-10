@@ -20,12 +20,6 @@ class PostType extends AbstractType
                 'label' => 'Renseignez le Titre',
                 'attr' => ['placeholder' => 'Titre de l\'article']
             ])
-            ->add('content', TextareaType::class, [
-                'label' => 'Description',
-                'attr' => [
-                    'class' => 'ckeditor',
-                ]
-            ])
             ->add('imageFile', VichImageType::class, [
                 'label' => false,
                 'required' => false,
@@ -34,8 +28,15 @@ class PostType extends AbstractType
                 'image_uri' => true,
                 'attr'  => ['data-provide' => 'dropify']
             ])
-            ->add('online', CheckboxType::class, ['attr' =>
-                ['class' => 'custom-control-success']
+            ->add('content', TextareaType::class, [
+                'label' => 'Description',
+                'attr' => [
+                    'class' => 'ckeditor',
+                ]
+            ])
+            ->add('online', CheckboxType::class, [
+                'label' => 'Cochez pour mettre en ligne',
+                'attr' => ['class' => 'custom-control-success']
             ])
         ;
     }

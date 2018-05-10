@@ -18,7 +18,7 @@
                     <thead>
                     <tr>
                         <th>Réference</th>
-                        <th>Title</th>
+                        <th>{{ 'Titre' }}</th>
                         <th>Position</th>
                         <th>actions</th>
                     </tr>
@@ -26,7 +26,7 @@
                     <tfoot>
                     <tr>
                         <th>Réference</th>
-                        <th>Title</th>
+                        <th>{{ 'Titre' }}</th>
                         <th>Position</th>
                         <th>actions</th>
                     </tr>
@@ -39,10 +39,10 @@
                             <td>{{ classification.position }}</td>
                             <td>
                                 <a class="btn btn-label btn-info-outline" href="{{ path('classification_show', {'id': classification.id}) }}">
-                                    <label><i class="ti-eye"></i></label> {{ 'afficher'|capitalize }}
+                                    <i class="ti-pencil"></i>
                                 </a>
                                 <a class="btn btn-label btn-danger-outline" href="{{ path('classification_edit', {'id': classification.id}) }}">
-                                    <label><i class="ti-eye"></i></label> {{ 'modifier'|capitalize }}
+                                    <i class="ti-close"></i>
                                 </a>
                             </td>
                         </tr>

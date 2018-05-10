@@ -1,32 +1,24 @@
 {% extends 'admin/forum/forum_layout.html.twig' %}
-    {% block title %} {{ 'Articles' }} {% endblock %}
-    {% block forum_title %} {{ '| Articles'|upper }}{% endblock %}
+    {% block title %} {{ 'Article' }} {% endblock %}
+    {% block forum_title %} {{ '| Article'|upper }}{% endblock %}
     {% block forum_content %}
     <div class="col-6">
         <div class="card">
             <header class="card-header">
-                <h4 class="card-title">{{ 'Articles détail'|upper }}</h4>
-                {{ include('post/_delete_form.html.twig') }}
+                <h4 class="card-title">{{ 'Article détail'|upper }}</h4>
+                {{ include('admin/forum/post/_delete_form.html.twig') }}
             </header>
             <img class="card-img-top" src="{{ asset(post.assertPath) }}" alt="Card image cap">
             <div class="card-body">
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Id</th>
-                        <td>{{ post.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Title</th>
+                        <th>{{ 'Titre' }}</th>
                         <td>{{ post.title }}</td>
                     </tr>
                     <tr>
-                        <th>Content</th>
-                        <td>{{ post.content|raw}}</td>
-                    </tr>
-                    <tr>
-                        <th>Created</th>
-                        <td>{{ post.created ? post.created|date('Y-m-d H:i:s') : '' }}</td>
+                        <th>{{ 'Contenu' }}</th>
+                        <td>{{ post.content|striptags('<a><br><p>')|raw}}</td>
                     </tr>
                     <tr>
                         <th>Online</th>

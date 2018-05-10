@@ -19,6 +19,16 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    public function getPostLimited($int = null){
+         $qb = $this->createQueryBuilder('p');
+         $qb->where($qb->expr()->eq('p.online', 1));
+         $qb->orderBy('p.created', 'DESC');
+         if ($int !== null){
+              $qb->setMaxResults($int);
+         }
+         return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

@@ -140,17 +140,17 @@
                         <h2>{{ 'Actualités' }}</h2>
                     </div>
                     <div class="row">
-                        {% for i in 1..5 %}
+                        {% for post in posts %}
                             <div class="{{ (loop.index == 1) ? 'col-lg-8' : 'col-lg-4'}} mb-5">
                                 <div class="card shadow">
-                                    <a href="#"><img class="image_fade card-img" src="{{ asset('build/front/static/test.jpg')}}" alt="Image"></a>
-                                    <div class="card-header"><i class="icon-calendar3"></i> 10th Nov 2014</div>
+                                    <a href="{{ path('new_detail', {'slug': post.id  }) }}"><img class="image_fade card-img" src="{{ post.assertPath|imagine_filter('thumb_blog_500x280')  }}" alt="{{ post.title }}"></a>
+                                    <div class="card-header"><i class="icon-calendar3"></i>  {{ post.created|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y") }} </div>
                                     <div class="card-body {% if loop.index == 2 %} h-345 {% endif %}">
-                                        <h4 class="card-title">Card Title</h4>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, at, vitae, veritatis, temporibus soluta accusamus eum accusantium incidunt eius quisquam suscipit inventore neque. Distinctio, impedit.</p>
+                                        <h4 class="card-title">{{ post.title|truncate(24, '', '...')|upper }}</h4>
+                                        <p class="card-text">{{ post.content|striptags('<a>')|truncate(100, '', '...')|raw }}</p>
                                     </div>
                                     <div class="card-footer center border-color">
-                                        <a href="#" class="button button-rounded button-reveal button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'Lire l\'article' }}</span></a>
+                                        <a href="{{ path('new_detail', { 'slug': post.slug }) }}" class="button button-rounded button-reveal button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'Lire l\'article' }}</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="clear"></div>
                     <div class="center">
-                        <a href="#" class="button button-rounded button-reveal button-border button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'découvrez plus d\'articles'|upper }}</span></a>
+                        <a href="{{ path('page_new') }}" class="button button-rounded button-reveal button-border button-large button-amber"><i class="icon-plus-sign"></i><span>{{ 'découvrez plus d\'articles'|upper }}</span></a>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                     <div class="fancy-title title-dotted-border title-center">
                         <h3>{{ 'Les Acteurs clés de l\'écosystème financier'|upper }}</h3>
                     </div>
-                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="true" data-pagi="false" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
+                    <div id="oc-images2" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-loop="true" data-nav="true" data-pagi="true" data-autoplay="3000" data-items-xs="1" data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="3">
                         {% for intervenant in intervenants %}
                             <div class="card shadow">
                                 <img class="image_fade card-img" src="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" alt="Image">

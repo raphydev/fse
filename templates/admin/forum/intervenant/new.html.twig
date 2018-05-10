@@ -1,7 +1,7 @@
 {% extends 'admin/forum/forum_layout.html.twig' %}
 
 {% block title %} {{ 'Intervenant' }} {% endblock %}
-{% block forum_title %} {{ '| Intervenants'|upper }}{% endblock %}
+{% block forum_title %} {{ '| Intervenant'|upper }}{% endblock %}
 
 {% block forum_content %}
     <div class="col-12">
@@ -13,7 +13,7 @@
                 </a>
             </header>
             <div class="card-body center-vh">
-                {{ include('intervenant/_form.html.twig') }}
+                {{ include('admin/forum/intervenant/_form.html.twig') }}
             </div>
         </div>
     </div>

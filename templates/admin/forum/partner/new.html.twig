@@ -1,7 +1,7 @@
 {% extends 'admin/forum/forum_layout.html.twig' %}
 
-{% block title %} {{ 'Partenaires' }} {% endblock %}
-{% block forum_title %} {{ '| Partenaires'|upper }}{% endblock %}
+{% block title %} {{ 'Partenaire' }} {% endblock %}
+{% block forum_title %} {{ '| Partenaire'|upper }}{% endblock %}
 
 {% block forum_content %}
     <div class="col-12">
@@ -13,7 +13,7 @@
                 </a>
             </header>
             <div class="card-body center-vh">
-                {{ include('partner/_form.html.twig') }}
+                {{ include('admin/forum/partner/_form.html.twig') }}
             </div>
         </div>
     </div>

@@ -5,14 +5,14 @@
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="#" class="standard-logo" data-dark-logo="{{ asset('build/front/static/logo.png') }}"><img src="{{ asset('build/front/static/logo.png') }}" alt="La Finance S'engage"></a>
-                <a href="#" class="retina-logo" data-dark-logo="{{ asset('build/front/static/logo@2x.png') }}"><img src="{{ asset('build/front/static/logo@2x.png') }}" alt="La Finance S'engage"></a>
+                <a href="{{ path('homepage') }}" class="standard-logo" data-dark-logo="{{ asset('build/front/static/logo.png') }}"><img src="{{ asset('build/front/static/logo.png') }}" alt="La Finance S'engage"></a>
+                <a href="{{ path('homepage') }}" class="retina-logo" data-dark-logo="{{ asset('build/front/static/logo@2x.png') }}"><img src="{{ asset('build/front/static/logo@2x.png') }}" alt="La Finance S'engage"></a>
             </div><!-- #logo end -->
             <!-- Primary Navigation
             ============================================= -->
             <nav id="primary-menu" class="dark">
                 <ul>
-                    <li><a href=""><div>{{ 'A propos' }}</div></a>
+                    <li><a href="{{ path('homepage') }}"><div>{{ 'A propos' }}</div></a>
                         <ul>
                             <li><a href=""><div>{{ 'L\'initiative' }}</div></a></li>
                             <li><a href=""><div>{{ 'Les organisateurs' }}</div></a></li>
