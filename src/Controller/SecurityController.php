@@ -28,6 +28,13 @@ class SecurityController extends Controller
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
+        $checker = $this->get('security.authorization_checker');
+        if (TRUE === $checker->isGranted('ROLE_ADMIN')){
+            return $this->redirectToRoute('admin');
+        }
+        if (TRUE === $checker->isGranted('ROLE_USER')){
+            return $this->redirectToRoute('account');
+        }
         return $this->render('security/signin_page.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error
@@ -62,6 +69,7 @@ class SecurityController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $users->setRoles(['ROLE_USER']);
             $entityManager->persist($users);
             $entityManager->flush();
             $this->authenticateUser($users);

@@ -34,7 +34,7 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @Assert\Length(max=4096)
-     * @Assert\NotNull(message="Entrez un mot de passe")
+     * @Assert\NotNull(message="Entrez un mot de passe", groups={"registration"})
      */
     protected $plainPassword;
 
@@ -49,28 +49,28 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(name="email", type="string", unique=true, nullable=true)
-     * @Assert\NotNull(message="Entrez une adresse mail")
-     * @Assert\Email(message="Adresse Email nom Valide")
+     * @Assert\NotNull(message="Entrez une adresse mail", groups={"registration"})
+     * @Assert\Email(message="Adresse Email nom Valide", groups={"registration"})
      */
     protected $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Nom obligatoire")
+     * @Assert\NotBlank(message="Nom obligatoire", groups={"registration"})
      */
     protected $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true, name="lastname")
-     * @Assert\NotBlank(message="Prénom obligatoire")
+     * @Assert\NotBlank(message="Prénom obligatoire", groups={"registration"})
      */
     protected $lastname;
 
     /**
      * @var PhoneNumber
      * @ORM\Column(type="phone_number", nullable=true, length=35, unique=true, name="phone")
-     * @AssertPhoneNumber(type="mobile", message="Numero de téléphone incorrect")
-     * @Assert\NotBlank(message="Numero de téléphone obligatoire")
+     * @AssertPhoneNumber(type="mobile", message="Numero de téléphone incorrect",groups={"registration"})
+     * @Assert\NotBlank(message="Numero de téléphone obligatoire", groups={"registration"})
      */
     protected $phone;
 
@@ -84,6 +84,12 @@ class Users implements UserInterface, \Serializable
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $isActive;
+
+    /**
+     * @var array
+     * @ORM\Column(type="array", nullable=true)
+     */
+    protected $roles = [];
 
     /**
      * @var
@@ -240,15 +246,6 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
-     */
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-
-    /**
      * Returns the password used to authenticate the user.
      *
      * This should be the encoded password. On authentication, a plain-text
@@ -364,12 +361,45 @@ class Users implements UserInterface, \Serializable
         return $this->plainPassword;
     }
 
+
     /**
      * @param null|string $password
      */
     public function setPlainPassword(?string $password)
     {
         $this->plainPassword = $password;
+    }
+
+
+    /**
+     * @return array|bool|null
+     */
+    public function getRoles()
+    {
+        return array_unique(array_merge(['ROLE_USER'], $this->roles));
+    }
+
+    /**
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        return in_array(strtoupper($role), $this->getRoles(), true);
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+
+    public function resetRoles()
+    {
+        $this->roles = [];
     }
 
 }
