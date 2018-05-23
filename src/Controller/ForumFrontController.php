@@ -25,7 +25,7 @@ class ForumFrontController extends AbstractController
      * @Route("/initiative", methods={"GET"}, name="initiative")
      */
     public function initiativePage(){
-        //return $this->render('')
+        return $this->render('front/forum/initiative.html.twig');
     }
 
     /**

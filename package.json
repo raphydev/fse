@@ -16,25 +16,22 @@
         "@ckeditor/ckeditor5-paragraph": "^10.0.0",
         "@symfony/webpack-encore": "^0.17.0",
         "copy-webpack-plugin": "^4.5.1",
-        "extract-text-webpack-plugin": "^3.0.2",
         "jquery": "3.1.1",
-        "less": "^3.0.1",
+        "less": "^3.0.4",
         "less-loader": "^4.1.0",
-        "node-sass": "^4.8.3",
-        "popper.js": "^1.14.1",
-        "sass-loader": "^6.0.7",
+        "node-sass": "^4.9.0",
+        "popper": "^1.0.1",
+        "sass-loader": "7.0.1",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
         "dev-server": "encore dev-server",
-        "dev:first": "encore dev --config-name firstConfig --watch",
-        "dev:second": "encore dev --config-name secondConfig --watch",
+        "front": "encore dev --config-name firstConfig --watch",
+        "back": "encore dev --config-name secondConfig --watch",
+        "web": "encore dev --config-name webConfig --watch",
         "watch": "encore dev --watch",
         "build": "encore production"
-    },
-    "dependencies": {
-        "webpack-glob-entry": "^2.1.1"
     }
 }

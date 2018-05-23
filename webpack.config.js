@@ -28,8 +28,8 @@ Encore
     ]))
 ;
 
-const firstConfig = Encore.getWebpackConfig();
-firstConfig.name = 'firstConfig';
+const frontConfig = Encore.getWebpackConfig();
+frontConfig.name = 'frontConfig';
 
 Encore.reset();
 
@@ -104,7 +104,29 @@ Encore
         { from: './assets/back/static', to: 'static' }
     ]))
 ;
-const secondConfig = Encore.getWebpackConfig();
-secondConfig.name = 'secondConfig';
+const backConfig = Encore.getWebpackConfig();
+backConfig.name = 'backConfig';
 
-module.exports = [firstConfig, secondConfig];
+Encore.reset();
+
+Encore
+    .setOutputPath('public/build/web')
+    .setPublicPath('/build/web')
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
+    //.addEntry('js/script/editor', './assets/back/js/editor.js')
+    .addStyleEntry('css/components', './assets/web/sass/demos/index/components.scss')
+    .addStyleEntry('css/plugins', './assets/web/sass/demos/index/plugins.scss')
+    .addStyleEntry('css/themes', './assets/web/sass/core/themes/default.scss')
+    .enableSassLoader()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableSourceMaps(true)
+    .enableVersioning(Encore.isProduction())
+    .addPlugin(new CopyWebpackPlugin([
+        { from: './assets/web/static', to: 'static' }
+    ]))
+;
+const webConfig = Encore.getWebpackConfig();
+webConfig.name = 'webConfig';
+
+module.exports = [frontConfig, backConfig, webConfig];
