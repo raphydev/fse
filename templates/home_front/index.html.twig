@@ -6,7 +6,7 @@
     {{ include('front/includes/slide.html.twig') }}
 {% endblock %}
 {% block body %}
-    <!-- BEGIN: CONTENT/SLIDERS/TEAM-2 -->
+    <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
     <div class="c-content-box c-size-md c-bg-grey-1">
         <div class="container">
             <!-- Begin: Testimonals 1 component -->
@@ -45,7 +45,38 @@
             <!-- End-->
         </div>
     </div>
-    <!-- END: CONTENT/SLIDERS/TEAM-2 -->
+    <!-- END: CONTENT/SLIDERS/INTERVENANT-2 -->
+    <!-- START: CONTENT/PARTENAIRES -->
+    <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space">
+        <div class="container">
+            <div class="c-content-title-4">
+                <h3 class="c-font-uppercase c-center c-font-bold c-line-strike"><span class="c-bg-grey-1">{{ 'Nos partenaires & sponsors'|upper }}</span></h3>
+            </div>
+            {% for classification in classifications %}
+                <div class="c-content-title-2 c-padding-20">
+                    <h3 class="c-left c-theme-font">{{ classification.title|upper }}</h3>
+                    <div class="c-line c-dot c-dot-left c-bg-green c-bg-after-green"></div>
+                </div>
+                <div class="row">
+                    {% for partner in classification.partner %}
+                        <div class="col-md-3 col-sm-6 c-margin-b-20">
+                            <div class="c-content-product-2 c-bg-grey-1">
+                                <div class="c-content-overlay">
+                                    <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 200px; width: 300px; background-image: url({{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200')) }});"></div>
+                                </div>
+                                <div class="btn-group btn-group-justified" role="group">
+                                    <div class="btn-group c-border-top" role="group">
+                                        <a href="{% if partner.website %} {{ partner.website }} {% endif %}" target="_blank" class="btn btn-lg c-btn-grey-1 c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-green-2-hover c-btn-product"><i class="fa fa-2x fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/layout/assets/base/js/slide.js') }}" type="text/javascript"></script>
