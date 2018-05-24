@@ -7,40 +7,6 @@
 {% endblock %}
 {% block body %}
     <!-- BEGIN: CONTENT/ORGANISATEUR -->
-    <div class="c-content-box c-size-md c-bg-grey-1">
-	    <div class="container">
-            {% for organizer in organizers %}
-		        <div class="row">
-                    <div class="col-md-7">
-                            <div class="c-content-media-1 c-bordered wow animated fadeInLeft" style="min-height: 380px;">
-                                <div class="c-content-label c-font-uppercase c-font-bold c-theme-bg">Our Mission</div>
-                                <a href="#" class="c-title c-font-uppercase c-theme-on-hover c-font-bold">Take the web by storm with JANGO</a>
-                                <p>Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat</p>
-                                <div class="c-author">
-                                    <div class="c-portrait" style="background-image: url(../../assets/base/img/content/team/team16.jpg)"></div>
-                                    <div class="c-name c-font-uppercase">Jack Nilson</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="c-content-media-2-slider wow animated fadeInRight">
-                                <div class="c-content-label c-font-uppercase c-font-bold">Latest Projects</div>
-                                <div class="owl-carousel owl-theme c-theme owl-single" data-single-item="true" data-navigation-dots="true" data-auto-play="4000" data-rtl="false">
-                                    <div class="c-content-media-2 c-bg-img-center" style=" min-height: 380px; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');">
-                                        <div class="c-panel">
-                                            <div class="c-fav">
-                                                <i class="icon-heart c-font-thin"></i>
-                                                <p class="c-font-thin">16</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            {% endfor %}
-		</div>
-    </div>
     <!-- END: CONTENT/ORGANISATEUR -->
 
     <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
@@ -92,19 +58,21 @@
             </div>
             {% for classification in classifications %}
                 <div class="c-content-title-4 c-padding-20">
-                    <h3 class="c-font-uppercase c-center c-font-bold c-font-white c-line-strike"><span class="c-bg-green">{{ classification.title|upper }}</span></h3>
+                    <h3 class="c-font-uppercase c-center c-font-bold c-font-white c-line-strike">
+                        <span class="c-bg-green">{{ classification.title|upper }}</span>
+                    </h3>
                 </div>
                 <div class="row c-margin-b-50">
                     {% for partner in classification.partner %}
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow c-shadow">
                                 <div class="card-header">
-                                    <img class="card-img-top" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="Card image cap">
+                                    <img class="card-img-top" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}">
                                 </div>
                                 <div class="card-body">
                                     <div class="card-text c-center">
                                         <div class="btn-group c-border-top" role="group">
-                                            <a href="" target="_blank" class="btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product"><i class="fa fa-plus"></i></a>
+                                            <a href="{{ partner.website }}" target="_blank" class="btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product"><i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
