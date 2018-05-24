@@ -59,10 +59,10 @@
                 </div>
                 <div class="row">
                     {% for partner in classification.partner %}
-                        <div class="col-md-3 col-sm-6 c-margin-b-20">
+                        <div class="col-md-3 col-sm-6 c-margin-b-20 c-shadow">
                             <div class="c-content-product-2 c-bg-grey-1">
                                 <div class="c-content-overlay">
-                                    <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 200px; width: 300px; background-image: url({{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200')) }});"></div>
+                                    <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 200px; background-image: url({{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200')) }});"></div>
                                 </div>
                                 <div class="btn-group btn-group-justified" role="group">
                                     <div class="btn-group c-border-top" role="group">
