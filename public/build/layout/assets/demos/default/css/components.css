@@ -7311,7 +7311,7 @@ h1 {
 
 .c-content-panel {
   padding: 0;
-  border: 1px solid #f1f1f1;
+  /*border: 1px solid #f1f1f1;*/
   margin-bottom: 30px; }
   .c-content-panel .c-label {
     display: inline-block;

@@ -246,7 +246,83 @@
         </div>
     </div>
     <!-- BEGIN: CONTENT/ACTIVITE -->
-    
+
+    <!-- BEGIN: CONTENT/ACTUALITE -->
+    <div class="c-content-box c-size-md c-bg-img-center">
+        <div class="container">
+            <div class="c-content-title-1 wow animated fadeIn">
+                <h3 class="c-center c-font-uppercase c-font-bold">{{ 'actualités'|upper }}</h3>
+                <div class="c-line-center c-theme-bg"></div>
+                <div class="row">
+                    <div class="c-content-blog-post-card-1-grid">
+                        <div class="row">
+                            {% for post in posts %}
+                                <div class="{{ (loop.index == 1) ? 'col-md-8' : 'col-md-4'}}">
+                                    {% set filter = ((loop.index == 1) ? 'thumb_blog_730x430' : 'thumb_blog_500x280') %}
+                                    <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
+                                        <div class="c-media c-content-overlay">
+                                            <div class="c-overlay-wrapper">
+                                                <div class="c-overlay-content">
+                                                    <a href="{{ path('new_detail', {'slug': post.id  }) }}"><i class="icon-link"></i></a>
+                                                </div>
+                                            </div>
+                                            <img class="c-overlay-object img-responsive"  src="{{ post.assertPath|imagine_filter(filter) }}" alt="{{ post.title }}">
+                                        </div>
+                                        <div class="c-body {% if loop.index == 2 %} h-345 {% endif %}">
+                                            <div class="c-title c-font-bold c-font-uppercase">
+                                                <a href="#">{{ post.title|upper }}</a>
+                                            </div>
+                                            <div class="c-author">
+                                                Publié le: <span class="c-font-uppercase c-font-bold">{{ post.created|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y") }}</span>
+                                            </div>
+                                            <p>{{ post.content|striptags('<a>')|truncate(110, true, '...')|raw }}</p>
+                                            <div class="c-content-divider">
+                                                <i class="icon-dot"></i>
+                                            </div>
+                                            <div class="c-center">
+                                                <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'Lire l\'article' }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/ACTUALITE -->
+
+    <!-- START: CONTENT/VIDEO  -->
+    <div class="container c-padding-20">
+        <div class="c-content-title-2">
+             <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Engagements des acteurs financières 2017'}}</h3>
+             <div class="c-line-center c-theme-bg"></div>
+        </div>
+        <div class="c-content-divider c-divider-sm c-icon-bg">
+            <i class="icon-graph c-rounded c-theme-bg c-font-white"></i>
+        </div>
+    </div>
+    <!-- END: CONTENT/VIDEO -->
+
+    <!-- START: CONTENT/VIDEO -->
+    <div class="c-content-box c-size-md c-bg-img-center" style="background-image: url({{ asset('build/front/static/10.jpg') }}">
+        <div class="container">
+            <div class="c-content-panel">
+                <div class="c-body">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-2">
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="embed-responsive-item" width="1280" height="720" src="https://www.youtube.com/embed/p_tGJR0rE34" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/VIDEO-->
 
     <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
     <div class="c-content-box c-size-md c-bg-grey-1">
@@ -289,7 +365,7 @@
     </div>
     <!-- END: CONTENT/SLIDERS/INTERVENANT-2 -->
 
-    <!-- BEGIN: CONTENT/ISOTOPE/GRID-2 -->
+    <!-- BEGIN: CONTENT/PARTENAIRE -->
     <div class="c-content-box c-size-md c-bg-img-center">
         <div class="container">
             <div class="c-content-title-1">
@@ -323,7 +399,7 @@
             <div class="clear"></div>
         </div>
     </div>
-    <!-- END: CONTENT/ISOTOPE/GRID-2 -->
+    <!-- END: CONTENT/PARTENAIRE -->
 
 {% endblock %}
 {% block javascripts %}
