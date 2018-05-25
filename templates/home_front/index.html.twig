@@ -7,7 +7,246 @@
 {% endblock %}
 {% block body %}
     <!-- BEGIN: CONTENT/ORGANISATEUR -->
+    <div class="c-content-box c-size-md c-bg-white">
+        <div class="container">
+            <div class="c-content-box c-size-md">
+                <div class="container">
+                    <div class="c-content-title-1 wow animated fadeIn">
+                        <h3 class="c-center c-font-uppercase c-font-bold">{{ 'les organisateurs'|upper }}</h3>
+                        <div class="c-line-center c-theme-bg"></div>
+                    </div>
+                </div>
+            </div>
+            {% for organizer in organizers %}
+                {% if loop.first %}
+                    <div class="c-content-box c-overflow-hide">
+                        <div class="c-content-product-3 c-bs-grid-reset-space">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="c-content-overlay">
+                                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 350px; width: 95%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="c-wrapper c-bg-green-1" style="height: 350px;">
+                                        <div class="c-content c-border c-border-padding c-border-padding-right">
+                                            <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
+                                            <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
+                                            <a href="{{ organizer.website }}" target="_blank" class="btn btn-lg c-btn-white c-font-uppercase c-btn-square c-btn-border-1x">{{ 'en savoir plus'|upper }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="c-content-box c-size-lg c-no-padding c-overflow-hide c-bg-white">
+                        <div class="c-content-product-3 c-bs-grid-reset-space">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="c-wrapper c-theme-bg" style="height: 350px;">
+                                        <div class="c-content c-border c-border-padding c-border-padding-left">
+                                            <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
+                                            <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
+                                            <a href="{{ organizer.website }}" target="_blank" class="btn btn-lg c-btn-white c-font-uppercase c-btn-square c-btn-border-1x">{{ 'en savoir plus'|upper }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="c-content-overlay">
+                                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 350px; width: 95%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
     <!-- END: CONTENT/ORGANISATEUR -->
+
+    <!-- BEGIN: CONTENT/ACTIVITE -->
+    <div class="c-content-box c-size-md c-bg-grey-1">
+        <div class="c-content-tile-grid c-bs-grid-reset-space" data-auto-height="true">
+            <div class="c-content-title-1 wow animate fadeInDown">
+                <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Nos activités' }}</h3>
+                <div class="c-line-center"></div>
+            </div>
+            <div class="row row wow animate fadeInUp">
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-left c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/17.jpg') }})"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'les pme s\'engage'|upper }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-left c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/18.jpg') }})"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'éducation financière'|upper }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'les award du financement'|upper }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-right c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/19.jpg') }})"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'la bourse aux projets' }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-right c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/20.jpg') }})"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-left c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/21.jpg') }})"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'donnée pour la croissance' }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="c-content-tile-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-arrow-left c-content-overlay">
+                                    <div class="c-overlay-wrapper">
+                                        <div class="c-overlay-content">
+                                            <a href="#"><i class="icon-link"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/22.jpg') }})"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="c-tile-content c-bg-white c-content-v-center" data-height="height">
+                                    <div class="c-wrapper">
+                                        <div class="c-body c-center">
+                                            <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
+                                                {{ 'actualités économique & financière'|upper }}
+                                            </h3>
+                                            <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN: CONTENT/ACTIVITE -->
+    
 
     <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
     <div class="c-content-box c-size-md c-bg-grey-1">
@@ -83,7 +322,8 @@
             {% endfor %}
             <div class="clear"></div>
         </div>
-    </div><!-- END: CONTENT/ISOTOPE/GRID-2 -->
+    </div>
+    <!-- END: CONTENT/ISOTOPE/GRID-2 -->
 
 {% endblock %}
 {% block javascripts %}
