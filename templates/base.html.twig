@@ -41,8 +41,8 @@
     {% block stylesheets %}{% endblock %}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-<body class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-fullscreen c-layout-header-topbar c-layout-header-topbar-collapse">
-{{ include('front/includes/nav.html.twig') }}
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed {% block class_header %}{% endblock %}">
+{% block base_nav %}{% endblock %}
 <!-- BEGIN: PAGE CONTAINER -->
 <div class="c-layout-page">
     <!-- BEGIN: PAGE CONTENT -->

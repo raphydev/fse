@@ -1,49 +1,280 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'L\'initiative du forum' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
-    <!-- Page Title
-    ============================================= -->
-    <section id="page-title" class="page-title-mini">
-        <div class="container clearfix">
-            <h1>{{ 'L\'initiative'|upper }}</h1>
-            <span>{{ 'une initiative privée pour le financement des PME' }}</span>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ path('homepage') }}">{{ 'Accueil' }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ 'Initiative' }}</li>
-            </ol>
+    <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-sbold">{{ 'L\'initiative' }}</h3>
+            </div>
+            <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+                <li><a href="{{ path('homepage') }}">{{ 'Accueil' }}</a></li>
+                <li>/</li>
+                <li><a href="{{ path('initiative') }}">{{ 'initiative' }}</a></li>
+            </ul>
         </div>
-    </section><!-- #page-title end -->
-    <section id="content">
-        <div class="content-wrap">
-            <div class="container clearfix">
-                <div class="col_full">
-                    <div class="heading-block center nobottomborder">
-                        <h2>{{ 'une initiative privée pour le financement des PME' }}</h2>
-                        <span>Nous offrons des solutions concrètes au financement de l’économie ivoirienne</span>
+    </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    <div class="c-content-box c-overflow-hide c-bg-grey">
+        <div class="c-content-product-3 c-bs-grid-reset-space">
+            <div class="row">
+                <div class="col-md-8 col-sm-6">
+                    <div class="c-content-overlay">
+                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 550px; background-image: url({{ asset('build/web/static/banner_init.jpg') }});"></div>
                     </div>
-                    <div class="fslider" data-pagi="false" data-animation="fade">
-                        <div class="flexslider">
-                            <div class="slider-wrap">
-                                <div class="slide"><a href="#"><img src="{{ asset('build/front/static/10.jpg')}}" alt="About Image"></a></div>
-                                <div class="slide"><a href="#"><img src="{{ asset('build/front/static/17.jpg')}}" alt="About Image"></a></div>
-                                <div class="slide"><a href="#"><img src="{{ asset('build/front/static/home_bg.jpg')}}" alt="About Image"></a></div>
-                                <div class="slide"><a href="#"><img src="{{ asset('build/front/static/19.jpg')}}" alt="About Image"></a></div>
-                            </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="c-content-media-1-slider" data-slider="owl">
+                        <div class="owl-carousel owl-theme c-theme owl-single" data-single-item="true" data-auto-play="8000" data-rtl="false">
+                            {% for i in 1..5 %}
+                                <div class="item">
+                                    <div class="c-wrapper c-bg-green-1" style="height: 550px;">
+                                        <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
+                                            <div class="c-media c-content-overlay">
+                                                <div class="c-overlay-wrapper">
+                                                    <div class="c-overlay-content">
+                                                        <a href=""><i class="icon-link"></i></a>
+                                                    </div>
+                                                </div>
+                                                <img class="c-overlay-object img-responsive"  src="http://via.placeholder.com/500x380?text=encare-pub" alt="">
+                                            </div>
+                                            <div class="c-body" style="height: 550px;">
+                                                <p>&nbsp;</p>
+                                                <div class="c-center">
+                                                    <a href="" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus d\'informations'|upper }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
-                    </div>
-                    <div class="heading-block center nobottomborder mt-20">
-                        <h3>{{ 'ils ont pris des engagements'|upper }}</h3>
-                    </div>
-                    <div class="heading-block fancy-title title-dotted-border title-center">
-                        <h3>{{ '3 avantages clés'|upper }}</h3>
-                    </div>
-                    <div class="heading-block fancy-title title-dotted-border title-center">
-                        <h3>{{ 'Notre ADN'|upper }}</h3>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <!-- BEGIN: CONTENT/MISC/WHY-CHOOSE-US-1 -->
+    <div class="c-content-box c-size-lg c-bg-grey-1">
+        <div class="container">
+            <div class="c-margin-b-50">
+                <div class="c-content-title-2">
+                    <h3 class="c-center c-font-uppercase c-font-bold">{{ '3 avantages clés'}}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <div class="c-content-divider c-divider-sm c-icon-bg c-margin-b-20">
+                    <i class="icon-graph c-rounded c-theme-bg c-font-white"></i>
+                </div>
+            </div>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="c-content-feature-5 wow animate fadeInLeft">
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="embed-responsive-item" width="1280" height="720" src="https://www.youtube.com/embed/p_tGJR0rE34" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="c-content-accordion-1 c-theme wow animate fadeInRight">
+                            <div class="panel-group" id="accordion" role="tablist">
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a class="c-font-bold c-font-uppercase c-font-19" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                {{ 'engagement' }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body c-font-18">
+                                            {{ 'Participer à un évènement qui permet de valoriser votre engagement en faveur du financement du secteur privé. vous associer à un évènement qui vous donne accès à des études exclusives et récentes pour poser des actes concrets et réalistes pour le développement du secteur privé dans notre pays' }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed c-font-uppercase c-font-bold c-font-19" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                {{ 'Visibilité' }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body c-font-18">
+                                            {{ 'Vous lier à la réalisation d\'un événement fédérateur auprès du grand public comme des professionnels (secteur privé et public) en particulier les PME. Accéder à des médias à très large diffusion qui porteront vos messages.' }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="headingThree">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed c-font-uppercase c-font-bold c-font-19" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                {{ 'Implication' }}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body c-font-18">
+                                            {{ 'Intégrer un réseau inédit de contacts institutionnels, financiers et entrepreneurials qui impacteront positivement votre business. Capitaliser sur des opportunités de développement de business avec à la fois le secteur privé et le secteur public.' }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/MISC/WHY-CHOOSE-US-1 -->
+
+    <!-- START: CONTENT/ADN-1 -->
+    <div class="c-content-box c-size-lg">
+        <div class="container">
+            <div class="c-margin-b-20">
+                <div class="c-content-title-1">
+                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Notre adn'}}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/ADN -->
+
+    <!-- START: CONTENT/ADN -->
+    <div class="c-content-box c-size-md c-no-padding c-bg-white">
+        <div class="c-content-feature-4">
+            <div class="c-bg-parallax c-feature-bg c-content-right c-arrow c-border-left-white" style="background-image: url({{asset('build/web/static/bg_initiative.jpg') }})"></div>
+            <div class="c-content-area c-content-left"></div>
+            <div class="container">
+                <div class="c-feature-content c-left">
+                    <div class="c-content-v-center">
+                        <div class="c-wrapper">
+                            <div class="c-body">
+                                <div class="c-content-title-1 wow animate fadeInDown">
+                                    <h3 class="c-font-uppercase c-font-bold c-left">{{ 'Innovation' }}</h3>
+                                    <div class="c-line-left"></div>
+                                </div>
+                                <div class="c-content">
+                                    <p class="c-margin-b-30 c-left wow animate fadeInDown">
+                                        {{ 'Être partie prenante d’un projet novateur qui rompt avec les habitudes à travers des actes concrets, suivis, évalués et récompensés. Etre membre d’une plateforme qui rassemble pour la première fois TOUS les acteurs impliqués dans le développement économique: l\'écosystème financier mais aussi les PME.' }}
+                                    </p>
+                                    <a href="" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'rejoignez-nous'|upper }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-content-box c-size-md c-no-padding c-bg-dark">
+        <div class="c-content-feature-4">
+            <div class="c-bg-parallax c-feature-bg c-content-left c-arrow c-border-right-dark" style="background-image: url({{asset('build/web/static/bg_initiative.jpg') }})"></div>
+            <div class="c-content-area c-content-right"></div>
+            <div class="container">
+                <div class="c-feature-content c-right">
+                    <div class="c-content-v-center">
+                        <div class="c-wrapper">
+                            <div class="c-body">
+                                <div class="c-content-title-1 wow animate fadeInDown">
+                                    <h3 class="c-font-uppercase c-font-bold c-right c-font-white">{{ 'Avenir' }}</h3>
+                                    <div class="c-line-right"></div>
+                                </div>
+                                <div class="c-content">
+                                    <p class="c-margin-b-30 c-right c-font-white wow animate fadeInDown">
+                                        {{ 'Apporter sa pierre à la construction d’une économie prospère. Multiplier les opportunités d’affaires tant en direction des professionnels que des clients finaux.' }}
+                                    </p>
+                                    <a href="" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'contactez-nous'|upper }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-content-box c-size-md c-no-padding c-bg-white">
+        <div class="c-content-feature-4">
+            <div class="c-bg-parallax c-feature-bg c-content-right c-arrow c-border-left-white" style="background-image: url({{asset('build/web/static/bg_initiative.jpg') }})"></div>
+            <div class="c-content-area c-content-left"></div>
+            <div class="container">
+                <div class="c-feature-content c-left">
+                    <div class="c-content-v-center">
+                        <div class="c-wrapper">
+                            <div class="c-body">
+                                <div class="c-content-title-1 wow animate fadeInDown">
+                                    <h3 class="c-font-uppercase c-font-bold c-left">{{ 'Unicité' }}</h3>
+                                    <div class="c-line-left"></div>
+                                </div>
+                                <div class="c-content">
+                                    <p class="c-margin-b-30 c-left wow animate fadeInDown">
+                                        {{ 'Plus que quelques actions ponctuelles, s\'inscrire dans un processus évolutif qui produit des fruits reconnus et récompensés. Écrire de nouvelles pages qui obligent à l\'amélioration continue, en sortant des sentiers battus.' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/ADN-->
+
+    <!-- BEGIN: CONTENT/ACTUALITE -->
+    <div class="c-content-box c-size-md c-bg-img-center">
+        <div class="container">
+            <div class="c-content-title-1 wow animated fadeIn">
+                <h3 class="c-center c-font-uppercase c-font-bold">{{ 'actualités'|upper }}</h3>
+                <div class="c-line-center c-theme-bg"></div>
+                <div class="row">
+                    <div class="c-content-blog-post-card-1-grid">
+                        <div class="row">
+                            {% for post in posts %}
+                                <div class="{{ (loop.index == 1) ? 'col-md-8' : 'col-md-4'}}">
+                                    {% set filter = ((loop.index == 1) ? 'thumb_blog_730x430' : 'thumb_blog_500x280') %}
+                                    <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
+                                        <div class="c-media c-content-overlay">
+                                            <div class="c-overlay-wrapper">
+                                                <div class="c-overlay-content">
+                                                    <a href="{{ path('new_detail', {'slug': post.id  }) }}"><i class="icon-link"></i></a>
+                                                </div>
+                                            </div>
+                                            <img class="c-overlay-object img-responsive"  src="{{ post.assertPath|imagine_filter(filter) }}" alt="{{ post.title }}">
+                                        </div>
+                                        <div class="c-body {% if loop.index == 2 %} h-345 {% endif %}">
+                                            <div class="c-title c-font-bold c-font-uppercase">
+                                                <a href="#">{{ post.title|upper }}</a>
+                                            </div>
+                                            <div class="c-author">
+                                                Publié le: <span class="c-font-uppercase c-font-bold">{{ post.created|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y") }}</span>
+                                            </div>
+                                            <p>{{ post.content|striptags('<a>')|truncate(110, true, '...')|raw }}</p>
+                                            <div class="c-content-divider">
+                                                <i class="icon-dot"></i>
+                                            </div>
+                                            <div class="c-center">
+                                                <a href="{{ path('new_detail', {'slug': post.id  }) }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'Lire l\'article' }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="c-center">
+                    <a href="" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'plus d\'actualités'|upper }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/ACTUALITE -->
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/layout/assets/demos/default/js/scripts/revo-slider/slider-5.js') }}" type="text/javascript"></script>
 {% endblock %}
 
 

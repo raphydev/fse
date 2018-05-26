@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Post;
+use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,11 +22,39 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ForumFrontController extends AbstractController
 {
+
+    /**
+     * @var PostRepository
+     */
+    private $postRepository;
+    /**
+     * @var OrganizerRepository
+     */
+    private $organizerRepository;
+
+    public function __construct(PostRepository $postRepository, OrganizerRepository $organizerRepository )
+    {
+        $this->postRepository = $postRepository;
+        $this->organizerRepository = $organizerRepository;
+    }
+
     /**
      * @Route("/initiative", methods={"GET"}, name="initiative")
      */
     public function initiativePage(){
-        return $this->render('front/forum/initiative.html.twig');
+        return $this->render('front/forum/initiative.html.twig',[
+            'posts' => $this->postRepository->getPostLimited(5)
+        ]);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/organizer", methods={"GET"}, name="organizer")
+     */
+    public function organiserPage(){
+        return $this->render('front/forum/organizer.html.twig',[
+            'organizers' => $this->organizerRepository->findAll()
+        ]);
     }
 
     /**

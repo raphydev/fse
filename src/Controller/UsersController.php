@@ -19,7 +19,7 @@ class UsersController extends Controller
     /**
      * @Route("/", name="users_index", methods="GET", schemes={"%secure_channel%"})
      * @param UsersRepository $usersRepository
-     * @Security("has_role('ROLE_SUPER_ADMIN')")
+     * @Security("has_role('ROLE_ADMIN')")
      * @return Response
      */
     public function index(UsersRepository $usersRepository): Response
