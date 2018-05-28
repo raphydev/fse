@@ -2,6 +2,7 @@
 {% block title %}{{ 'L\'initiative du forum' }}{% endblock %}
 {% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
+    <!-- START: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
     <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold">
         <div class="container">
             <div class="c-page-title c-pull-left">
@@ -13,7 +14,9 @@
                 <li><a href="{{ path('initiative') }}">{{ 'initiative' }}</a></li>
             </ul>
         </div>
-    </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    </div>
+    <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    <!-- BEGIN: SLIDE PARTENAIRE OR PUB -->
     <div class="c-content-box c-overflow-hide c-bg-grey">
         <div class="c-content-product-3 c-bs-grid-reset-space">
             <div class="row">
@@ -53,7 +56,9 @@
             </div>
         </div>
     </div>
-    <!-- BEGIN: CONTENT/MISC/WHY-CHOOSE-US-1 -->
+    <!-- END: SLIDE PARTNAIRE OR PUB -->
+
+    <!-- BEGIN: ADVANTAGE -->
     <div class="c-content-box c-size-lg c-bg-grey-1">
         <div class="container">
             <div class="c-margin-b-50">
@@ -126,7 +131,7 @@
             </div>
         </div>
     </div>
-    <!-- END: CONTENT/MISC/WHY-CHOOSE-US-1 -->
+    <!-- END: ADVANTAGE -->
 
     <!-- START: CONTENT/ADN-1 -->
     <div class="c-content-box c-size-lg">
@@ -212,6 +217,7 @@
                                     <p class="c-margin-b-30 c-left wow animate fadeInDown">
                                         {{ 'Plus que quelques actions ponctuelles, s\'inscrire dans un processus évolutif qui produit des fruits reconnus et récompensés. Écrire de nouvelles pages qui obligent à l\'amélioration continue, en sortant des sentiers battus.' }}
                                     </p>
+                                    <a href="" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'Avoir plus d\'informations'|upper }}</a>
                                 </div>
                             </div>
                         </div>
