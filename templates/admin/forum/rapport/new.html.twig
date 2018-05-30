@@ -1,0 +1,18 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+{% block title %} {{ 'Rapport de croissance' }} {% endblock %}
+{% block forum_title %} {{ '| Rapport des données de croissances'|upper }}{% endblock %}
+{% block forum_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér un nouveau rapport'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('rapport_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/forum/rapport/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

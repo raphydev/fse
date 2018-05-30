@@ -27,5 +27,12 @@ vich_uploader:
             upload_destination: '%kernel.project_dir%/public/images/post'
             inject_on_load: false
             delete_on_update: true
-            delete_on_remove: trueŒ
+            delete_on_remove: true
+            namer: vich_uploader.namer_uniqid
+        rapport_image:
+            uri_prefix: /images/rapport
+            upload_destination: '%kernel.project_dir%/public/images/rapport'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
             namer: vich_uploader.namer_uniqid

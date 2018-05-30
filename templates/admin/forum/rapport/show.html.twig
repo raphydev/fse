@@ -1,0 +1,46 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+{% block title %} {{ 'Rapport de données de croissances' }} {% endblock %}
+{% block forum_title %} {{ '| Rapport'|upper }}{% endblock %}
+{% block forum_content %}
+<div class="col-6">
+    <div class="card">
+        <header class="card-header">
+            <h4 class="card-title">{{ 'Rapport détail'|upper }}</h4>
+            {{ include('admin/forum/rapport/_delete_form.html.twig') }}
+        </header>
+        <img class="card-img-top" src="{{ asset(rapport.assertPath) }}" alt="Card image cap">
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>{{ 'Titre du rapport' }}</th>
+                    <td>{{ rapport.title }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'Date de creation' }}</th>
+                    <td>{{ rapport.created ? rapport.created|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'Resumé du rapport' }}</th>
+                    <td>{{ rapport.content|raw }}</td>
+                </tr>
+                <tr>
+                    <th>Document</th>
+                    <td>{{ rapport.docLink|raw }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-label btn-dark" href="{{ path('rapport_index') }}">
+            <label><i class="ti-arrow-left"></i></label>
+            {{ 'Retour à la liste'}}
+        </a>
+        <a class="btn btn-label btn-danger" href="{{ path('rapport_edit', {'id': rapport.id}) }}">
+            <label><i class="ti-pencil-alt"></i></label>
+            {{ 'Modifier' }}
+        </a>
+    </div>
+    </div>
+</div>
+{% endblock %}
