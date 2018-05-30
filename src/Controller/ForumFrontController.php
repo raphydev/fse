@@ -51,7 +51,7 @@ class ForumFrontController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/organizer", methods={"GET"}, name="organizer")
      */
-    public function organiserPage(){
+    public function organizorPage(){
         return $this->render('front/forum/organizer.html.twig',[
             'organizers' => $this->organizerRepository->findAll()
         ]);

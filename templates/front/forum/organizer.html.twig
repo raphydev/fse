@@ -1,6 +1,61 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ 'L\'initiative du forum' }}{% endblock %}
+{% block title %}{{ 'Les organisateurs du forum' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
+    <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+    <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_organisateur.jpg') }})">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'Organisateurs' }}</h3>
+            </div>
+            <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+                <li><a href="{{ path('homepage') }}" class="c-font-white">{{ 'Accueil' }}</a></li>
+                <li class="c-font-white">/</li>
+                <li><a href="{{ app.request.attributes.get('_route') }}" class="c-font-white">{{ 'organisateurs' }}</a></li>
+            </ul>
+        </div>
+    </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+    <div class="c-content-box c-size-lg c-bg-grey-1">
+        <div class="container">
+            <div class="c-margin-b-50">
+                <div class="c-content-title-1">
+                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Les organisateurs du Forum'}}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <div class="row c-margin-t-50">
+                    <div class="c-content-blog-post-card-1-grid">
+                        <div class="row">
+                            {% if organizers|length > 0 %}
+                                {% for organizer in organizers %}
+                                    <div class="col-md-6">
+                                        <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
+                                            <div class="c-media c-content-overlay">
+                                                <div class="c-overlay-wrapper">
+                                                    <div class="c-overlay-content">
+                                                        <a href="{{ organizer.website }}" title="{{ organizer.name }}" target="_blank"><i class="icon-link"></i></a>
+                                                    </div>
+                                                </div>
+                                                <img class="c-overlay-object img-responsive"  src="{{ organizer.assertPath|imagine_filter('thumb_medium') }}" alt="{{ organizer.name }}">
+                                            </div>
+                                            <div class="c-body">
 
+                                                <div class="c-content-divider c-icon-bg">
+                                                    <i class="icon-drop c-rounded c-font-white"></i>
+                                                </div>
+                                                <p>{{ organizer.content|truncate(600, false, '...')|raw }}</p>
+                                                <div class="c-center">
+                                                    <a href="{{ organizer.website }}" title="{{ organizer.name }}" target="_blank" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus de détail' }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
