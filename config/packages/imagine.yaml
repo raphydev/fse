@@ -159,3 +159,11 @@ liip_imagine:
                     size:          [730, 430]
                     mode:          outbound
                     allow_upscale: true
+        thumb_auto:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                relative_resize:
+                    widen: 620

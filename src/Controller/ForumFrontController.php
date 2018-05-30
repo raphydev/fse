@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Repository\ClassificationRepository;
+use App\Repository\IntervenantRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,6 +68,18 @@ class ForumFrontController extends AbstractController
     {
         return $this->render('front/forum/partner.html.twig',[
             'classifications'   => $classificationRepository->findAllByPosition()
+        ]);
+    }
+
+    /**
+     * @param IntervenantRepository $intervenantRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
+     */
+    public function intervenantPage(IntervenantRepository $intervenantRepository)
+    {
+        return $this->render('front/forum/intervenant.html.twig',[
+            'intervenants' => $intervenantRepository->findAll()
         ]);
     }
 

@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ 'Les organisateurs du forum' }}{% endblock %}
+{% block title %}{{ 'Les partnenaires du forum' }}{% endblock %}
 {% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
 <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
@@ -12,7 +12,7 @@
         <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
             <li><a href="{{ path('homepage') }}" class="c-font-white">{{ 'Accueil' }}</a></li>
             <li class="c-font-white">/</li>
-            <li><a href="{{ app.request.attributes.get('_route') }}" class="c-font-white">{{ 'Partenaires' }}</a></li>
+            <li class="c-font-white">{{ 'Partenaires' }}</li>
         </ul>
     </div>
 </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
