@@ -22,7 +22,7 @@
                     <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Les organisateurs du Forum'}}</h3>
                     <div class="c-line-center c-theme-bg"></div>
                 </div>
-                <div class="row c-margin-t-50">
+                <div class="row">
                     <div class="c-content-blog-post-card-1-grid">
                         <div class="row">
                             {% if organizers|length > 0 %}
@@ -38,11 +38,10 @@
                                                 <img class="c-overlay-object img-responsive"  src="{{ organizer.assertPath|imagine_filter('thumb_medium') }}" alt="{{ organizer.name }}">
                                             </div>
                                             <div class="c-body">
-
                                                 <div class="c-content-divider c-icon-bg">
                                                     <i class="icon-drop c-rounded c-font-white"></i>
                                                 </div>
-                                                <p>{{ organizer.content|truncate(600, false, '...')|raw }}</p>
+                                                <p>{{ organizer.content|striptags('<a>')|truncate(600, false, '...')|raw }}</p>
                                                 <div class="c-center">
                                                     <a href="{{ organizer.website }}" title="{{ organizer.name }}" target="_blank" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus de détail' }}</a>
                                                 </div>
@@ -52,6 +51,7 @@
                                 {% endfor %}
                             {% endif %}
                         </div>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
