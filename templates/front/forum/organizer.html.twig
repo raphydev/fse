@@ -5,23 +5,20 @@
     <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
     <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_organisateur.jpg') }})">
         <div class="container">
-            <div class="c-page-title c-pull-left">
-                <h3 class="c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'Organisateurs' }}</h3>
+            <div class="c-page-title c-pull-left c-content-title-1">
+                <h3 class="c-left c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'LES ORGANISATEURS du forum' }}</h3>
+                <div class="c-line-left c-theme-bg"></div>
             </div>
             <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
                 <li><a href="{{ path('homepage') }}" class="c-font-white">{{ 'Accueil' }}</a></li>
                 <li class="c-font-white">/</li>
-                <li><a href="{{ app.request.attributes.get('_route') }}" class="c-font-white">{{ 'organisateurs' }}</a></li>
+                <li><a href="{{ app.request.attributes.get('_route') }}" class="c-font-white">{{ 'Organisateurs' }}</a></li>
             </ul>
         </div>
     </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
     <div class="c-content-box c-size-lg c-bg-grey-1">
         <div class="container">
             <div class="c-margin-b-50">
-                <div class="c-content-title-1">
-                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Les organisateurs du Forum'}}</h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                </div>
                 <div class="row">
                     <div class="c-content-blog-post-card-1-grid">
                         <div class="row">

@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Post;
+use App\Repository\ClassificationRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,6 +55,18 @@ class ForumFrontController extends AbstractController
     public function organizorPage(){
         return $this->render('front/forum/organizer.html.twig',[
             'organizers' => $this->organizerRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @param ClassificationRepository $classificationRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/partners", name="partner_page", methods={"GET"}, schemes={"%secure_channel%"})
+     */
+    public function partnerPage(ClassificationRepository $classificationRepository)
+    {
+        return $this->render('front/forum/partner.html.twig',[
+            'classifications'   => $classificationRepository->findAllByPosition()
         ]);
     }
 
