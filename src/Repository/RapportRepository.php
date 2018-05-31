@@ -19,6 +19,17 @@ class RapportRepository extends ServiceEntityRepository
         parent::__construct($registry, Rapport::class);
     }
 
+    public function getOtherRapportWithoutThis($tabId = array(), $offset = 0, $limit = 3)
+    {
+        $qb = $this->createQueryBuilder('r');
+        $qb->where($qb->expr()->notIn('r.id', ':tabId'));
+        $qb->orderBy('r.id', 'ASC');
+        $qb->setFirstResult($offset);
+        $qb->setMaxResults($limit);
+        $qb->setParameter('tabId', $tabId);
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Rapport[] Returns an array of Rapport objects
 //     */

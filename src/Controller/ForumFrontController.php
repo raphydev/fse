@@ -10,10 +10,12 @@ namespace App\Controller;
 
 
 use App\Entity\Post;
+use App\Entity\Rapport;
 use App\Repository\ClassificationRepository;
 use App\Repository\IntervenantRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
+use App\Repository\RapportRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -80,6 +82,32 @@ class ForumFrontController extends AbstractController
     {
         return $this->render('front/forum/intervenant.html.twig',[
             'intervenants' => $intervenantRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @param RapportRepository $rapportRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/rapports", name="rapport_page", methods={"GET"}, schemes={"%secure_channel%"} )
+     */
+    public function rapportPage(RapportRepository $rapportRepository)
+    {
+        return $this->render('front/forum/rapport.html.twig',[
+            'rapports' => $rapportRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/rapport/{slug}", name="rapport_detail", methods={"GET"}, schemes={"%secure_channel%"})
+     * @param Rapport $rapport
+     * @param RapportRepository $rapportRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function rapportDetail(Rapport $rapport , RapportRepository $rapportRepository)
+    {
+        return $this->render('front/forum/rapport_detail.html.twig',[
+            'rapport' => $rapport,
+            'rapports' => $rapportRepository->getOtherRapportWithoutThis([$rapport])
         ]);
     }
 

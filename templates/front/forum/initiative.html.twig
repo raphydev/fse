@@ -16,47 +16,34 @@
         </div>
     </div>
     <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
-    <!-- BEGIN: SLIDE PARTENAIRE OR PUB -->
-    <div class="c-content-box c-overflow-hide c-bg-grey">
-        <div class="c-content-product-3 c-bs-grid-reset-space">
-            <div class="row">
-                <div class="col-md-8 col-sm-6">
-                    <div class="c-content-overlay">
-                        <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 550px; background-image: url({{ asset('build/web/static/banner_init.jpg') }});"></div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="c-content-media-1-slider" data-slider="owl">
-                        <div class="owl-carousel owl-theme c-theme owl-single" data-single-item="true" data-auto-play="8000" data-rtl="false">
-                            {% for i in 1..5 %}
-                                <div class="item">
-                                    <div class="c-wrapper c-bg-green-1" style="height: 550px;">
-                                        <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
-                                            <div class="c-media c-content-overlay">
-                                                <div class="c-overlay-wrapper">
-                                                    <div class="c-overlay-content">
-                                                        <a href=""><i class="icon-link"></i></a>
-                                                    </div>
-                                                </div>
-                                                <img class="c-overlay-object img-responsive"  src="http://via.placeholder.com/500x380?text=encare-pub" alt="">
-                                            </div>
-                                            <div class="c-body" style="height: 550px;">
-                                                <p>&nbsp;</p>
-                                                <div class="c-center">
-                                                    <a href="" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus d\'informations'|upper }}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+    <!-- BEGIN: BANNER INITIATIVE CONTENT -->
+    <div class="c-content-box c-size-md c-no-padding c-bg-green-1">
+        <div class="c-content-feature-4">
+            <div class="c-bg-parallax c-feature-bg c-content-right c-diagonal c-border-left-green-1" data-height="height" style="height: 550px; background-image: url({{ asset('build/web/static/banner_init.jpg') }});"></div>
+            <div class="c-content-area c-content-left"></div>
+            <div class="container">
+                <div class="c-feature-content c-left">
+                    <div class="c-content-v-center">
+                        <div class="c-wrapper">
+                            <div class="c-body">
+                                <div class="c-content-title-1 wow animate fadeInDown">
+                                    <h3 class="c-font-uppercase c-font-white c-font-bold c-left">{{'                      Une initiative privée pour le financement des PME' }}</h3>
+                                    <div class="c-line-left"></div>
+                                    <p class="c-left">{{ '' }}</p>
                                 </div>
-                            {% endfor %}
+                                <div class="c-content">
+                                    <p class="c-margin-b-30 c-left c-font-white wow animate fadeInDown">Conçu par ESPartners et porté par le Patronat ivoirien et plus particulièrement avec la création de la Commission de Financement du Secteur Privé de la CGECI en partenariat avec la Banque Africaine de Développement dans le but de mobiliser le secteur privé pour offrir des solutions concrètes au financement de l’économie ivoirienne</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- END: SLIDE PARTNAIRE OR PUB -->
+    <!-- END: BANNER INITIATIVE CONTENT -->
 
     <!-- BEGIN: ADVANTAGE -->
     <div class="c-content-box c-size-lg c-bg-grey-1">

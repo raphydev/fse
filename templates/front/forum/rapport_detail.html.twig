@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'Les données de la croissances' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
+{% block body %}
+<!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+<div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_partner.jpg') }})">
+    <div class="container">
+        <div class="c-page-title c-pull-left c-content-title-1">
+            <h3 class="c-left c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'Les données de la croissance' }}</h3>
+            <div class="c-line-left c-theme-bg"></div>
+        </div>
+        <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+            <li><a href="{{ path('homepage') }}" class="c-font-white">{{ 'Accueil' }}</a></li>
+            <li class="c-font-white">/</li>
+            <li class="c-font-white">{{ 'Données de croissance' }}</li>
+        </ul>
+    </div>
+</div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+    <!-- BEGIN: BLOG LISTING -->
+    <div class="c-content-box c-size-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-2">
+                    <div class="c-content-blog-post-1-view">
+                        <div class="c-content-blog-post-1">
+                            <div class="c-title c-font-bold c-font-uppercase">
+                                <a href="#">{{ rapport.title }}</a>
+                            </div>
+                            <div class="card c-media c-margin-b-50">
+                                <img class="card-img-top" src="{{ rapport.assertPath|imagine_filter('thumb_550_350') }}" alt="{{ rapport.title }}">
+                            </div>
+                            <div class="c-desc">
+                                <p>{{ rapport.content|raw }}</p>
+                            </div>
+                        </div>
+                        <div class="c-content-title-1">
+                            <h3 class="c-left c-theme-font">{{ 'Documentation' }}</h3>
+                            <div class="c-line-left c-bg-green"></div>
+                        </div>
+                        <div class="c-desc">
+                            {{ rapport.docLink|raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: BLOG LISTING  -->
+    <!-- BEGIN: rapport -->
+    <div class="c-content-box c-size-md c-bg-grey-1">
+        <div class="container">
+            <!-- Begin: Testimonals 1 component -->
+            <div class="c-content-team-1-slider" data-slider="owl" data-items="3">
+                {% for rap in rapports %}
+                    <div class="col-md-4 col-sm-6 c-margin-b-30">
+                        <div class="c-content-person-1 c-option-2">
+                            <div class="c-caption c-content-overlay">
+                                <div class="c-overlay-wrapper">
+                                    <div class="c-overlay-content">
+                                        <a href="#"><i class="icon-link"></i></a>
+                                        <a href="{{ asset(rap.assertPath|imagine_filter('thumb_auto')) }}" data-lightbox="fancybox" data-fancybox-group="gallery-4">
+                                        </a>
+                                    </div>
+                                </div>
+                                <img class="c-overlay-object img-responsive" src="{{ asset(rap.assertPath|imagine_filter('thumb_550_350')) }}" alt="{{ rap.title }}">
+                            </div>
+                            <div class="c-body">
+                                <div class="c-head">
+                                    <div class="c-name c-font-uppercase c-font-bold" title="{{ rap.title }}">{{ rap.title }}</div>
+                                </div>
+                                <p>{{ rap.content|striptags|truncate('150', false, '...')|raw }}</p>
+                                <div class="c-content-divider">
+                                    <i class="icon-dot"></i>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="c-center c-margin-t-50">
+                                    <a href="{{ path('rapport_detail', {'slug': rap.slug })}}" title="{{ rap.title }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold  c-btn-square">{{  '+' }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- END: rapport -->
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/layout/assets/base/js/slide.js') }}" type="text/javascript"></script>
+{% endblock %}
+
