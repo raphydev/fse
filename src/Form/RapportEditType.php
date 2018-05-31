@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class RapportType extends AbstractType
+class RapportEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -43,7 +43,7 @@ class RapportType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Rapport::class,
-            'validation_groups' => ['default', 'editor']
+            'validation_groups' => ['default']
         ]);
     }
 }
