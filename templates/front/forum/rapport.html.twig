@@ -3,7 +3,7 @@
 {% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
     <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
-    <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_partner.jpg') }})">
+    <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_data.jpg') }})">
         <div class="container">
             <div class="c-page-title c-pull-left c-content-title-1">
                 <h3 class="c-left c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'Les données de la croissance' }}</h3>
@@ -27,7 +27,7 @@
                             <div class="c-caption c-content-overlay">
                                 <div class="c-overlay-wrapper">
                                     <div class="c-overlay-content">
-                                        <a href="#"><i class="icon-link"></i></a>
+                                        <a href="{{ path('rapport_detail', {'slug': rapport.slug }) }}"><i class="icon-link"></i></a>
                                         <a href="{{ asset(rapport.assertPath|imagine_filter('thumb_auto')) }}" data-lightbox="fancybox" data-fancybox-group="gallery-4">
                                         </a>
                                     </div>

@@ -1,0 +1,88 @@
+{% extends 'admin/admin.html.twig' %}
+{% block title %} {{ 'Galerie' }} {% endblock %}
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ ' Section Galerie photos'|upper }}</h4>
+                {{ include('admin/gallery/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body center-vh">
+                <div class="card card-round card-shadowed px-50 py-30 w-700px mb-0" style="max-width: 100%">
+                    <h5 class="text-uppercase">{{ 'Création de galerie' }}</h5>
+                    <br>
+                    {{ form_start(form, {'attr': {'class': 'card', novalidate: 'novalidate', 'data-provide': 'wizard'} } ) }}
+                     <ul class="nav nav-process nav-process-circle">
+                        <li class="nav-item">
+                            <span class="nav-title font-weight-bold">{{ 'Etape 1 : Informations sur la galerie' }}</span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-1"></a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-title font-weight-bold">{{ 'Etape 2: Actions sur galeries' }}</span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-2"></a>
+                        </li>
+                    </ul>
+                     <div class="tab-content">
+                        <div class="tab-pane fade active show" id="wizard-validate-1" data-provide="validation">
+                            <div class="form-group">
+                                {{ form_widget(form) }}
+                                {{ form_errors(form) }}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="wizard-validate-2" data-provide="validation">                                       <div class="card">
+                                {% set indication = "Glissez & déposez ou cliquez ici pour ajouter des images" %}
+                                {% set error = "Erreur d'importation, le fichier est trop lourd" %}
+                                {% set typeMine = "Le type de fichier est invalide" %}
+                                {% set messageMaxFile = "Limit des fichier à importé est supérieur {{ maxFiles }}" %}
+                                {% set fileToBigMessage = "La taille du fichier {{filesize}} MB est supérieur à la taille récommandée {{maxFilesize}} MB" %}
+                                 <h4 class="card-title"><strong>{{ 'Uploadez fichiers ici' }}</strong></h4>
+                                 <div class="card-body">
+                                     <div
+                                             data-provide="dropzone"
+                                             data-url="{{ path('gallery_edit', { 'id': gallery.id  }) }}"
+                                             data-param-name="images"
+                                             data-max-filesize="3"
+                                             data-max-file="30"
+                                             data-add-remove-Links="true"
+                                             data-dict-default-message= "{{ indication }}"
+                                             data-dict-response-error= "{{ error }}"
+                                             data-dict-invalid-file-type="{{ typeMine }}"
+                                             data-dict-cancel-upload = "Annuler"
+                                             data-dict-remove-file = "Supprimer"
+                                             data-dict-max-files-exceeded="{{ messageMaxFile }}"
+                                             data-dict-file-too-big="{{ fileToBigMessage }}"
+                                     >
+                                     </div>
+                                 </div>
+                                 <hr>
+                                 {% if gallery.medias|length > 0 %}
+                                     <div class="masonry-grid gap-2" data-provide="photoswipe">
+                                         {%  for media in gallery.medias %}
+                                             <div class="pt-10">
+                                                 <a class="masonry-item" href="#">
+                                                     <img src="{{ media.assertPath|imagine_filter('thumb_205_136') }}" alt="" data-original-src="{{ asset( media.assertPath ) }}" data-original-src-width="{{ media.imageWidth }}" data-original-src-height="{{ media.imageHeight }}">
+                                                 </a>
+                                             </div>
+                                         {% endfor %}
+                                     </div>
+                                 {% else %}
+                                     <br>
+                                     <div class="row gap-y gap-2">
+                                         <h4>Aucune photo disponible pour cette galerie</h4>
+                                     </div>
+                                 {% endif %}
+                             </div>
+                         </div>
+                     </div>
+                     <hr>
+                    <div class="flexbox">
+                        <button class="btn btn-secondary" data-wizard="prev" type="button">{{ 'précedent' }}</button>
+                        <button class="btn btn-secondary" data-wizard="next" type="button">{{ 'Suivant' }}</button>
+                        <button class="btn btn-primary d-none" data-wizard="finish" type="submit">{{ 'Enregistrer' }}</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -22,7 +22,8 @@ class IntervenantController extends Controller
      */
     public function index(IntervenantRepository $intervenantRepository): Response
     {
-        return $this->render('admin/forum/intervenant/index.html.twig', ['intervenants' => $intervenantRepository->findAll()]);
+        return $this->render('admin/forum/intervenant/index.html.twig', [
+            'intervenants' => $intervenantRepository->findAll()]);
     }
 
     /**

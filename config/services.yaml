@@ -3,6 +3,8 @@
 parameters:
     locale: '%env(APP_LOCAL)%'
     secure_channel: '%env(SECURE_CHANNEL)%'
+    gallery_directory: '%kernel.project_dir%/public/uploads/gallery'
+    docfile_directory: '%kernel.project_dir%/public/uploads/docs'
 
 services:
     # default configuration for services in *this* file
@@ -35,8 +37,11 @@ services:
     App\EventListener\Kernel\RedirectUserListener:
         arguments: ['@security.authorization_checker', '@router']
         tags:
-        - { name: kernel.event_subscriber }
+            - { name: kernel.event_subscriber }
 
     App\EventListener\Security\LoginListener:
         tags:
             - { name: kernel.event_listener, event: security.interactive_login }
+
+    App\Service\DraftGenerator:
+        arguments: ['@doctrine.orm.entity_manager']

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use libphonenumber\PhoneNumber;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -97,11 +99,18 @@ class Users implements UserInterface, \Serializable
      */
     protected $created;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Gallery", mappedBy="user")
+     */
+    protected $galeries;
+
 
     public function __construct()
     {
         $this->created = new \DateTime('now');
         $this->isActive = false;
+        $this->galeries = new ArrayCollection();
     }
 
     /**
@@ -400,6 +409,37 @@ class Users implements UserInterface, \Serializable
     public function resetRoles()
     {
         $this->roles = [];
+    }
+
+    /**
+     * @return Collection|Gallery[]
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalery(Gallery $galery): self
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries[] = $galery;
+            $galery->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGalery(Gallery $galery): self
+    {
+        if ($this->galeries->contains($galery)) {
+            $this->galeries->removeElement($galery);
+            // set the owning side to null (unless already changed)
+            if ($galery->getUser() === $this) {
+                $galery->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 }

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/rapport")
+ * @Route("/admin/forum/rapport")
  */
 class RapportController extends Controller
 {

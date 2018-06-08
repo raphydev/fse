@@ -3108,12 +3108,12 @@ jQuery.fn.scrollToEnd = function() {
 
     Dropzone.autoDiscover = false;
 
-    provider.provide('dropzone', function(){
-      var options = {};
-      options = $.extend( options, app.getDataOptions( $(this) ));
-      $(this).addClass('dropzone');
-      $(this).dropzone( options );
-    });
+      provider.provide('dropzone', function(){
+        var options = {};
+        options = $.extend( options, app.getDataOptions( $(this) ));
+        $(this).addClass('dropzone');
+        $(this).dropzone( options );
+      });
 
   }
 
