@@ -19,6 +19,21 @@ class GalleryRepository extends ServiceEntityRepository
         parent::__construct($registry, Gallery::class);
     }
 
+    /**
+     * @param $gallery
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getOneGalleryById($gallery)
+    {
+        $qb = $this->createQueryBuilder('g');
+        $qb->leftJoin('g.medias', 'm');
+        $qb->addSelect('m');
+        $qb->where($qb->expr()->eq('g.id', ':gallery'));
+        $qb->setParameter('gallery', $gallery);
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Gallery[] Returns an array of Gallery objects
 //     */

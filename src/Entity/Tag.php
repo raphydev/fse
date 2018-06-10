@@ -25,6 +25,12 @@ class Tag
 
     /**
      * @var
+     * @ORM\Column(type="string", length=225)
+     */
+    protected $hash;
+
+    /**
+     * @var
      * @ORM\OneToMany(targetEntity="App\Entity\Gallery", mappedBy="tag")
      */
     protected $galleries;
@@ -47,6 +53,18 @@ class Tag
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getHash(): ?string
+    {
+        return $this->hash;
+    }
+
+    public function setHash(string $hash): self
+    {
+        $this->hash = $hash;
 
         return $this;
     }

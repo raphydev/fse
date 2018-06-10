@@ -9,13 +9,16 @@
 namespace App\Controller;
 
 
+use App\Entity\Gallery;
 use App\Entity\Post;
 use App\Entity\Rapport;
 use App\Repository\ClassificationRepository;
+use App\Repository\GalleryRepository;
 use App\Repository\IntervenantRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
+use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -108,6 +111,35 @@ class ForumFrontController extends AbstractController
         return $this->render('front/forum/rapport_detail.html.twig',[
             'rapport' => $rapport,
             'rapports' => $rapportRepository->getOtherRapportWithoutThis([$rapport])
+        ]);
+    }
+
+    /**
+     * @Route("/medias/photos", name="gallery_page", methods={"GET"}, schemes={"%secure_channel%"})
+     * @param TagRepository $tagRepository
+     * @param GalleryRepository $galleryRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function galleryPage(TagRepository $tagRepository, GalleryRepository $galleryRepository)
+    {
+        return $this->render('front/forum/gallery.html.twig',[
+            'tags' => $tagRepository->findByGalleryOnline(),
+            'galleries' => $galleryRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/medias/photos/{slug}", name="gallery_detail", methods={"GET"}, schemes={"%secure_channel%"})
+     * @param Gallery $gallery
+     * @param GalleryRepository $galleryRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function galleryDetail(Gallery $gallery, GalleryRepository $galleryRepository)
+    {
+        $media = $galleryRepository->getOneGalleryById($gallery);
+        return $this->render('front/forum/gallery_detail.html.twig', [
+            'media' => $media
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -17,6 +18,18 @@ class TagRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Tag::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function findByGalleryOnline() {
+        $qb = $this->createQueryBuilder('t');
+        $qb->leftJoin('t.galleries', 'g', Expr\Join::WITH, $qb->expr()->eq('g.online', 1));
+        $qb->addSelect('g');
+        $qb->where($qb->expr()->isNotNull('g'));
+        $qb->orderBy('t.name', 'ASC');
+        return $qb->getQuery()->getResult();
     }
 
 //    /**
