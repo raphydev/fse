@@ -55,7 +55,6 @@ class Rapport
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
-     * @Assert\NotBlank(message="Uploadez une images pour illustrer le document", groups={"editor"})
      *
      * @Vich\UploadableField(mapping="rapport_image", fileNameProperty="imageName", size="imageSize")
      *

@@ -42,8 +42,7 @@ class RapportType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Rapport::class,
-            'validation_groups' => ['default', 'editor']
+            'data_class' => Rapport::class
         ]);
     }
 }

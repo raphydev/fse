@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Rapport;
-use App\Form\RapportEditType;
 use App\Form\RapportType;
 use App\Repository\RapportRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -73,11 +72,11 @@ class RapportController extends Controller
      */
     public function edit(Request $request, Rapport $rapport): Response
     {
-        $form = $this->createForm(RapportEditType::class, $rapport);
+        $form = $this->createForm(RapportType::class, $rapport);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('rapport_index');
         }
 
