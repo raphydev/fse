@@ -55,9 +55,7 @@ class Rapport
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
-     *
      * @Vich\UploadableField(mapping="rapport_image", fileNameProperty="imageName", size="imageSize")
-     *
      * @var File $imageFile
      */
     protected $imageFile;
