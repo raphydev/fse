@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'La Finance s\'engage | renforcement des capacités' }}
+{% endblock %}
+{% block class_header %}c-layout-header-fullscreen c-layout-header-topbar c-layout-header-topbar-collapse{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig') }} {% endblock %}
+{% block slide %}
+    {{ include('front/includes/simple_banner.html.twig') }}
+{% endblock %}
+{% block body %}
+    <!-- BEGIN: Pourquoi -->
+    <div class="c-content-box c-size-md c-bg-white">
+        <div class="container">
+            <div class="c-content-feature-2-grid" data-auto-height="true" data-mode="base-height">
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Pourquoi renforcer ses capacités'|capitalize }}</h3>
+                    <div class="c-line-center"></div>
+                    <p class="c-center c-font-uppercase">
+                        Les conclusions de l’étude  <strong>DONNEES POUR LA CROISSANCE</strong> font du renforcement des capacités, une priorité pour améliorer l’accès au financement des PME
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN: FEATURES 13.3 -->
+    <div id="info" class="c-content-box c-size-md c-no-padding c-bg-img-center" style="background-image: url({{ asset('build/web/static/renfor_boostez.jpg') }})">
+        <div class="c-content-feature-13">
+            <div class="row c-reset">
+                <div class="col-md-6 c-bg-dark">
+                    <div class="c-feature-13-container">
+                        <div class="c-feature-13-tile">
+                            <i class="icon-size-fullscreen c-theme-font c-font-24"></i>
+                            <div class="c-feature-13-content">
+                                <p class="c-font-grey">Le secteur financier souligne les aspects liés au renforcement des capacités comme frein majeur au développement de leur activité et préconise la formation comme l’une des solutions majeures au financement. 3/4 des PME désirent recevoir du renforcement de capacités; tandis que seules 1/3 ont pu satisfaire ce besoin</p>
+                            </div>
+                        </div>
+                        <div class="c-content-title-1">
+                            <h3 class="c-font-uppercase c-font-white c-font-bold">{{ 'obstacles au financement vus par' }} <span class="c-theme-font">{{ 'services financiers' }}</span></h3>
+                            <div class="c-line-left c-theme-bg"></div>
+                        </div>
+                        <div class="row">
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Délais de règlement des clients publics' }}</h4>
+                                </div>
+                            </div>
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Demande ou matérialisation de garanties' }}</h4>
+                                </div>
+                            </div>
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Difficulté de présenter un plan d’affaires et d’investissement détaillé' }}</h4>
+                                </div>
+                            </div>
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Manque de confiance' }}</h4>
+                                </div>
+                            </div>
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Capacité institutionnelle à forcer l’exécution d’un contrat' }}</h4>
+                                </div>
+                            </div>
+                            <div class="c-feature-13-tile">
+                                <i class="icon-puzzle c-theme-font c-font-24"></i>
+                                <div class="c-feature-13-content">
+                                    <h4 class="c-font-uppercase c-theme-font c-font-bold">{{ 'Taux d’intérêt pratiqués par les banques et autres créanciers' }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: FEATURES 13-3 --><!-- END: CONTENT/FEATURES/FEATURES-13-3 -->
+    <!-- END: Pourquoi -->
+
+    <!-- BEGIN: Large gamme -->
+    <div class="c-content-box c-size-md c-bg-grey-1  ">
+        <div class="container">
+            <div class="c-content-feature-2-grid" data-auto-height="true" data-mode="base-height">
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-center c-font-bold">{{ 'découvrez une large gamme de thématiques'|capitalize }}</h3>
+                    <div class="c-line-center"></div>
+                </div>
+                <div class="row">
+                    {% for i in 1..8 %}
+                        <div class="col-md-4 col-sm-6">
+                            <div class="c-content-v-center c-bg-white wow bounceInUp" data-height="height">
+                                <div class="c-wrapper">
+                                    <div class="c-body c-padding-20 c-center" data-height="height" style="height: 163px;">
+                                        <h3 class="c-font-uppercase c-font-bold c-title">
+                                            {{ 'leadership et respect des engagements' }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <span class="input-group-btn c-center c-margin-t-30">
+					<a href="{{ path('register') }}" class="btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">{{ 'm\'inscrire aux formations' }}</a>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: large gamme -->
+
+    <!-- BEGIN: formez par les meilleurs -->
+    <div class="c-content-box c-size-lg c-bg-parallax" style="background-image: url({{ asset('build/web/static/renfor_best.jpg') }})">
+        <div class="container">
+            <!-- Begin: testimonials 4 component -->
+            <div class="c-content-testimonials-4 c-icon-white" data-slider="owl">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1">
+                    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">{{ 'faites vous formez par les meilleurs' }}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <!-- End-->
+                <div class="c-content c-font-white">
+                    Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat diam dolor sit amet consectetuer adipiscing elit
+                </div>
+            </div>
+            <!-- End-->
+        </div>
+    </div>
+    <!-- END: formez pr les meilleurs -->
+
+    <div class="c-content-box c-size-md c-bg-grey-1">
+        <div class="container">
+            <div class="c-content-bar-2 c-opt-1">
+                <div class="row c-center" data-auto-height="true">
+                    <div class="col-md-6 col-md-offset-3">
+                        <!-- Begin: Title 1 component -->
+                        <div class="c-content-title-1" data-height="height">
+                            <p class="c-font-uppercase c-font-sbold">
+                                <img src="{{ asset('build/web/static/renforcement_logo.png') }}" alt="">
+                            </p>
+                            <p class="c-font-sbold">
+                                La plateforme de formation <span class="c-theme-font c-font-uppercase ">{{ 'finance s\'engage</span> pour les PME est maintenant disponible. Boostez la productivité votre entreprise en renforcement vos capacités dans le but d\'atteindre les critères de financement !' }}
+                            </p>
+                        </div>
+                        <!-- End-->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <p class="c-center c-margin-t-30">
+            <a class="btn btn-md c-btn-border-2x c-btn-square c-theme-btn c-btn-uppercase c-btn-bold" href="{{ path('register') }}">{{ 'plus d\'informations' }}</a>
+        </p>
+    </div>
+
+    <!-- BEGIN: CONTENT/SLIDERS/CLIENT-LOGOS-1 -->
+    <div class="c-content-box c-size-md c-bg-white">
+        <div class="container">
+            <!-- Begin: Testimonals 1 component -->
+            <div class="c-content-client-logos-slider-1" data-slider="owl">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1">
+                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'ils nous appuient depuis 2016' }}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <!-- End-->
+                <!-- Begin: Owlcarousel -->
+                <div class="owl-carousel owl-theme c-theme c-owl-nav-center" data-items="5" data-desktop-items="4" data-desktop-small-items="3" data-tablet-items="3" data-mobile-small-items="1"  data-auto-play="false" data-rtl="false" data-slide-speed="5000" data-auto-play-hover-pause="true">
+                    {% for partner in partners %}
+                        <div class="item">
+                            <a href="{{ partner.website }}" target="_blank"><img src="{{ partner.assertPath|imagine_filter('thumb_back_small_300x200') }}" alt="{{ partner.name }}"/></a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- End-->
+            </div>
+            <!-- End-->
+        </div>
+    </div><!-- END: CONTENT/SLIDERS/CLIENT-LOGOS-1 -->
+    <!-- END: PAGE CONTAINER -->
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/layout/assets/demos/default/js/scripts/revo-slider/slider-11.js') }}" type="text/javascript"></script>
+{% endblock %}

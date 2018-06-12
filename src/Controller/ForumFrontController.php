@@ -46,7 +46,7 @@ class ForumFrontController extends AbstractController
     }
 
     /**
-     * @Route("/initiative", methods={"GET"}, name="initiative")
+     * @Route("/initiative", methods={"GET"}, name="initiative", schemes={"%secure_channel%"})
      */
     public function initiativePage(){
         return $this->render('front/forum/initiative.html.twig',[
@@ -56,7 +56,7 @@ class ForumFrontController extends AbstractController
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/organizer", methods={"GET"}, name="organizer")
+     * @Route("/organizer", methods={"GET"}, name="organizer", schemes={"%secure_channel%"})
      */
     public function organizorPage(){
         return $this->render('front/forum/organizer.html.twig',[
@@ -144,7 +144,7 @@ class ForumFrontController extends AbstractController
     }
 
     /**
-     * @Route("/news", name="page_new", methods={"GET"})
+     * @Route("/news", name="page_new", methods={"GET"}, schemes={"%secure_channel%"})
      * @param PostRepository $postRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -155,12 +155,11 @@ class ForumFrontController extends AbstractController
     }
 
     /**
-     * @Route("/news/{slug}", name="new_detail", methods={"GET"})
+     * @Route("/news/{slug}", name="new_detail", methods={"GET"}, schemes={"%secure_channel%"})
      * @param Post $post
-     * @param PostRepository $postRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function blogDetail( Post $post ,PostRepository $postRepository) {
+    public function blogDetail( Post $post) {
         return $this->render("front/forum/new_detail.html.twig", [
             'post' => $post
         ]);

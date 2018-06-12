@@ -128,6 +128,22 @@ liip_imagine:
                     mode:          outbound
                     allow_upscale: true
 
+        thumb_back_small_100x50:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                # auto rotate the image using EXIF metadata
+                auto_rotate: ~
+                # strip the image of all metadata
+                strip: ~
+                # scale and square the image to the given dimensions
+                thumbnail:
+                    size:          [100, 50]
+                    mode:          outbound
+                    allow_upscale: true
+
         thumb_blog_500x280:
             # set your image quality defaults
             jpeg_quality:          85

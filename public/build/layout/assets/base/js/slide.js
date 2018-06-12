@@ -54,4 +54,11 @@ $(document).ready(function() {
             disableFocusListener:false,
         }
     });
+
+    api.bind("revolution.slide.onchange",function (e,data) {
+        $('.c-layout-header').removeClass('hide');
+        setTimeout(function(){
+            $('.c-singup-form').fadeIn();
+        }, 1500);
+    });
 }); //ready
