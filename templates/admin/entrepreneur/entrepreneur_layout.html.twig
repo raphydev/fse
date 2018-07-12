@@ -1,24 +1,25 @@
 {% extends 'admin/admin.html.twig' %}
+
 {% block body %}
     <div class="main-content">
         <div class="card">
             <header class="card-header">
-                <h4 class="card-title">{{ 'Dashboard | ' }} {% block forum_title %}{% endblock %}</h4>
+                <h4 class="card-title">{{ 'Dashboard | ' }} {% block entrepreneur_title %}{% endblock %}</h4>
                 <div class="card-header-actions">
                     <a href="{{ path('admin') }}" class="btn btn-sm btn-primary">
                         <i class="icon ti-home"></i>
                         {{ 'Dashboard Général'|upper }}
                     </a>
-                    <a href="{{ path('forum') }}" class="btn btn-sm btn-info">
+                    <a href="{{ path('entrepreneur') }}" class="btn btn-sm btn-info">
                         <i class="ti-arrow-left"></i>
-                        {{ 'Dashboard de section'|upper }}
+                        {{ 'Dashboard de la section'|upper }}
                     </a>
                 </div>
             </header>
         </div>
         <div class="container">
             <div class="row">
-                {% block forum_content %}{% endblock %}
+                {% block entrepreneur_content %}{% endblock %}
             </div>
         </div>
     </div>
