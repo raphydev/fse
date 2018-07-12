@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Former;
 use App\Form\FormerType;
 use App\Repository\FormerRepository;
+use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,11 +19,16 @@ class FormerController extends Controller
     /**
      * @Route("/", name="former_index", methods="GET")
      * @param FormerRepository $formerRepository
+     * @param TrainingRepository $trainingRepository
      * @return Response
      */
-    public function index(FormerRepository $formerRepository): Response
+    public function index(FormerRepository $formerRepository, TrainingRepository $trainingRepository): Response
     {
-        return $this->render('admin/entrepreneur/former/index.html.twig', ['formers' => $formerRepository->findAll()]);
+        $training = $trainingRepository->findAll();
+        return $this->render('admin/entrepreneur/former/index.html.twig', [
+            'training' => $training,
+            'formers' => $formerRepository->findAll()
+        ]);
     }
 
     /**
@@ -50,15 +56,6 @@ class FormerController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="former_show", methods="GET")
-     * @param Former $former
-     * @return Response
-     */
-    public function show(Former $former): Response
-    {
-        return $this->render('admin/entrepreneur/former/show.html.twig', ['former' => $former]);
-    }
 
     /**
      * @Route("/{id}/edit", name="former_edit", methods="GET|POST")

@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Repository\PartnerRepository;
+use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,13 +23,15 @@ class FormerFrontController extends AbstractController
 {
 
     /**
+     * @param TrainingRepository $trainingRepository
      * @param PartnerRepository $partnerRepository
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/page/enchancement", name="enchancement_page", methods={"GET"}, schemes={"%secure_channel%"})
+     * @Route("/page/education_financiere", name="education_page", methods={"GET"}, schemes={"%secure_channel%"})
      */
-    public function EnhancementPage(PartnerRepository $partnerRepository)
+    public function EnhancementPage(TrainingRepository $trainingRepository , PartnerRepository $partnerRepository)
     {
-        return $this->render('front/pme/enchancement_page.html.twig',[
+        return $this->render('front/pme/education_page.html.twig',[
+            'modules' => $trainingRepository->findAll(),
             'partners' => $partnerRepository->findAll()
         ]);
     }

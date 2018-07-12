@@ -1,11 +1,18 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Former{% endblock %}
-
-{% block body %}
-    <h1>Create new Former</h1>
-
-    {{ include('former/_form.html.twig') }}
-
-    <a href="{{ path('former_index') }}">back to list</a>
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Formation' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Formation '|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Formulaire de creation de formation'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('former_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/entrepreneur/former/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

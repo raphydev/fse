@@ -93,13 +93,13 @@
                     <div class="c-line-center"></div>
                 </div>
                 <div class="row">
-                    {% for i in 1..8 %}
+                    {% for module in modules %}
                         <div class="col-md-4 col-sm-6">
                             <div class="c-content-v-center c-bg-white wow bounceInUp" data-height="height">
                                 <div class="c-wrapper">
                                     <div class="c-body c-padding-20 c-center" data-height="height" style="height: 163px;">
                                         <h3 class="c-font-uppercase c-font-bold c-title">
-                                            {{ 'leadership et respect des engagements' }}
+                                            {{ module.name }}
                                         </h3>
                                     </div>
                                 </div>
@@ -116,25 +116,23 @@
     <!-- END: large gamme -->
 
     <!-- BEGIN: formez par les meilleurs -->
-    <div class="c-content-box c-size-lg c-bg-parallax" style="background-image: url({{ asset('build/web/static/renfor_best.jpg') }})">
+    <div class="c-content-box c-size-lg c-bg-parallax" style="background-image: url({{ asset('build/web/static/education_finance.jpg') }})">
         <div class="container">
             <!-- Begin: testimonials 4 component -->
             <div class="c-content-testimonials-4 c-icon-white" data-slider="owl">
                 <!-- Begin: Title 1 component -->
                 <div class="c-content-title-1">
-                    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">{{ 'faites vous formez par les meilleurs' }}</h3>
+                    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">
+                        {{ 'faites vous formez par les meilleurs' }}
+                    </h3>
                     <div class="c-line-center c-theme-bg"></div>
                 </div>
                 <!-- End-->
-                <div class="c-content c-font-white">
-                    Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat diam dolor sit amet consectetuer adipiscing elit
-                </div>
             </div>
             <!-- End-->
         </div>
     </div>
     <!-- END: formez pr les meilleurs -->
-
     <div class="c-content-box c-size-md c-bg-grey-1">
         <div class="container">
             <div class="c-content-bar-2 c-opt-1">
@@ -146,7 +144,7 @@
                                 <img src="{{ asset('build/web/static/renforcement_logo.png') }}" alt="">
                             </p>
                             <p class="c-font-sbold">
-                                La plateforme de formation <span class="c-theme-font c-font-uppercase">{{ 'finance s\'engage'}}</span> pour les PME est maintenant disponible. Boostez la productivité de votre entreprise en renforcement vos capacités dans le but d\'atteindre les critères de financement
+                                {{ 'La plateforme de formation' }} <span class="c-theme-font c-font-uppercase">{{ 'finance s\'engage'}}</span> {{ 'pour les PME est maintenant disponible. Boostez la productivité de votre entreprise en renforcement vos capacités dans le but d\'atteindre les critères de financement' }}
                             </p>
                         </div>
                         <!-- End-->
