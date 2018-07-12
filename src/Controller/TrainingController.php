@@ -51,16 +51,6 @@ class TrainingController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="training_show", methods="GET")
-     * @param Training $training
-     * @return Response
-     */
-    public function show(Training $training): Response
-    {
-        return $this->render('admin/entrepreneur/training/show.html.twig', ['training' => $training]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="training_edit", methods="GET|POST")
      * @param Request $request
      * @param Training $training
@@ -74,7 +64,7 @@ class TrainingController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('training_edit', ['id' => $training->getId()]);
+            return $this->redirectToRoute('training_index');
         }
 
         return $this->render('admin/entrepreneur/training/edit.html.twig', [

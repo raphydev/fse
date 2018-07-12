@@ -1,13 +1,19 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Edit Training{% endblock %}
-
-{% block body %}
-    <h1>Edit Training</h1>
-
-    {{ include('training/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('training_index') }}">back to list</a>
-
-    {{ include('training/_delete_form.html.twig') }}
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Thematique de formation' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Thematique de formation'|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Modifier thématique de formation'|upper }}</h4>
+                {{ include('admin/entrepreneur/training/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/entrepreneur/training/_form.html.twig', {
+                    'button_label': 'Mise à jour', 'button_class': 'btn-danger'
+                })
+                }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

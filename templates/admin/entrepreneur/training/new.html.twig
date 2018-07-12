@@ -1,11 +1,18 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Training{% endblock %}
-
-{% block body %}
-    <h1>Create new Training</h1>
-
-    {{ include('training/_form.html.twig') }}
-
-    <a href="{{ path('training_index') }}">back to list</a>
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Thematique de formation' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Thematique de formation'|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Formulaire de creation de thématique'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('training_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/entrepreneur/training/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
