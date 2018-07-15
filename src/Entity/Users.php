@@ -88,6 +88,12 @@ class Users implements UserInterface, \Serializable
     protected $isActive;
 
     /**
+     * @var
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $isFullFill;
+
+    /**
      * @var array
      * @ORM\Column(type="array", nullable=true)
      */
@@ -110,6 +116,7 @@ class Users implements UserInterface, \Serializable
     {
         $this->created = new \DateTime('now');
         $this->isActive = false;
+        $this->isFullFill = false;
         $this->galeries = new ArrayCollection();
     }
 
@@ -438,6 +445,18 @@ class Users implements UserInterface, \Serializable
                 $galery->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsFullFill(): ?bool
+    {
+        return $this->isFullFill;
+    }
+
+    public function setIsFullFill(?bool $isFullFill): self
+    {
+        $this->isFullFill = $isFullFill;
 
         return $this;
     }

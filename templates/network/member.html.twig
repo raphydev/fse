@@ -23,11 +23,14 @@
         <span class="dot3"></span>
     </div>
 </div>
-{% block body %}{% endblock %}
+    <!-- Main container -->
+    <main>
+        {% block body %}{% endblock %}
+    </main>
 {% block javascripts %}
-    <script src="{{ asset('build/admin/core.min.js') }}"></script>
-    <script src="{{ asset('build/admin/app.min.js') }}"></script>
-    <script src="{{ asset('build/admin/script.min.js') }}"></script>
+    <script src="{{ asset('build/admin/js/core.min.js') }}"></script>
+    <script src="{{ asset('build/admin/js/app.js') }}"></script>
+    <script src="{{ asset('build/admin/js/script.min.js') }}"></script>
 {% endblock %}
 </body>
 </html>

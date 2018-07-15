@@ -1,0 +1,198 @@
+{% extends 'network/member.html.twig' %}
+
+{% block title %}{{ 'Dashboard |' }}
+    {% if app.user|length > 0 %} {{ app.user.username }} {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="main-content">
+        <div class="card">
+            <header class="header bg-ui-general">
+                <div class="align-center mt-5" style="display: block;">
+                    <img src="{{ asset('build/back/static/pme_sengage.png') }}" alt="" class="img-responsive">
+                </div>
+                <div class="text-center py-40">
+                    <h3>{{ 'Formulaire d’application Programme'|upper }}</h3>
+                    <h3>{{ 'de Renforcement des Capacités des PME'|upper }}</h3>
+                </div>
+            </header><!--/.header -->
+            <div class="card-body">
+                <form data-provide="wizard" novalidate="true">
+                    <ul class="nav nav-process nav-process-circle">
+                        <li class="nav-item">
+                            <span class="nav-title">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 1'|capitalize }}
+                                </span>
+                            </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-1"></a>
+                        </li>
+
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 2'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-2"></a>
+                        </li>
+
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 3'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-3"></a>
+                        </li>
+
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 4'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-4"></a>
+                        </li>
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 5'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-5"></a>
+                        </li>
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 6'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-6"></a>
+                        </li>
+                        <li class="nav-item">
+                                <span class="badge badge-pill badge-warning">
+                                    {{ 'partie 7'|capitalize }}
+                                </span>
+                            <a class="nav-link" data-toggle="tab" href="#wizard-validate-7"></a>
+                        </li>
+                    </ul>
+
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="wizard-validate-1" data-provide="validation">
+                            <br><br>
+                            <p class="text-center fs-35 text-muted">Tell us about <strong class="text-primary">yourself</strong></p>
+                            <p class="text-center text-gray">Efficiently reinvent market-driven products without sustainable innovation.</p>
+                            <hr class="w-100px">
+                            <br>
+
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input class="form-control" type="text" required>
+                                <div class="form-control-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input class="form-control" type="email" required>
+                                <div class="form-control-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" required>
+                                <div class="form-control-feedback"></div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="wizard-validate-2" data-provide="validation">
+                            <br><br>
+                            <p class="text-center fs-35 text-muted">Let others <strong class="text-primary">follow</strong> you</p>
+                            <p class="text-center text-gray">Seamlessly simplify mission-critical processes rather than effective action items.</p>
+                            <hr class="w-100px">
+                            <br>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon w-50px"><i class="fa fa-facebook"></i></span>
+                                <input type="text" class="form-control" placeholder="Facebook" required>
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon w-50px"><i class="fa fa-instagram"></i></span>
+                                <input type="text" class="form-control" placeholder="Instagram">
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon w-50px"><i class="fa fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter">
+                            </div>
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="wizard-validate-3" data-provide="validation">
+                            <br><br>
+                            <p class="text-center fs-35 text-muted">Save your <strong class="text-primary">credit card</strong></p>
+                            <p class="text-center text-gray">Credibly evolve leveraged experiences vis-a-vis exceptional testing procedures. Assertively.</p>
+                            <hr class="w-100px">
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label>Card number</label>
+                                    <input class="form-control" type="text" placeholder="1234 5678 9123 4567">
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label>Expiry date</label>
+                                    <input class="form-control" type="text" placeholder="MM / YY">
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label>CVC</label>
+                                    <input class="form-control" type="number" placeholder="123">
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label>Name on the card</label>
+                                    <input class="form-control" type="text" placeholder="John Doe">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="wizard-validate-4">
+                            <br><br>
+                            <p class="text-center fs-35 text-muted">Ready to <strong class="text-primary">go?</strong></p>
+                            <p class="text-center text-gray">Rapidiously facilitate web-enabled products through innovative collaboration.</p>
+                            <hr class="w-100px">
+                            <br>
+
+                            <div class="px-20">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-4">Username</label>
+                                    <div class="form-control-plaintext col-sm-8">TheAdmin</div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-4">Email</label>
+                                    <div class="form-control-plaintext col-sm-8">support@theadmin.io</div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-4">Card number</label>
+                                    <div class="form-control-plaintext col-sm-8">xxxx-xxxx-xxxx-3648</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="flexbox">
+                        <button class="btn btn-secondary" data-wizard="prev" type="button">Back</button>
+                        <button class="btn btn-secondary" data-wizard="next" type="button">Next</button>
+                        <button class="btn btn-primary d-none" data-wizard="finish" type="submit">Finish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
