@@ -17,6 +17,48 @@
     </div>
 {% endblock %}
 {% block body %}
+
+    <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
+    <div class="c-content-box c-size-md c-bg-grey-1">
+        <div class="container">
+            <!-- Begin: Testimonals 1 component -->
+            <div class="c-content-person-1-slider" data-slider="owl">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1 wow animated fadeIn">
+                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Ils ont participé' }}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <!-- End-->
+                <!-- Begin: Owlcarousel -->
+                <div class="owl-carousel owl-theme c-theme c-owl-nav-center wow animated fadeInUp" data-items="3" data-slide-speed="8000" data-rtl="false">
+                    {% for intervenant in intervenants %}
+                        <div class="c-content-person-1 c-option-2 c-shadow">
+                            <div class="c-caption c-content-overlay">
+                                <div class="c-overlay-wrapper">
+                                    <div class="c-overlay-content">
+                                        <a href="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" data-lightbox="fancybox" data-fancybox-group="gallery-2">
+                                            <i class="icon-magnifier"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" class="img-responsive c-overlay-object" alt="{{ intervenant.name }}">
+                            </div>
+                            <div class="c-body">
+                                <div class="c-head">
+                                    <div class="c-name c-font-uppercase c-font-bold" title="{{ intervenant.name }}">{{ intervenant.name }}</div>
+                                </div>
+                                <p class="overflow-hidden">{{ intervenant.office }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- End-->
+            </div>
+            <!-- End-->
+        </div>
+    </div>
+    <!-- END: CONTENT/SLIDERS/INTERVENANT-2 -->
+
     <!-- BEGIN: CONTENT/ORGANISATEUR -->
     <div class="c-content-box c-size-md c-bg-white">
         <div class="container">
@@ -89,7 +131,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="card mb-4 box-shadow c-shadow">
                             <a href="#">
-                                <img class="card-img-top" src="http://via.placeholder.com/650x150?text=encare pub" alt="Card image cap"/>
+                                <img class="card-img-top" src="http://via.placeholder.com/650x150?text=espace sponsor" alt="Card image cap"/>
                             </a>
                         </div>
                     </div>
@@ -282,6 +324,36 @@
     </div>
     <!-- BEGIN: CONTENT/ACTIVITE -->
 
+    <!-- START: CONTENT/VIDEO TITLE  -->
+    <div class="container c-padding-20">
+        <div class="c-content-title-2">
+            <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Engagements des institutions financières'}}</h3>
+            <div class="c-line-center c-theme-bg"></div>
+        </div>
+        <div class="c-content-divider c-divider-sm c-icon-bg">
+            <i class="icon-graph c-rounded c-theme-bg c-font-white"></i>
+        </div>
+    </div>
+    <!-- END: CONTENT/VIDEO TITLE -->
+
+    <!-- START: CONTENT/VIDEO -->
+    <div class="c-content-box c-size-md c-bg-img-center" style="background-image: url({{ asset('build/front/static/10.jpg') }}">
+        <div class="container">
+            <div class="c-content-panel">
+                <div class="c-body">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-2">
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="embed-responsive-item" width="1280" height="720" src="https://www.youtube.com/embed/p_tGJR0rE34" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/VIDEO-->
+
     <!-- BEGIN: CONTENT/ACTUALITE -->
     <div class="c-content-box c-size-md c-bg-img-center">
         <div class="container">
@@ -340,7 +412,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="card mb-4 box-shadow c-shadow">
                             <a href="#">
-                                <img class="card-img-top" src="http://via.placeholder.com/650x150?text=encare pub" alt="Card image cap"/>
+                                <img class="card-img-top" src="http://via.placeholder.com/650x150?text=espace sponsor" alt="Card image cap"/>
                             </a>
                         </div>
                     </div>
@@ -349,77 +421,6 @@
         </div>
     </div>
     <!-- END: CONTENT/PUBLICITE 2 -->
-
-    <!-- START: CONTENT/VIDEO TITLE  -->
-    <div class="container c-padding-20">
-        <div class="c-content-title-2">
-             <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Engagements des acteurs financières 2017'}}</h3>
-             <div class="c-line-center c-theme-bg"></div>
-        </div>
-        <div class="c-content-divider c-divider-sm c-icon-bg">
-            <i class="icon-graph c-rounded c-theme-bg c-font-white"></i>
-        </div>
-    </div>
-    <!-- END: CONTENT/VIDEO TITLE -->
-
-    <!-- START: CONTENT/VIDEO -->
-    <div class="c-content-box c-size-md c-bg-img-center" style="background-image: url({{ asset('build/front/static/10.jpg') }}">
-        <div class="container">
-            <div class="c-content-panel">
-                <div class="c-body">
-                    <div class="row">
-                        <div class="col-md-7 col-md-offset-2">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" width="1280" height="720" src="https://www.youtube.com/embed/p_tGJR0rE34" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END: CONTENT/VIDEO-->
-
-    <!-- BEGIN: CONTENT/SLIDERS/INTERVENANT-2 -->
-    <div class="c-content-box c-size-md c-bg-grey-1">
-        <div class="container">
-            <!-- Begin: Testimonals 1 component -->
-            <div class="c-content-person-1-slider" data-slider="owl">
-                <!-- Begin: Title 1 component -->
-                <div class="c-content-title-1 wow animated fadeIn">
-                    <h3 class="c-center c-font-uppercase c-font-bold">{{ 'Les Acteurs clés de l\'écosystème financier' }}</h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                </div>
-                <!-- End-->
-                <!-- Begin: Owlcarousel -->
-                <div class="owl-carousel owl-theme c-theme c-owl-nav-center wow animated fadeInUp" data-items="3" data-slide-speed="8000" data-rtl="false">
-                    {% for intervenant in intervenants %}
-                        <div class="c-content-person-1 c-option-2 c-shadow">
-                            <div class="c-caption c-content-overlay">
-                                <div class="c-overlay-wrapper">
-                                    <div class="c-overlay-content">
-                                        <a href="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" data-lightbox="fancybox" data-fancybox-group="gallery-2">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <img src="{{ asset(intervenant.assertPath|imagine_filter('thumb_intervenant')) }}" class="img-responsive c-overlay-object" alt="{{ intervenant.name }}">
-                            </div>
-                            <div class="c-body">
-                                <div class="c-head">
-                                    <div class="c-name c-font-uppercase c-font-bold" title="{{ intervenant.name }}">{{ intervenant.name }}</div>
-                                </div>
-                                <p>{{ intervenant.office }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <!-- End-->
-            </div>
-            <!-- End-->
-        </div>
-    </div>
-    <!-- END: CONTENT/SLIDERS/INTERVENANT-2 -->
 
     <!-- BEGIN: CONTENT/PARTENAIRE -->
     <div class="c-content-box c-size-md c-bg-img-center">
