@@ -375,10 +375,10 @@
                                         <div class="c-media c-content-overlay">
                                             <div class="c-overlay-wrapper">
                                                 <div class="c-overlay-content">
-                                                    <a href="{{ path('new_detail', {'slug': post.id  }) }}"><i class="icon-link"></i></a>
+                                                    <a href="{{ path('new_detail', {'slug': post.slug  }) }}"><i class="icon-link"></i></a>
                                                 </div>
                                             </div>
-                                            <img class="c-overlay-object img-responsive"  src="{{ post.assertPath|imagine_filter(filter) }}" alt="{{ post.title }}">
+                                            <img class="c-overlay-object img-responsive custom-center"  src="{{ post.assertPath|imagine_filter(filter) }}" alt="{{ post.title }}">
                                         </div>
                                         <div class="c-body {% if loop.index == 2 %} h-345 {% endif %}">
                                             <div class="c-title c-font-bold c-font-uppercase">

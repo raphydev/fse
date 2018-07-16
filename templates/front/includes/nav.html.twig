@@ -54,7 +54,7 @@
                             <ul class="dropdown-menu c-menu-type-classic c-pull-left">
                                 <li class="dropdown-submenu">
                                     <a href="#">
-                                        {{ 'Les PME s\'engage' }}<span class="c-arrow c-toggler"></span>
+                                        {{ 'Les PME s\'engagent' }}<span class="c-arrow c-toggler"></span>
                                     </a>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -66,7 +66,7 @@
                             </ul>
                         </li>
                         <li class="c-menu-type-classic">
-                            <a href="#" class="c-link dropdown-toggle">{{ 'Acteurs financiers'}}<span class="c-arrow c-toggler"></span></a>
+                            <a href="#" class="c-link dropdown-toggle">{{ 'Institutions financiers'}}<span class="c-arrow c-toggler"></span></a>
                             <ul class="dropdown-menu c-menu-type-classic c-pull-left">
                                 <li class="dropdown-submenu">
                                     <a href="#">{{ 'Engagements' }}<span class="c-arrow c-toggler"></span></a>
@@ -77,7 +77,9 @@
                             </ul>
                         </li>
                         <li class="c-menu-type-classic">
-                            <a href="#" class="c-link">{{ 'Portail du financement' }}</a>
+                            <a href="{{ path('page_new') }}" class="c-link">
+                                {{ 'Portail du financement' }}
+                            </a>
                         </li>
                         <li>
                             {% if app.user %}
