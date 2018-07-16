@@ -150,7 +150,9 @@ class ForumFrontController extends AbstractController
      */
     public function blog(PostRepository $postRepository){
         return $this->render("front/forum/news.html.twig",[
-            'posts' => $postRepository->findAll()
+            'posts' => $postRepository->findBy([],[
+                'created' => 'DESC'
+            ])
         ]);
     }
 

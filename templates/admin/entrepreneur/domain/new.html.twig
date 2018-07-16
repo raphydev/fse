@@ -1,0 +1,18 @@
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Domaine Activité' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Domaine activité'|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Domaine activité'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('domain_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/entrepreneur/domain/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

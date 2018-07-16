@@ -1,0 +1,19 @@
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Modification domaine activité' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Modification domaine activité'|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Modifier Domaine d\'activité'|upper }}</h4>
+                {{ include('admin/entrepreneur/domain/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body center-vh">
+                {{ include('admin/entrepreneur/domain/_form.html.twig', {
+                    'button_label': 'Mise à jour', 'button_class': 'btn-danger'
+                })
+                }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

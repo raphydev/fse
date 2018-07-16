@@ -1,0 +1,63 @@
+{% extends 'admin/entrepreneur/entrepreneur_layout.html.twig' %}
+{% block title %} {{ 'Forme Juridique' }} {% endblock %}
+{% block entrepreneur_title %} {{ '| Forme Juridique'|upper }}{% endblock %}
+{% block entrepreneur_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Forme Juridique'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('legal_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>{{ 'Réference' }}</th>
+                        <th>{{ 'Nom' }}</th>
+                        <th>actions</th>
+                        <th>supprimer</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>{{ 'Réference' }}</th>
+                        <th>{{ 'Nom' }}</th>
+                        <th>actions</th>
+                        <th>supprimer</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for legal in legals %}
+                        <tr>
+                            <td>{{ legal.id }}</td>
+                            <td>{{ legal.name }}</td>
+                            <td>
+                                <a class="btn btn-label btn-danger-outline"
+                                   href="{{ path('legal_edit', {'id': legal.id}) }}">
+                                    <label for=""><i class="ti-close"></i></label> {{ 'Modifier' }}
+                                </a>
+                            </td>
+                            <td>
+                                <form method="post" action="{{ path('legal_delete', {'id': legal.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ legal.id) }}">
+                                    <button class="btn btn-label btn-danger">
+                                        <label for=""><i class="ti-trash"></i></label> {{ 'Supprimer' }}
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td class="align-content-center" colspan="4">{{ 'Aucun resultat trouvé' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
