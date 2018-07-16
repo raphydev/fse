@@ -109,7 +109,7 @@
     <!-- END: CONTENT/VIDEO-->
 
     <!-- BEGIN: CONTENT/ORGANISATEUR -->
-    <div class="c-content-box c-size-md c-bg-white">
+    <div class="c-content-box c-size-md c-bg-grey-1">
         <div class="container">
             <div class="c-content-box c-size-md">
                 <div class="container">
@@ -119,55 +119,40 @@
                     </div>
                 </div>
             </div>
-            {% for organizer in organizers %}
-                {% if loop.first %}
-                    <div class="c-content-box c-overflow-hide">
-                        <div class="c-content-product-3 c-bs-grid-reset-space">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-5 col-sm-5">
-                                        <div class="c-content-overlay">
-                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 245px; width: 70%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-sm-7">
-                                        <div class="c-wrapper c-bg-green-1" style="height: 245px;">
-                                            <div class="c-content c-border c-border-padding c-border-padding-right">
-                                                <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
-                                                <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
-                                                <a href="{{ organizer.website }}" target="_blank" class="btn btn-lg c-btn-white c-font-uppercase c-btn-square c-btn-border-1x">{{ 'en savoir plus'|upper }}</a>
+            <div class="c-margin-b-50">
+                <div class="row">
+                    <div class="c-content-blog-post-card-1-grid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if organizers|length > 0 %}
+                                    {% for organizer in organizers %}
+                                        <div class="col-md-6">
+                                            <div class="c-content-blog-post-card-1 c-option-2 c-bordered box-shadow c-shadow">
+                                                <div class="c-media c-content-overlay">
+                                                    <a href="{{ organizer.website }}" target="_blank">
+                                                        <img class="c-overlay-object img-responsive custom-center"  src="{{ organizer.assertPath|imagine_filter('thumb_organizer') }}" alt="{{ organizer.name }}">
+                                                    </a>
+                                                </div>
+                                                <div class="c-body">
+                                                    <div class="c-content-divider c-icon-bg">
+                                                        <i class="icon-drop c-rounded c-font-white"></i>
+                                                    </div>
+                                                    <p>{{ organizer.content|striptags('<a>')|truncate(200, false, '...')|raw }}</p>
+                                                    <div class="clear"></div>
+                                                    <div class="c-center c-margin-t-50">
+                                                        <a href="{{ organizer.website }}" title="{{ organizer.name }}" target="_blank" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus de détail' }}</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
+                        <div class="clear"></div>
                     </div>
-                {% else %}
-                    <div class="c-content-box c-size-lg c-no-padding c-overflow-hide c-bg-white">
-                        <div class="c-content-product-3 c-bs-grid-reset-space">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-5 col-sm-5">
-                                        <div class="c-wrapper c-theme-bg" style="height: 245px;">
-                                            <div class="c-content c-border c-border-padding c-border-padding-left">
-                                                <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
-                                                <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
-                                                <a href="{{ organizer.website }}" target="_blank" class="btn btn-lg c-btn-white c-font-uppercase c-btn-square c-btn-border-1x">{{ 'en savoir plus'|upper }}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-sm-7">
-                                        <div class="c-content-overlay">
-                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 245px; width: 70%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
     <!-- END: CONTENT/ORGANISATEUR -->
