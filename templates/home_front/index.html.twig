@@ -194,7 +194,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/17.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-17.jpg') }})"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -222,7 +222,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/18.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-18.jpg') }})"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -232,7 +232,7 @@
                                                 <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
                                                     {{ 'éducation financière'|upper }}
                                                 </h3>
-                                                <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                                <a href="{{ path('education_page') }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +262,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/19.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-19.jpg') }})"></div>
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/20.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-20.jpg') }})"></div>
                                     </div>
                                 </div>
                             </div>
@@ -306,7 +306,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/21.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-21.jpg') }})"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -316,7 +316,7 @@
                                                 <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
                                                     {{ 'Données pour la Croissance' }}
                                                 </h3>
-                                                <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
+                                                <a href="{{ path('rapport_page') }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -334,7 +334,7 @@
                                                 <a href="#"><i class="icon-link"></i></a>
                                             </div>
                                         </div>
-                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/22.jpg') }})"></div>
+                                        <div class="c-image c-overlay-object" data-height="height" style="background-image: url({{ asset('build/front/static/act-22.jpg') }})"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -342,7 +342,7 @@
                                         <div class="c-wrapper">
                                             <div class="c-body c-center">
                                                 <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
-                                                    {{ 'Actualités Economiques et Financières'|upper }}
+                                                    {{ 'Engagements des institutions financières'|upper }}
                                                 </h3>
                                                 <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
                                             </div>
@@ -444,7 +444,7 @@
                         <div class="col-md-4 c-margin-b-20">
                             <div class="card mb-4 box-shadow c-shadow">
                                 <div class="card-header">
-                                    <img class="card-img-top" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}">
+                                    <img class="card-img-top custom-center" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}" style="width: 70%;">
                                 </div>
                                 <div class="card-body">
                                     <div class="card-text c-center">
