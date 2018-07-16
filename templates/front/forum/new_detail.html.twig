@@ -1,5 +1,36 @@
 {% extends 'base.html.twig' %}
-{% block title %}{% endblock %}
+{% block title %}{{ 'Le portail du financement' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
 {% block body %}
-   <p>{{ post.title }}</p>
+   <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+   <div class="card">
+      <div class="c-content-divider c-divider-sm c-icon-bg">
+         <i class="icon-graph c-rounded c-theme-bg c-font-white"></i>
+      </div>
+      <h3 class="c-center c-bg-green-1 c-font-uppercase c-font-bold c-font-20 c-font-white c-font-slim c-padding-20">
+          {{ post.title }}
+      </h3>
+
+   </div>
+   <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
+   <!-- BEGIN: BLOG LISTING -->
+   <div class="c-content-box c-size-md">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-9 col-md-offset-2">
+               <div class="c-content-blog-post-1-view">
+                  <div class="c-content-blog-post-1">
+                     <div class="card c-media c-margin-b-50">
+                        <img class="card-img-top" src="{{ post.assertPath|imagine_filter('thumb_550_350') }}" alt="{{ post.title }}">
+                     </div>
+                     <div class="c-desc">
+                        <p>{{ post.content|raw }}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END: BLOG LISTING  -->
 {% endblock %}

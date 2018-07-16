@@ -392,7 +392,7 @@
                                                 <i class="icon-dot"></i>
                                             </div>
                                             <div class="c-center">
-                                                <a href="{{ path('new_detail', {'slug': post.id  }) }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'Lire l\'article' }}</a>
+                                                <a href="{{ path('new_detail', {'slug': post.slug  }) }}" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'Lire l\'article' }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -402,7 +402,7 @@
                     </div>
                 </div>
                 <div class="c-center">
-                    <a href="" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'plus d\'actualités'|upper }}</a>
+                    <a href="{{ path('page_new') }}" class="btn btn-lg c-btn-green c-btn-border-2x c-btn-square c-btn-bold wow animate fadeIn" data-wow-delay="0.2s">{{ 'plus d\'actualités'|upper }}</a>
                 </div>
             </div>
         </div>

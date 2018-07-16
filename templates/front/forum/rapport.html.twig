@@ -35,8 +35,12 @@
                                 <img class="c-overlay-object img-responsive" src="{{ asset(rapport.assertPath|imagine_filter('thumb_550_350')) }}" alt="{{ rapport.title }}">
                             </div>
                             <div class="c-body">
-                                <div class="c-head">
-                                    <div class="c-name c-font-uppercase c-font-bold" title="{{ rapport.title }}">{{ rapport.title }}</div>
+                                <div class="c-head c-title c-font-bold c-theme-font-hover">
+                                    <a href="{{ path('rapport_detail', {'slug': rapport.slug }) }}">
+                                        <div class="c-name c-font-uppercase c-font-bold"
+                                             title="{{ rapport.title }}">{{ rapport.title }}
+                                        </div>
+                                    </a>
                                 </div>
                                 <p>{{ rapport.content|striptags|truncate('150', false, '...')|raw }}</p>
                                 <div class="c-content-divider">
