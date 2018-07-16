@@ -2,8 +2,9 @@
 {% block title %}
     {{ 'L\'Ecosystème la finance s\'engage' }}
 {% endblock %}
-{% block class_header %}c-layout-header-fullscreen c-layout-header-topbar c-layout-header-topbar-collapse{% endblock %}
-{% block base_nav %} {{ include('front/includes/nav.html.twig') }} {% endblock %}
+{% block base_nav %}
+    {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }}
+{% endblock %}
 {% block slide %}
 {{ include('front/includes/slide.html.twig') }}
     <div class="c-center">
@@ -124,13 +125,13 @@
                         <div class="c-content-product-3 c-bs-grid-reset-space">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-5 col-sm-5">
                                         <div class="c-content-overlay">
-                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 350px; width: 95%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
+                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 245px; width: 70%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="c-wrapper c-bg-green-1" style="height: 350px;">
+                                    <div class="col-md-7 col-sm-7">
+                                        <div class="c-wrapper c-bg-green-1" style="height: 245px;">
                                             <div class="c-content c-border c-border-padding c-border-padding-right">
                                                 <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
                                                 <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
@@ -147,8 +148,8 @@
                         <div class="c-content-product-3 c-bs-grid-reset-space">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="c-wrapper c-theme-bg" style="height: 350px;">
+                                    <div class="col-md-5 col-sm-5">
+                                        <div class="c-wrapper c-theme-bg" style="height: 245px;">
                                             <div class="c-content c-border c-border-padding c-border-padding-left">
                                                 <h3 class="c-title c-font-25 c-font-white c-font-uppercase c-font-bold">{{ organizer.name }}</h3>
                                                 <p class="c-description c-font-17 c-font-white">{{ organizer.content|striptags|truncate(150, false, '...') }}</p>
@@ -156,9 +157,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-7 col-sm-7">
                                         <div class="c-content-overlay">
-                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 350px; width: 95%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
+                                            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 245px; width: 70%; background-image: url('{{ asset(organizer.assertPath|imagine_filter('thumb_medium'))}}');"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -290,7 +291,7 @@
                                         <div class="c-wrapper">
                                             <div class="c-body c-center">
                                                 <h3 class="c-tile-title c-font-25 c-line-height-34 c-font-uppercase c-font-bold">
-                                                    {{ 'la bourse aux projets' }}
+                                                    {{ 'Renforcement des Capacités' }}
                                                 </h3>
                                                 <a href="#" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{ 'découvrir' }}</a>
                                             </div>

@@ -1,91 +1,31 @@
-<!-- BEGIN: LAYOUT/SLIDERS/REVO-SLIDER-8 -->
-<section class="c-layout-revo-slider c-layout-revo-slider-8" dir="ltr">
-    <div class="tp-banner-container tp-fullscreen tp-fullscreen-mobile">
-        <div class="tp-banner rev_slider" data-version="5.0">
-            <ul>
-                <!--BEGIN: SLIDE #1 -->
-                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-style="dark">
-                    <img
-                            src="{{ asset('build/web/static/slides1.jpg') }}"
-                             alt=""
-                             srcset="{{ asset('build/web/static/slides1.jpg') }} 1024w,
-    {{ asset('build/web/static/slides1.jpg') }} 640w,
-    {{ asset('build/web/static/slides1.jpg') }} 320w"
-                             sizes="(min-width: 1024px) 1024px, 100vw"
-                             data-bgrepeat="no-repeat"
-                    >
-                    <!--BEGIN: MAIN TITLE -->
-                    <div class="tp-caption customin customout"
-                         data-x="center"
-                         data-y="center"
-                         data-hoffset=""
-                         data-voffset="-30"
-                         data-speed="500"
-                         data-start="1000"
-                         data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:500;e:Back.easeInOut;"
-                         data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:600;e:Back.easeInOut;"
-                         data-easing="Back.easeOut"
-                         data-splitin="none"
-                         data-splitout="none"
-                         data-elementdelay="0.1"
-                         data-endelementdelay="0.1"
-                         data-endspeed="600"
-                    >
-                        <h3 class="c-main-title c-font-60 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
-                            La finance s'engage
-                        </h3>
+<!-- BEGIN: CONTENT/MISC/LATEST-ITEMS-4 -->
+<div class="c-center">
+    <div class="col-md-8" style="padding: 0 !important;">
+        <div class="c-content-media-2-slider" data-slider="owl">
+            <div class="owl-carousel owl-theme c-theme owl-single" data-single-item="true" data-auto-play="4000" data-rtl="false">
+                <div class="item">
+                    <div class="c-content-label c-font-uppercase c-font-bold">{{ 'Photo de Famille' }}</div>
+                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides1.jpg') }}); min-height: 480px;">
                     </div>
-                    <!--END -->
-                    <!--BEGIN: ACTION BUTTON -->
-                    <div class="tp-caption randomrotateou"
-                         data-x="center"
-                         data-y="center"
-                         data-hoffset=""
-                         data-voffset="200"
-                         data-speed="300"
-                         data-start="1500"
-                         data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:300;e:Back.easeInOut;"
-                         data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:400;e:Back.easeInOut;" >
+                </div>
+                <div class="item">
+                    <div class="c-content-label c-font-uppercase c-font-bold">{{ 'Enagagements des institutions financières' }}</div>
+                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides2.jpg') }}); min-height: 480px;">
                     </div>
-                    <!--END -->
-                    <!--BEGIN: SUB TITLE -->
-                    <div class="tp-caption customin customout"
-                         data-x="center"
-                         data-y="bottom"
-                         data-hoffset="0"
-                         data-voffset="0"
-                         data-width="full"
-                         data-basealign="slide"
-                         data-speed="500"
-                         data-start="1800"
-                         data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:500;e:Back.easeInOut;"
-                         data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:600;e:Back.easeInOut;"
-                         data-easing="Back.easeOut"
-                         data-splitin="none"
-                         data-splitout="none"
-                         data-elementdelay="0.1"
-                         data-endelementdelay="0.1"
-                         data-endspeed="600"
-                         style="width: 100%;"
-                    >
-                        <div class="c-action-bar">
-                            <div class="container">
-                                <div class="c-content ">
-                                    <h3 class="c-font-30 c-font-sbold c-font-white">
-                                        {{ 'Une initiative pour le financement des PME' }}
-                                    </h3>
-                                </div>
-                                <div class="c-btn-container">
-                                    <a href="{{ path('initiative') }}" class="btn c-action-btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">{{ 'en savoir +' }}</a>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="item">
+                    <div class="c-content-label c-font-uppercase c-font-bold">{{ 'Remise des awards du financements' }}</div>
+                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides3.jpg') }}); min-height: 480px;">
                     </div>
-                    <!--END -->
-                </li>
-                <!--END -->
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-<!-- END: LAYOUT/SLIDERS/REVO-SLIDER-8 -->
+    <div class="col-md-4" style="padding: 0 !important;">
+        <div class="c-content-media-1 c-bg-green-1" style="height: 480px;">
+            <a href="#" class="c-title c-font-uppercase  c-font-bold c-font-white c-theme-on-hover c-center" style="padding-top: 7rem;">{{ 'La finance s\'enagage' }}</a>
+            <div class="c-content-label c-font-uppercase c-font-bold c-bg-green-1 c-center">{{ 'initiative pour le financement des PME' }}</div>
+        </div>
+    </div>
+</div>
+<!-- END: CONTENT/MISC/LATEST-ITEMS-4 -->
