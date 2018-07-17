@@ -6,6 +6,7 @@ use App\Entity\Users;
 use libphonenumber\PhoneNumberFormat;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,6 +20,15 @@ class RegisterType extends AbstractType
         $builder
             ->add('firstname', TextType::class, ['label' => false])
             ->add('lastname', TextType::class, ['label' => false])
+            ->add('age', TextType::class, ['label' => false])
+            ->add('gener', ChoiceType::class, [
+                'label' => false,
+                'choices' => [
+                    'Homme' => 'Homme',
+                    'Femme' =>  'Femme'
+                ],
+                'placeholder' => 'Selectionnez le genre',
+            ])
             ->add('phone', PhoneNumberType::class, [
                 'label' => false,
                 'format' => PhoneNumberFormat::NATIONAL,

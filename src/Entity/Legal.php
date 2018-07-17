@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints AS Assert;
@@ -30,6 +32,17 @@ class Legal
      */
     protected $slug;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Compagny", mappedBy="legal")
+     */
+    protected $compagny;
+
+    public function __construct()
+    {
+        $this->compagny = new ArrayCollection();
+    }
+
 
     public function getId()
     {
@@ -56,6 +69,37 @@ class Legal
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Compagny[]
+     */
+    public function getCompagny(): Collection
+    {
+        return $this->compagny;
+    }
+
+    public function addCompagny(Compagny $compagny): self
+    {
+        if (!$this->compagny->contains($compagny)) {
+            $this->compagny[] = $compagny;
+            $compagny->setLegal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompagny(Compagny $compagny): self
+    {
+        if ($this->compagny->contains($compagny)) {
+            $this->compagny->removeElement($compagny);
+            // set the owning side to null (unless already changed)
+            if ($compagny->getLegal() === $this) {
+                $compagny->setLegal(null);
+            }
+        }
 
         return $this;
     }

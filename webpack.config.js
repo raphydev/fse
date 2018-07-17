@@ -39,6 +39,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .addEntry('js/script/editor', './assets/back/js/editor.js')
+    .addEntry('js/script/formcustom', './assets/back/js/formcustom.js')
     /*.addEntry('js/app', [
         './assets/back/js/src/jquery-extends.js',
         './assets/back/js/src/app.js',

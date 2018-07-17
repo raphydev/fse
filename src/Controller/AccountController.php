@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Compagny;
 use App\Entity\Users;
+use App\Form\CompagnyType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,12 +44,36 @@ class AccountController extends Controller
     }
 
     /**
-     * @Route("/info-start", name="start_member", methods={"GET"}, schemes={"%secure_channel%"})
+     * @Route("/info-start", name="start_member", methods={"GET","POST"}, schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
-    public function startUserInfo(Request $request){
-        return $this->render('network/pages/wizard.html.twig');
+    public function startUserInfo(Request $request)
+    {
+        $compagny = new Compagny();
+
+        $form = $this->createForm(CompagnyType::class, $compagny);
+        $form->handleRequest($request);
+        $session = $request->getSession();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($compagny);
+            $em->flush();
+            //return $this->redirectToRoute('domain_index');
+        }
+        return $this->render('network/pages/wizard.html.twig',[
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @param Compagny $compagny
+     * @param Request $request
+     *
+     */
+    public function SecondPartInfo(Compagny $compagny, Request $request)
+    {
+
     }
 
     /**

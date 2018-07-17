@@ -7,24 +7,14 @@
       <div class="col-md-10 col-lg-8 align-self-end">
         <img src="{{ asset('build/front/static/logo.png') }}" alt="la finance s'engage">
         <br><br><br>
-        <h4 class="text-white">
-          {{ 'Distinguez-vous professionnellement'|upper }}
-        </h4>
-        <p class="text-white">
-          {{ 'Conçu par ESPartners et porté par le Patronat ivoirien et plus particulièrement avec la création de la Commission de Financement du Secteur Privé de la CGECI en partenariat avec la Banque Africaine de Développement dans le but de mobiliser le secteur privé pour offrir des solutions concrètes au financement de l’économie ivoirienne'}}
-        </p>
         <br><br>
       </div>
     </div>
   </div>
   <!-- section Login -->
   <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+    <h5 style="text-align: center !important;">{{ 'Créer votre compte FSE' }}</h5>
     <div class="px-40 py-30">
-      <div class="center">
-          <img src="{{ asset('build/back/static/logo-web-dash.png') }}" alt="La finance s'engage">
-      </div>
-      <h5>{{ 'Créer votre compte FSE' }}</h5>
-
       {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
         {% set class = 'form-control' %}
         {% if form.phone.vars.errors|length > 0 %}
@@ -32,32 +22,36 @@
         {% endif %}
         <div class="row">
             <div class="form-group col-md-6">
-              <label for="lastname">{{ 'Entrez votre Nom' }}</label>
-                {{ form_widget(form.lastname, {'attr': {'class' :class, 'placeholder' : 'ex: Konan'}}) }}
+                {{ form_widget(form.lastname, {'attr': {'class' :class, 'placeholder' : 'Nom de famille'}}) }}
                 {{ form_errors(form.lastname) }}
             </div>
             <div class="form-group col-md-6">
-              <label for="firstname">{{ 'Entrez votre Prénom' }}</label>
-                {{ form_widget(form.firstname, {'attr': {'class' :class, 'placeholder' : 'ex: Peter'}}) }}
+                {{ form_widget(form.firstname, {'attr': {'class' :class, 'placeholder' : 'Prénoms'}}) }}
                 {{ form_errors(form.firstname) }}
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+                {{ form_widget(form.gener, {'attr': {'class' :class, 'placeholder' : 'Selectionnez le sexe'}}) }}
+                {{ form_errors(form.gener) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_widget(form.age, {'attr': {'class' :class, 'placeholder' : 'Age'}}) }}
+                {{ form_errors(form.age) }}
+            </div>
+        </div>
         <div class="form-group">
-          <label for="firstname">{{ 'Entez une adresse Email' }}</label>
-            {{ form_widget(form.email, {'attr': {'class' : class, 'placeholder' : 'ex: test@example.com'}}) }}
+            {{ form_widget(form.email, {'attr': {'class' : class, 'placeholder' : 'Adresse Email'}}) }}
             {{ form_errors(form.email) }}
         </div>
         <div class="form-group">
-            <label for="phone.country">{{ 'Choix de votre Pays' }}</label>
             {{ form_widget(form.phone.country, {'label': false, 'attr': {'class' :class}}) }}
         </div>
         <div class="form-group">
-            <label for="phone.number">{{ 'Entrez votre Téléphone' }}</label>
-            {{ form_widget(form.phone.number, {'label': false, 'attr': {'class' :class, 'placeholder' : '07000007'}} ) }}
+            {{ form_widget(form.phone.number, {'label': false, 'attr': {'class' :class, 'placeholder' : 'Numero de téléphone'}} ) }}
             {{ form_errors(form.phone) }}
         </div>
         <div class="form-group">
-          <label for="password">{{ ' Mot de passe' }}</label>
             {{ form_widget(form.plainPassword, {'attr': {'class' :class, 'placeholder' : 'Mot de passe'}}) }}
             {{ form_errors(form.plainPassword) }}
         </div>

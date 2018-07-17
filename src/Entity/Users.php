@@ -94,6 +94,12 @@ class Users implements UserInterface, \Serializable
     protected $isFullFill;
 
     /**
+     * @var
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $isConition;
+
+    /**
      * @var array
      * @ORM\Column(type="array", nullable=true)
      */
@@ -104,6 +110,21 @@ class Users implements UserInterface, \Serializable
      * @ORM\Column(name="created", type="datetime",nullable=true)
      */
     protected $created;
+
+    /**
+     * @var
+     * @Assert\NotNull(message="Renseignez le genre")
+     * @ORM\Column(name="gener", type="string", nullable=true)
+     */
+    protected $gener;
+
+    /**
+     * @var
+     * @Assert\NotNull(message="Entrez votre age svp")
+     * @Assert\Length(min="1", max="2", maxMessage="Entrez un age correct")
+     * @ORM\Column(type="integer", length=2)
+     */
+    protected $age;
 
     /**
      * @var
@@ -457,6 +478,42 @@ class Users implements UserInterface, \Serializable
     public function setIsFullFill(?bool $isFullFill): self
     {
         $this->isFullFill = $isFullFill;
+
+        return $this;
+    }
+
+    public function getGener(): ?string
+    {
+        return $this->gener;
+    }
+
+    public function setGener(?string $gener): self
+    {
+        $this->gener = $gener;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getIsConition(): ?bool
+    {
+        return $this->isConition;
+    }
+
+    public function setIsConition(?bool $isConition): self
+    {
+        $this->isConition = $isConition;
 
         return $this;
     }
