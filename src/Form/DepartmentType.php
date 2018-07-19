@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Department;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,15 +28,16 @@ class DepartmentType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'class' => 'col-md-10 col-xl-8',
-                    'placeholder' => 'Mission'
+                    'placeholder' => 'Mission',
+                    'data-error'  => 'Renseignez la mission du departement'
                 ]
             ])
-            ->add('employer', TextType::class, [
+            ->add('employer', NumberType::class, [
                 'label' => "Nombre d'employé du département",
                 'required' => true,
                 'attr' => [
                     'class' => 'col-md-3 col-xl-3',
-                    'placeholder' => 'Nombre'
+                    'placeholder' => '3'
                 ]
             ])
             ->add('chief', TextType::class, [
@@ -50,10 +52,7 @@ class DepartmentType extends AbstractType
                 'label' => "Force & faiblesse du responsable",
                 'required' => true,
                 'attr' => [
-                    "id" => "editor-id",
-                    "data-provide" => "quill",
-                    "data-min-height" => "150",
-                    "data-toolbar" => "slim",
+                    "data-min-height" => "150"
                 ]
             ])
         ;

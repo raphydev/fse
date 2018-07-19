@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Compagny;
+use App\Entity\Company;
+use App\Entity\Department;
 use App\Entity\Users;
-use App\Form\CompagnyType;
+use App\Form\CompanyType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,15 +51,16 @@ class AccountController extends Controller
      */
     public function startUserInfo(Request $request)
     {
-        $compagny = new Compagny();
+        $company = new Company();
 
-        $form = $this->createForm(CompagnyType::class, $compagny);
+        $form = $this->createForm(CompanyType::class, $company);
         $form->handleRequest($request);
         $session = $request->getSession();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($compagny);
+            $em->persist($company);
             $em->flush();
+            die('OK');
             //return $this->redirectToRoute('domain_index');
         }
         return $this->render('network/pages/wizard.html.twig',[
@@ -67,11 +69,11 @@ class AccountController extends Controller
     }
 
     /**
-     * @param Compagny $compagny
+     * @param Company $compagny
      * @param Request $request
      *
      */
-    public function SecondPartInfo(Compagny $compagny, Request $request)
+    public function SecondPartInfo(Company $compagny, Request $request)
     {
 
     }

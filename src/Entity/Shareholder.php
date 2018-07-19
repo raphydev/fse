@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ActionnaireRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ShareholderRepository")
  */
-class Actionnaire
+class Shareholder
 {
     /**
      * @ORM\Id()
@@ -18,6 +19,7 @@ class Actionnaire
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Entrez le nom")
      */
     protected $name;
 
@@ -28,9 +30,9 @@ class Actionnaire
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Compagny", inversedBy="actionnaire", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="shareholders", cascade={"persist","remove"})
      */
-    protected $compagny;
+    protected $company;
 
 
     public function getId()
@@ -62,14 +64,14 @@ class Actionnaire
         return $this;
     }
 
-    public function getCompagny(): ?Compagny
+    public function getCompany(): ?Company
     {
-        return $this->compagny;
+        return $this->company;
     }
 
-    public function setCompagny(?Compagny $compagny): self
+    public function setCompany(?Company $company): self
     {
-        $this->compagny = $compagny;
+        $this->company = $company;
 
         return $this;
     }

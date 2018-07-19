@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Actionnaire;
+use App\Entity\shareholder;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ActionnaireType extends AbstractType
+class ShareholderType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -18,7 +18,7 @@ class ActionnaireType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'class' => 'col-md-10 col-xl-8',
-                    'placeholder' => 'Actionnaire'
+                    'placeholder' => 'shareholder'
                 ]
             ])
             ->add('part', TextType::class, [
@@ -26,7 +26,7 @@ class ActionnaireType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'class' => 'col-md-3 col-xl-2',
-                    'placeholder' => '.. %'
+                    'placeholder' => '...%'
                 ]
             ])
         ;
@@ -35,7 +35,7 @@ class ActionnaireType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Actionnaire::class,
+            'data_class' => shareholder::class,
         ]);
     }
 }

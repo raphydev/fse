@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DepartmentRepository")
@@ -18,6 +19,7 @@ class Department
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $name;
 
@@ -44,12 +46,12 @@ class Department
     /**
      * @var
      * @ORM\ManyToOne(
-     *     targetEntity="App\Entity\Compagny",
+     *     targetEntity="App\Entity\Company",
      *     inversedBy="departments",
      *     cascade={"persist","remove"}
      *     )
      */
-    protected $compagny;
+    protected $company;
 
 
     public function getId()
@@ -117,14 +119,14 @@ class Department
         return $this;
     }
 
-    public function getCompagny(): ?Compagny
+    public function getCompany(): ?Company
     {
-        return $this->compagny;
+        return $this->company;
     }
 
-    public function setCompagny(?Compagny $compagny): self
+    public function setCompany(?Company $company): self
     {
-        $this->compagny = $compagny;
+        $this->company = $company;
 
         return $this;
     }

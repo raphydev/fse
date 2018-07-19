@@ -34,13 +34,13 @@ class Legal
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Compagny", mappedBy="legal")
+     * @ORM\OneToMany(targetEntity="App\Entity\Company", mappedBy="legal")
      */
-    protected $compagny;
+    protected $companies;
 
     public function __construct()
     {
-        $this->compagny = new ArrayCollection();
+        $this->companies = new ArrayCollection();
     }
 
 
@@ -74,30 +74,30 @@ class Legal
     }
 
     /**
-     * @return Collection|Compagny[]
+     * @return Collection|Company[]
      */
-    public function getCompagny(): Collection
+    public function getCompanies(): Collection
     {
-        return $this->compagny;
+        return $this->companies;
     }
 
-    public function addCompagny(Compagny $compagny): self
+    public function addCompany(Company $company): self
     {
-        if (!$this->compagny->contains($compagny)) {
-            $this->compagny[] = $compagny;
-            $compagny->setLegal($this);
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->setLegal($this);
         }
 
         return $this;
     }
 
-    public function removeCompagny(Compagny $compagny): self
+    public function removeCompany(Company $company): self
     {
-        if ($this->compagny->contains($compagny)) {
-            $this->compagny->removeElement($compagny);
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
             // set the owning side to null (unless already changed)
-            if ($compagny->getLegal() === $this) {
-                $compagny->setLegal(null);
+            if ($company->getLegal() === $this) {
+                $company->setLegal(null);
             }
         }
 

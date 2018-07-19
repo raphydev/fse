@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Actionnaire;
+use App\Entity\shareholder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Actionnaire|null find($id, $lockMode = null, $lockVersion = null)
- * @method Actionnaire|null findOneBy(array $criteria, array $orderBy = null)
- * @method Actionnaire[]    findAll()
- * @method Actionnaire[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method shareholder|null find($id, $lockMode = null, $lockVersion = null)
+ * @method shareholder|null findOneBy(array $criteria, array $orderBy = null)
+ * @method shareholder[]    findAll()
+ * @method shareholder[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ActionnaireRepository extends ServiceEntityRepository
+class ShareholderRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Actionnaire::class);
+        parent::__construct($registry, shareholder::class);
     }
 
 //    /**
-//     * @return Actionnaire[] Returns an array of Actionnaire objects
+//     * @return shareholder[] Returns an array of shareholder objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ActionnaireRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Actionnaire
+    public function findOneBySomeField($value): ?shareholder
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

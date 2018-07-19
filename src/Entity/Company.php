@@ -9,9 +9,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints AS Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CompagnyRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CompanyRepository")
  */
-class Compagny
+class Company
 {
     /**
      * @ORM\Id()
@@ -45,39 +45,23 @@ class Compagny
     protected $website;
 
     /**
-     * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez les informations demandées pour continuer ")
+     * @var Bool
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $clientMarket;
+    protected $is_reinforcement;
+
+    /**
+     * @var Bool
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $is_satisfied;
 
     /**
      * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez les informations demandées pour continuer")
+     * @ORM\Column(type="text", nullable=true)
      */
-    protected $objectif;
+    protected $comment_reinforcement;
 
-    /**
-     * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez les informations demandées pour continuer")
-     */
-    protected $strategie;
-
-    /**
-     * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez les informations demandées pour continuer")
-     */
-    protected $besoin;
-
-    /**
-     * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez les informations demandées pour continuer")
-     */
-    protected $content;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -85,51 +69,44 @@ class Compagny
      */
     protected $slug;
 
-    /**
-     * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez la description de vos produits et services")
-     */
-    protected $productService;
 
     /**
      * @var
-     * @ORM\Column(type="text", nullable=false)
-     * @Assert\NotNull(message="Entrez la description de vos produits et services")
-     */
-    protected $concurrent;
-
-    /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Domain", inversedBy="compagny")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Domain", inversedBy="companies")
      * @Assert\NotBlank(message="Selectionnez le domaine d'activité")
      */
     protected $domain;
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Legal", inversedBy="compagny")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Legal", inversedBy="companies")
      * @Assert\NotBlank(message="Selectionnez la forme juridique")
      */
     protected $legal;
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Actionnaire", mappedBy="compagny", cascade={"persist","remove"})
-     * @Assert\Valid()
+     * @ORM\OneToMany(targetEntity="App\Entity\Shareholder", mappedBy="company", cascade={"persist","remove"})
+     *
      */
-    protected $actionnaire;
+    protected $shareholders;
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Department", mappedBy="compagny", cascade={"persist","remove"})
-     * @Assert\Valid()
+     * @ORM\OneToMany(
+     *     targetEntity="App\Entity\Department",
+     *      mappedBy="company",
+     *      fetch="EXTRA_LAZY",
+     *      orphanRemoval=true,
+     *      cascade={"persist","remove"}
+     * )
+     *
      */
     protected $departments;
 
     public function __construct()
     {
-        $this->actionnaire = new ArrayCollection();
+        $this->shareholders = new ArrayCollection();
         $this->departments = new ArrayCollection();
     }
 
@@ -224,30 +201,30 @@ class Compagny
     }
 
     /**
-     * @return Collection|Actionnaire[]
+     * @return Collection|Shareholder[]
      */
-    public function getActionnaire(): Collection
+    public function getShareholders(): Collection
     {
-        return $this->actionnaire;
+        return $this->shareholders;
     }
 
-    public function addActionnaire(Actionnaire $actionnaire): self
+    public function addShareholder(Shareholder $shareholder): self
     {
-        if (!$this->actionnaire->contains($actionnaire)) {
-            $this->actionnaire[] = $actionnaire;
-            $actionnaire->setCompagny($this);
+        if (!$this->shareholders->contains($shareholder)) {
+            $this->shareholders[] = $shareholder;
+            $shareholder->setCompany($this);
         }
 
         return $this;
     }
 
-    public function removeActionnaire(Actionnaire $actionnaire): self
+    public function removeShareholder(Shareholder $shareholder): self
     {
-        if ($this->actionnaire->contains($actionnaire)) {
-            $this->actionnaire->removeElement($actionnaire);
+        if ($this->shareholders->contains($shareholder)) {
+            $this->shareholders->removeElement($shareholder);
             // set the owning side to null (unless already changed)
-            if ($actionnaire->getCompagny() === $this) {
-                $actionnaire->setCompagny(null);
+            if ($shareholder->getCompany() === $this) {
+                $shareholder->setCompany(null);
             }
         }
 
@@ -266,7 +243,7 @@ class Compagny
     {
         if (!$this->departments->contains($department)) {
             $this->departments[] = $department;
-            $department->setCompagny($this);
+            $department->setCompany($this);
         }
 
         return $this;
@@ -277,95 +254,48 @@ class Compagny
         if ($this->departments->contains($department)) {
             $this->departments->removeElement($department);
             // set the owning side to null (unless already changed)
-            if ($department->getCompagny() === $this) {
-                $department->setCompagny(null);
+            if ($department->getCompany() === $this) {
+                $department->setCompany(null);
             }
         }
 
         return $this;
     }
 
-    public function getClientMarket(): ?string
+    public function getIsReinforcement(): ?bool
     {
-        return $this->clientMarket;
+        return $this->is_reinforcement;
     }
 
-    public function setClientMarket(string $clientMarket): self
+    public function setIsReinforcement(?bool $is_reinforcement): self
     {
-        $this->clientMarket = $clientMarket;
+        $this->is_reinforcement = $is_reinforcement;
 
         return $this;
     }
 
-    public function getObjectif(): ?string
+    public function getIsSatisfied(): ?bool
     {
-        return $this->objectif;
+        return $this->is_satisfied;
     }
 
-    public function setObjectif(string $objectif): self
+    public function setIsSatisfied(?bool $is_satisfied): self
     {
-        $this->objectif = $objectif;
+        $this->is_satisfied = $is_satisfied;
 
         return $this;
     }
 
-    public function getStrategie(): ?string
+    public function getCommentReinforcement(): ?string
     {
-        return $this->strategie;
+        return $this->comment_reinforcement;
     }
 
-    public function setStrategie(string $strategie): self
+    public function setCommentReinforcement(?string $comment_reinforcement): self
     {
-        $this->strategie = $strategie;
+        $this->comment_reinforcement = $comment_reinforcement;
 
         return $this;
     }
 
-    public function getBesoin(): ?string
-    {
-        return $this->besoin;
-    }
-
-    public function setBesoin(string $besoin): self
-    {
-        $this->besoin = $besoin;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getProductService(): ?string
-    {
-        return $this->productService;
-    }
-
-    public function setProductService(string $productService): self
-    {
-        $this->productService = $productService;
-
-        return $this;
-    }
-
-    public function getConcurrent(): ?string
-    {
-        return $this->concurrent;
-    }
-
-    public function setConcurrent(string $concurrent): self
-    {
-        $this->concurrent = $concurrent;
-
-        return $this;
-    }
 }

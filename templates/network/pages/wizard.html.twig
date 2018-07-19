@@ -8,11 +8,14 @@
     <div class="main-content">
         <div class="row min-h-fullscreen center-vh p-20 m-0">
             <div class="col-12">
-                <div class="card card-shadowed  py-30 w-700px mx-auto" style="max-width: 100%">
+                <div class="card card-shadowed  py-30 w-900px mx-auto" style="max-width: 100%">
                     <div class="card">
                         <header class="header bg-ui-general">
                             <div class="align-center mt-5" style="display: block;">
-                                <img src="{{ asset('build/back/static/pme_sengage.png') }}" alt="" class="img-responsive">
+                                <img
+                                        src="{{ asset('build/back/static/pme_sengage.png') }}"
+                                        alt="" class="img-responsive"
+                                >
                             </div>
                             <div class="text-center py-10">
                                 <h6>
@@ -21,200 +24,129 @@
                             </div>
                         </header><!--/.header -->
                         <div class="card-body px-100">
-                            {{ form_start(form, {
-                                'method': 'post',
-                                'action': path('start_member'),
-                                'attr': {
-                                    'class': 'card',
-                                    novalidate: 'novalidate',
-                                    'data-provide':'wizard'
-                                }
-                            } ) }}
-                            {% set class = 'form-control' %}
-                            <ul class="nav nav-process nav-process-circle">
-                                    <li class="nav-item">
+                            <div class="col-12">
+                                <ul class="nav nav-process nav-process-circle">
+                                    <li class="nav-item processing">
                                         <span class="nav-title">
-                                            <span class="badge badge-pill badge-warning">
-                                                {{ ' 1'|capitalize }}
+                                            <span class="badge badge-pill badge-secondary">
+                                                {{ '1'|capitalize }}
                                             </span>
                                         </span>
-                                        <a class="nav-link" data-toggle="tab" href="#wizard-validate-1"></a>
+                                        <a class="nav-link" href="#"></a>
                                     </li>
-
                                     <li class="nav-item">
-                                        <span class="badge badge-pill badge-warning">
-                                            {{ ' 2'|capitalize }}
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '2'|capitalize }}
+                                            </span>
                                         </span>
-                                        <a class="nav-link" data-toggle="tab" href="#wizard-validate-2"></a>
+                                        <a class="nav-link" href="#"></a>
                                     </li>
                                     <li class="nav-item">
-                                    <span class="badge badge-pill badge-warning">
-                                        {{ ' 3'|capitalize }}
-                                    </span>
-                                        <a class="nav-link" data-toggle="tab" href="#wizard-validate-3"></a>
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '3'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '4'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '5'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '6'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '7'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '8'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
                                     </li>
                                 </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane fade active show"
-                                         id="wizard-validate-1" data-provide="validation">
-                                        <br><br>
-                                        <p class="text-center fs-15 text-muted">
-                                            {{ 'Informations démographiques'|upper }}
-                                        </p>
-                                        <p class="text-center text-gray">
-                                            {{ 'Identification de l\'entreprise'|capitalize }}
-                                        </p>
-                                        <hr class="w-100px">
-                                        <br>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.name, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Nom de l\'entreprise'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.city, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Ville'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            {{ form_row(form.seat, {
-                                                'attr': {'class' :class,
-                                                    'placeholder' : 'Siège Social'
-                                                }})
-                                            }}
-                                            <div class="form-control-feedback"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.legal, {
-                                                    'attr': {'class' :class}})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.domain, {
-                                                    'attr': {'class' :class}})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            {{ form_row(form.website, {
-                                                'attr': {'class' :class,
-                                                    'placeholder' : 'http://siteinternet.com'
-                                                }})
-                                            }}
-                                            <div class="form-control-feedback"></div>
-                                        </div>
-                                        <div class="form-group act" data-prototype="{{ form_widget(form.actionnaire.vars.prototype)|e('html_attr') }}">
-                                            <label for="">{{ 'Avez vous des actionnaires ? Si oui cliquez pour ajouter' }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade"
-                                         id="wizard-validate-2" data-provide="validation">
-                                        <br><br>
-                                        <p class="text-center fs-25 text-muted">
-                                            {{ 'Organisation de l\'équipe'|upper }}
-                                        </p>
-                                        <hr class="w-100px">
-                                        <br>
-                                        <div class="form-group">
-                                            <div class="form-group dep" data-prototype="{{ form_widget(form.departments.vars.prototype)|e('html_attr') }}">
-                                                <label for="departement">
-                                                    {{ 'Comment est structurée votre entreprise ?' }}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade"
-                                         id="wizard-validate-3" data-provide="validation">
-                                        <br><br>
-                                        <p class="text-center fs-35 text-muted">Save your <strong class="text-primary">credit card</strong></p>
-                                        <p class="text-center text-gray">{{ 'Positionnement de l\'entreprise - Définition du marché, de l’offre et de la stratégie' }}.</p>
-                                        <hr class="w-100px">
-                                        <br>
-                                        <div class="row">
-                                            <div class="form-group">
-                                                {{ form_row(form.productService, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous ici'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.clientMarket, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous ici'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.concurrent, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous ici'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.objectif, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Vos objectifs'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.strategie, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.besoin, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                            <div class="form-group">
-                                                {{ form_row(form.content, {
-                                                    'attr': {'class' :class,
-                                                        'placeholder' : 'Exprimez-vous'
-                                                    }})
-                                                }}
-                                                <div class="form-control-feedback"></div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <div class="col-lg-12">
+                                    <p class="text-center fs-25 text-muted">
+                                        {{ 'Informations démographiques'|upper }}
+                                    </p>
+                                    <hr class="w-100px">
                                 </div>
-                                <hr>
-                                <div class="flexbox">
-                                    <button class="btn btn-secondary"
-                                            data-wizard="prev" type="button">{{ 'Retour'|upper }}
-                                    </button>
-                                    <button class="btn btn-secondary"
-                                            data-wizard="next" type="button">{{ 'Suivant' }}
-                                    </button>
-                                    <button class="btn btn-secondary" data-wizard="finish" type="submit">
-                                        {{ 'Terminer'|upper }}
-                                    </button>
+                                <div class="card">
+                                    <h4 class="card-title">
+                                        <span class="badge badge-primary">1</span>
+                                        <strong>{{ 'Identification de l\'entreprise' }}</strong>
+                                    </h4>
+                                    {{ form_start(form,
+                                        {'attr': {
+                                            'class': 'card company-steps',
+                                            novalidate: 'novalidate'
+                                        } } ) }}
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.name) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.seat) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.legal) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.domain) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.city) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ form_row(form.website) }}
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <footer class="card-footer text-right">
+                                        <button class="btn btn-primary"
+                                                type="submit">{{ 'Suivant' }}
+                                        </button>
+                                    </footer>
+                                    {{ form_end(form) }}
                                 </div>
-                            {{ form_end(form) }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,5 +156,8 @@
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
-    <script src="{{ asset('build/back/js/script/formcustom.js', 'back') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js
+"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+    <script src="{{ asset('build/back/js/script/appForm.js', 'back') }}"></script>
 {% endblock %}

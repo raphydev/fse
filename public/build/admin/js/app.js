@@ -2432,7 +2432,7 @@ jQuery.fn.scrollToEnd = function() {
     $.fn.validator.Constructor.FOCUS_OFFSET = 100;
 
     provider.provide('validation', function(){
-      $(this).validator();
+      $(this).validator()
     });
 
 
