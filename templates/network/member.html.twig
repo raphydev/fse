@@ -16,7 +16,7 @@
 </head>
 <body>
 <!-- Preloader -->
-<div class="preloader">
+<div class="preloader" id="preloader">
     <div class="spinner-dots">
         <span class="dot1"></span>
         <span class="dot2"></span>
@@ -27,10 +27,9 @@
     <main>
         {% block body %}{% endblock %}
     </main>
-{% block javascripts %}
     <script src="{{ asset('build/admin/js/core.min.js') }}"></script>
     <script src="{{ asset('build/admin/js/app.js') }}"></script>
     <script src="{{ asset('build/admin/js/script.min.js') }}"></script>
-{% endblock %}
+    {% block javascripts %}{% endblock %}
 </body>
 </html>

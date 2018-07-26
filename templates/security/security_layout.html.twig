@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="">
     <link rel="icon" href="">
 </head>
-<body>
+<body class="{% block bodyClass %}{% endblock %}" style="{% block styleClass %}{% endblock %}">
 <div class="row no-gutters min-h-fullscreen bg-white">
     {% block body %}{% endblock %}
 </div>

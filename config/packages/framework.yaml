@@ -39,3 +39,5 @@ framework:
         #app: cache.adapter.apcu
     translator:
         enabled: true
+    property_info:
+        enabled: true

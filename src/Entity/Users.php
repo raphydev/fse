@@ -132,6 +132,11 @@ class Users implements UserInterface, \Serializable
      */
     protected $galeries;
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Company", mappedBy="user")
+     */
+    protected $companies;
 
     public function __construct()
     {
@@ -139,6 +144,7 @@ class Users implements UserInterface, \Serializable
         $this->isActive = false;
         $this->isFullFill = false;
         $this->galeries = new ArrayCollection();
+        $this->companies = new ArrayCollection();
     }
 
     /**
@@ -514,6 +520,37 @@ class Users implements UserInterface, \Serializable
     public function setIsConition(?bool $isConition): self
     {
         $this->isConition = $isConition;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Company[]
+     */
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompany(Company $company): self
+    {
+        if (!$this->companies->contains($company)) {
+            $this->companies[] = $company;
+            $company->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompany(Company $company): self
+    {
+        if ($this->companies->contains($company)) {
+            $this->companies->removeElement($company);
+            // set the owning side to null (unless already changed)
+            if ($company->getUser() === $this) {
+                $company->setUser(null);
+            }
+        }
 
         return $this;
     }

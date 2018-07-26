@@ -86,8 +86,13 @@ class Company
 
     /**
      * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="companies")
+     */
+    protected $user;
+
+    /**
+     * @var
      * @ORM\OneToMany(targetEntity="App\Entity\Shareholder", mappedBy="company", cascade={"persist","remove"})
-     *
      */
     protected $shareholders;
 
@@ -100,7 +105,6 @@ class Company
      *      orphanRemoval=true,
      *      cascade={"persist","remove"}
      * )
-     *
      */
     protected $departments;
 
@@ -294,6 +298,18 @@ class Company
     public function setCommentReinforcement(?string $comment_reinforcement): self
     {
         $this->comment_reinforcement = $comment_reinforcement;
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -14,8 +14,8 @@
   <!-- section Login -->
   <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
     <div class="px-80 py-30">
-      <div><img src="{{ asset('build/back/static/logo-web-dash.png') }}" alt="La finance s'engage"></div>
-      <h5>{{ 'Connexion à votre compte' }}</h5><br>
+        <h3 style="text-align: center !important;">{{ 'Connectez-vous à votre compte FSE' }}</h3>
+        <br>
         {% if error %}
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -24,33 +24,32 @@
               {{ error.messageKey|trans(error.messageData, 'security') }}
           </div>
         {% endif %}
-      <form class="card" action="{{ path('signin_page') }}" method="post">
-        <div class="form-group">
-          <label for="username">{{ 'Entrez votre adresse email' }}</label>
-          <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="E-mail">
-        </div>
-        <div class="form-group">
-          <label for="password">{{ 'Entrez le mot de passe' }}</label>
-          <input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe">
-        </div>
-
-        <!--<div class="form-group flexbox">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" checked>
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Remember me</span>
-          </label>
-
-          <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
-        </div> -->
-
-        <div class="form-group">
-          <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Se connecter' }}</button>
-        </div>
-      </form>
+          <form class="card form-type-material" action="{{ path('signin_page') }}" method="post">
+            <div class="form-group">
+                 <label for="username">{{ 'Adresse e-mail' }}</label>
+                  <input type="text" class="form-control" id="username" name="_username"
+                         value="{{ last_username }}"
+                  />
+            </div>
+            <div class="form-group">
+                  <label for="password">{{ 'Saisissez votre mot de passe' }}</label>
+                  <input type="password" class="form-control" id="password" name="_password"/>
+            </div>
+            <!--<div class="form-group flexbox">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" checked>
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Remember me</span>
+              </label>
+              <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
+            </div> -->
+            <div class="form-group">
+              <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Se connecter' }}</button>
+            </div>
+          </form>
       <hr class="w-30px">
       <p class="text-center text-muted fs-13 mt-10">
-          {{ 'Vous n\'avez pas encore réjoint' }} <strong>{{'l\'Initiative la Finance s\'engage en tant qu\'entrepreuneur ?'}}</strong><br/>
+          {{ 'Vous n\'avez pas encore de compte en tant ' }} <strong>{{'que PME ?'}}</strong><br/>
         <a class="text-primary fw-500" href="{{ path('register') }}">{{ 'Créer un compte'|capitalize }}</a>
       </p>
     </div>

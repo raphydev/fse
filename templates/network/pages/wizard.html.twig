@@ -102,49 +102,64 @@
                                         <span class="badge badge-primary">1</span>
                                         <strong>{{ 'Identification de l\'entreprise' }}</strong>
                                     </h4>
-                                    {{ form_start(form,
-                                        {'attr': {
-                                            'class': 'card company-steps',
-                                            novalidate: 'novalidate'
-                                        } } ) }}
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.name) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.seat) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.legal) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.domain) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.city) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                {{ form_row(form.website) }}
-                                                <div class="invalid-feedback"></div>
-                                            </div>
+
+                                    <div id="loader" class="gap-2 align-self-center form-loader-hidden">
+                                        <div class="col-md-6 col-lg-4">
+                                            <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
+                                                <circle class="circle" cx="25" cy="25" r="20"></circle>
+                                            </svg>
                                         </div>
                                     </div>
-                                    <footer class="card-footer text-right">
-                                        <button class="btn btn-primary"
-                                                type="submit">{{ 'Suivant' }}
-                                        </button>
-                                    </footer>
-                                    {{ form_end(form) }}
+
+                                    <div id="form-fse-company">
+                                        {{ form_start(form,
+                                            { 'method': 'POST',
+                                                'action': path('start_member'),
+                                                'attr': {
+                                                'class': 'card form-steps',
+                                                'id': 'company-steps-form',
+                                                novalidate: 'novalidate'
+                                            } } ) }}
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.name) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.seat) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.legal) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.domain) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.city) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    {{ form_row(form.website) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-right">
+                                            <button class="btn btn-primary"
+                                                    id="company-steps-formBtn"
+                                                    type="submit">{{ 'Suivant' }}
+                                            </button>
+                                        </footer>
+                                        {{ form_end(form) }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -159,5 +174,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js
 "></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    <script src="{{ asset('build/back/js/script/appForm.js', 'back') }}"></script>
+    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
 {% endblock %}
