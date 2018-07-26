@@ -30,7 +30,11 @@ class Shareholder
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="shareholders", cascade={"persist","remove"})
+     * @ORM\ManyToOne(
+     *     targetEntity="App\Entity\Company",
+     *      inversedBy="shareholders",
+     *      cascade={"persist","remove"}
+     * )
      */
     protected $company;
 
@@ -72,7 +76,6 @@ class Shareholder
     public function setCompany(?Company $company): self
     {
         $this->company = $company;
-
         return $this;
     }
 }
