@@ -53,6 +53,7 @@ class AccountController extends Controller
      * @Route("/info-start", name="start_member", methods={"GET","POST"}, schemes={"%secure_channel%"}, options={"expose"=true})
      * @param Request $request
      * @param EntityManagerInterface $em
+     * @param TokenStorageInterface $storage
      * @return Response
      */
     public function startUserInfo(Request $request, EntityManagerInterface $em, TokenStorageInterface $storage)
@@ -64,36 +65,19 @@ class AccountController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($request->isXmlHttpRequest()) {
-                if ($user instanceof Users) {
-                    $user->addCompany($company);
-                    $em->persist($company);
-                    $em->flush();
-                    $data = ['stateSubmit' => true, 'url' => $this->generateUrl('second_member')];
-                    //$data = $serializer->serialize($result, 'json');
-                    return new JsonResponse([
-                        'errors'  => false,
-                        'response' => $data,
-                        'status' => Response::HTTP_OK
-                    ]);
-                }
+                $this->PersistCompanyEntity($user, $company, $em);
+                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('second_member')];
+                $session->set('companyId', $company->getId());
+                //$data = $serializer->serialize($result, 'json');
+                return $this->CustomJsonResponse($data);
             } else {
-                if ($user instanceof Users) {
-                    $user->addCompany($company);
-                    $em->persist($company);
-                    $em->flush();
-                }
+                $this->PersistCompanyEntity($user, $company, $em);
                 return $this->redirectToRoute('second_member');
             }
         } else {
-            if ($request->isXmlHttpRequest()) {
-                return new JsonResponse([
-                    'errors' => true,
-                    'response' => 'Une erreur est survenu pendant l\'envoi du formulaire',
-                    'status' => Response::HTTP_BAD_REQUEST
-                ]);
-            }
+            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
         }
-        return $this->render('network/pages/wizard.html.twig',[
+        return $this->render('network/pages/wizard_start.html.twig',[
             'form' => $form->createView()
         ]);
     }
@@ -105,7 +89,7 @@ class AccountController extends Controller
      */
     public function SecondPartInfo(Request $request)
     {
-        return new Response('page second-form');
+        return $this->render('network/pages/wizard_second.html.twig');
     }
 
     /**
@@ -113,6 +97,31 @@ class AccountController extends Controller
      */
     public function dashboard(){
         return new Response("Page dashboard User");
+    }
+
+    /**
+     * @param Users $user
+     * @param Company $company
+     * @param EntityManagerInterface $em
+     */
+    private function PersistCompanyEntity (Users $user, Company $company, EntityManagerInterface $em) {
+        if ($user instanceof Users) {
+            $user->addCompany($company);
+            $em->persist($company);
+            $em->flush();
+        }
+    }
+
+    /**
+     * @param null $data
+     * @return JsonResponse
+     */
+    private function CustomJsonResponse($data = null) {
+        $success_array = ['errors'  => false, 'response' => $data, 'status' => Response::HTTP_OK];
+        $error_array = ['errors' => true, 'response' => 'Une erreur est survenue pendant l\'envoi du formulaire', 'status' => Response::HTTP_BAD_REQUEST
+        ];
+        $format = ($data) ?  $success_array : $error_array ;
+        return new JsonResponse($format);
     }
 
 

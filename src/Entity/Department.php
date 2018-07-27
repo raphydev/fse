@@ -19,29 +19,38 @@ class Department
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Veuillez renseigner le nom du departement")
      */
     protected $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank(message="Veuillez decrire la mission du departement")
      */
     protected $mission;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\NotBlank(message="Veuillez renseignez ce champ")
      */
-    protected $employer;
+    protected $number_employer;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      */
-    protected $chief;
+    protected $manager_name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $content;
+    protected $manager_profile_experience;
+
+    /**
+     * @var
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $manager_strength_weaknesses;
 
     /**
      * @var
@@ -53,8 +62,7 @@ class Department
      */
     protected $company;
 
-
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -83,38 +91,50 @@ class Department
         return $this;
     }
 
-    public function getEmployer(): ?int
+    public function getNumberEmployer(): ?int
     {
-        return $this->employer;
+        return $this->number_employer;
     }
 
-    public function setEmployer(?int $employer): self
+    public function setNumberEmployer(?int $number_employer): self
     {
-        $this->employer = $employer;
+        $this->number_employer = $number_employer;
 
         return $this;
     }
 
-    public function getChief(): ?string
+    public function getManagerName(): ?string
     {
-        return $this->chief;
+        return $this->manager_name;
     }
 
-    public function setChief(?string $chief): self
+    public function setManagerName(?string $manager_name): self
     {
-        $this->chief = $chief;
+        $this->manager_name = $manager_name;
 
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getManagerProfileExperience(): ?string
     {
-        return $this->content;
+        return $this->manager_profile_experience;
     }
 
-    public function setContent(?string $content): self
+    public function setManagerProfileExperience(?string $manager_profile_experience): self
     {
-        $this->content = $content;
+        $this->manager_profile_experience = $manager_profile_experience;
+
+        return $this;
+    }
+
+    public function getManagerStrengthWeaknesses(): ?string
+    {
+        return $this->manager_strength_weaknesses;
+    }
+
+    public function setManagerStrengthWeaknesses(?string $manager_strength_weaknesses): self
+    {
+        $this->manager_strength_weaknesses = $manager_strength_weaknesses;
 
         return $this;
     }
@@ -130,4 +150,5 @@ class Department
 
         return $this;
     }
+
 }
