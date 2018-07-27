@@ -2,6 +2,5 @@
   "build/back/css/core.css": "/build/back/css/core.css",
   "build/back/js/script/bundle.js": "/build/back/js/script/bundle.js",
   "build/back/css/app.css": "/build/back/css/app.css",
-  "build/back/js/script/validate.plugin.js": "/build/back/js/script/validate.plugin.js",
   "build/back/js/script/editor.js": "/build/back/js/script/editor.js"
 }

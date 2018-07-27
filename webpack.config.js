@@ -51,7 +51,6 @@ Encore
     ])
     .addEntry('js/script/editor', './assets/back/js/editor.js')
     .addEntry('js/script/bundle', './assets/back/js/bundle.js')
-    .addEntry('js/script/validate.plugin', './assets/back/js/jquery-validate.js')
     .enableSassLoader()
     .enableSourceMaps(!Encore.isProduction())
     .enableSourceMaps(true)

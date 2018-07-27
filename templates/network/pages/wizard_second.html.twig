@@ -12,10 +12,7 @@
                     <div class="card">
                         <header class="header bg-ui-general">
                             <div class="align-center mt-5" style="display: block;">
-                                <img
-                                        src="{{ asset('build/back/static/pme_sengage.png') }}"
-                                        alt="" class="img-responsive"
-                                >
+                                <img src="{{ asset('build/back/static/pme_sengage.png') }}" alt="" class="img-responsive">
                             </div>
                             <div class="text-center py-10">
                                 <h6>
@@ -26,7 +23,7 @@
                         <div class="card-body px-100">
                             <div class="col-12">
                                 <ul class="nav nav-process nav-process-circle">
-                                    <li class="nav-item processing">
+                                    <li class="nav-item complete">
                                         <span class="nav-title">
                                             <span class="badge badge-pill badge-secondary">
                                                 {{ '1'|capitalize }}
@@ -34,7 +31,7 @@
                                         </span>
                                         <a class="nav-link" href="#"></a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item processing">
                                         <span class="nav-title">
                                             <span class="badge badge-pill badge-default">
                                                 {{ '2'|capitalize }}
@@ -99,10 +96,9 @@
                                 </div>
                                 <div class="card">
                                     <h4 class="card-title">
-                                        <span class="badge badge-primary">1</span>
-                                        <strong>{{ 'Identification de l\'entreprise' }}</strong>
+                                        <span class="badge badge-primary">2</span>
+                                        <strong>{{ 'Organisation et équipe' }}</strong>
                                     </h4>
-
                                     <div id="loader" class="gap-2 align-self-center form-loader-hidden">
                                         <div class="col-md-6 col-lg-4">
                                             <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
@@ -110,53 +106,63 @@
                                             </svg>
                                         </div>
                                     </div>
-
-                                    <div id="form-fse-company">
+                                    <div id="form-fse-department">
                                         {{ form_start(form,
                                             { 'method': 'POST',
-                                                'action': path('start_member'),
+                                                'action': path('second_member'),
                                                 'attr': {
                                                 'class': 'card form-steps',
-                                                'id': 'company-steps-form',
+                                                'id': 'department-steps-form',
                                                 novalidate: 'novalidate'
                                             } } ) }}
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-9">
                                                     {{ form_row(form.name) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    {{ form_row(form.seat) }}
+                                                <div class="form-group col-md-3">
+                                                    {{ form_row(form.number_employer) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-6">
-                                                    {{ form_row(form.legal) }}
-                                                    <div class="invalid-feedback"></div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    {{ form_row(form.domain) }}
+                                                <div class="form-group col-md-9">
+                                                    {{ form_row(form.manager_name) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-6">
-                                                    {{ form_row(form.city) }}
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.mission) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    {{ form_row(form.website) }}
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.manager_profile_experience) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.manager_strength_weaknesses) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="clear"></div>
                                         <footer class="card-footer text-right">
-                                            <button class="btn btn-primary"
-                                                    id="steps-formBtn"
-                                                    type="submit">{{ 'Suivant' }}
-                                            </button>
+                                            <button class="btn btn-info"
+                                                    type="submit"
+                                                    id="department-steps-formBtn">
+                                                {{ 'Enregistrer & ajouter un nouveau' }}
+                                            </button> ou
+                                            <a href=""
+                                               id="department-next"
+                                               class="btn btn-primary"
+                                               title="Suivant">{{ 'Passer au Suivant' }}
+                                            </a>
                                         </footer>
                                         {{ form_end(form) }}
                                     </div>
@@ -173,6 +179,5 @@
 {{ parent() }}
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js
 "></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
 {% endblock %}

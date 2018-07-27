@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Department;
 use App\Entity\Users;
 use App\Form\CompanyType;
+use App\Form\DepartmentType;
 use App\Service\HelperSerializer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -65,13 +67,13 @@ class AccountController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($request->isXmlHttpRequest()) {
-                $this->PersistCompanyEntity($user, $company, $em);
+                $this->ManagerCompanyEntity($user, $company, $em);
                 $data = ['stateSubmit' => true, 'url' => $this->generateUrl('second_member')];
                 $session->set('companyId', $company->getId());
                 //$data = $serializer->serialize($result, 'json');
                 return $this->CustomJsonResponse($data);
             } else {
-                $this->PersistCompanyEntity($user, $company, $em);
+                $this->ManagerCompanyEntity($user, $company, $em);
                 return $this->redirectToRoute('second_member');
             }
         } else {
@@ -84,12 +86,32 @@ class AccountController extends Controller
 
     /**
      * @param Request $request
-     * @Route("/info-second", name="second_member", methods={"GET","POST"}, schemes={"%secure_channel%"})
+     * @param EntityManagerInterface $em
      * @return Response
+     * @Route("/info-second", name="second_member", methods={"GET","POST"}, schemes={"%secure_channel%"}, options={"expose"=true})
      */
-    public function SecondPartInfo(Request $request)
+    public function SecondPartInfo(Request $request, EntityManagerInterface $em)
     {
-        return $this->render('network/pages/wizard_second.html.twig');
+        $department = new Department();
+        $form = $this->createForm(DepartmentType::class, $department);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            dump($form->getData());
+            dump($request);
+            die;
+        }
+        return $this->render('network/pages/wizard_second.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @Route("/info-third", name="third_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     */
+    public function ThirdPartInfo(Request $request, EntityManagerInterface $em) {
+        return new Response('Third part Form');
     }
 
     /**
@@ -104,7 +126,7 @@ class AccountController extends Controller
      * @param Company $company
      * @param EntityManagerInterface $em
      */
-    private function PersistCompanyEntity (Users $user, Company $company, EntityManagerInterface $em) {
+    private function ManagerCompanyEntity (Users $user, Company $company, EntityManagerInterface $em) {
         if ($user instanceof Users) {
             $user->addCompany($company);
             $em->persist($company);
