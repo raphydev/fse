@@ -106,7 +106,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div id="form-fse-department">
+                                    <div id="form-fse-steps">
                                         {{ form_start(form,
                                             { 'method': 'POST',
                                                 'action': path('second_member'),
@@ -155,10 +155,10 @@
                                         <footer class="card-footer text-right">
                                             <button class="btn btn-info"
                                                     type="submit"
-                                                    id="department-steps-formBtn">
+                                                    id="steps-formBtn">
                                                 {{ 'Enregistrer & ajouter un nouveau' }}
                                             </button> ou
-                                            <a href=""
+                                            <a href="{{ path('third_member') }}"
                                                id="department-next"
                                                class="btn btn-primary"
                                                title="Suivant">{{ 'Passer au Suivant' }}

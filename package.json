@@ -40,5 +40,8 @@
     "web": "encore dev --config-name webConfig --watch",
     "watch": "encore dev --watch",
     "build": "encore production"
+  },
+  "dependencies": {
+    "toastify-js": "^1.3.0"
   }
 }

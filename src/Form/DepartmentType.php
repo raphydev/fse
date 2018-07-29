@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Department;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -38,7 +39,8 @@ class DepartmentType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'data-error' => 'Veuillez renseigner ce champ.'
-                ]
+                ],
+                'rounding_mode' => NumberToLocalizedStringTransformer::ROUND_HALF_UP
             ])
             ->add('manager_name', TextType::class, [
                 'label' => "Responsable de departement",

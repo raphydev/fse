@@ -74,6 +74,7 @@ class AccountController extends Controller
                 return $this->CustomJsonResponse($data);
             } else {
                 $this->ManagerCompanyEntity($user, $company, $em);
+                $session->set('companyId', $company->getId());
                 return $this->redirectToRoute('second_member');
             }
         } else {
@@ -92,13 +93,21 @@ class AccountController extends Controller
      */
     public function SecondPartInfo(Request $request, EntityManagerInterface $em)
     {
+        if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
         $department = new Department();
         $form = $this->createForm(DepartmentType::class, $department);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($form->getData());
-            dump($request);
-            die;
+            if ($request->isXmlHttpRequest()) {
+                $this->ManagerDepartmentEntity($request, $department, $em);
+                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('third_member')];
+                return $this->CustomJsonResponse($data);
+            } else {
+                $this->ManagerDepartmentEntity($request, $department, $em);
+                return $this->redirectToRoute('third_member');
+            }
+        } else {
+            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
         }
         return $this->render('network/pages/wizard_second.html.twig', [
             'form' => $form->createView()
@@ -135,15 +144,43 @@ class AccountController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Department $department
+     * @param EntityManagerInterface $em
+     */
+    private function ManagerDepartmentEntity(Request $request, Department $department, EntityManagerInterface $em)
+    {
+        $session = $request->getSession();
+        $company = $em->getRepository(Company::class)->find($session->get('companyId'));
+        if ($company instanceof Company) {
+            $company->addDepartment($department);
+            $em->persist($department);
+            $em->flush();
+        }
+    }
+
+    /**
      * @param null $data
      * @return JsonResponse
      */
     private function CustomJsonResponse($data = null) {
-        $success_array = ['errors'  => false, 'response' => $data, 'status' => Response::HTTP_OK];
-        $error_array = ['errors' => true, 'response' => 'Une erreur est survenue pendant l\'envoi du formulaire', 'status' => Response::HTTP_BAD_REQUEST
+        $success_array = ['errors'  => false, 'response' => $data, 'status' => Response::HTTP_OK, 'info' => 'A  jout des informations renseignés ont été effectué', 'title' => 'success'];
+        $error_array = ['errors' => true, 'response' => '', 'status' => Response::HTTP_BAD_REQUEST, 'info' => 'Une erreur est survenue pendant l\'ajout des informations', 'title'=> 'erreur'
         ];
         $format = ($data) ?  $success_array : $error_array ;
         return new JsonResponse($format);
+    }
+
+    /**
+     * @param Request $request
+     * @param $nameSession
+     * @return bool
+     */
+    private function checkSession(Request $request, $nameSession)
+    {
+        $session = $request->getSession();
+        $response = ($session->has($nameSession)) ? true : false;
+        return $response;
     }
 
 
