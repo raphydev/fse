@@ -108,10 +108,23 @@ class Company
      */
     protected $departments;
 
+    /**
+     * @var
+     * @ORM\OneToMany(
+     *     targetEntity="App\Entity\Positioning",
+     *      mappedBy="company",
+     *      fetch="EXTRA_LAZY",
+     *      orphanRemoval=true,
+     *      cascade={"persist","remove"}
+     * )
+     */
+    protected $positioning;
+
     public function __construct()
     {
         $this->shareholders = new ArrayCollection();
         $this->departments = new ArrayCollection();
+        $this->positioning = new ArrayCollection();
     }
 
 
@@ -310,6 +323,37 @@ class Company
     public function setUser(?Users $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Positioning[]
+     */
+    public function getPositioning(): Collection
+    {
+        return $this->positioning;
+    }
+
+    public function addPositioning(Positioning $positioning): self
+    {
+        if (!$this->positioning->contains($positioning)) {
+            $this->positioning[] = $positioning;
+            $positioning->setCompany($this);
+        }
+
+        return $this;
+    }
+
+    public function removePositioning(Positioning $positioning): self
+    {
+        if ($this->positioning->contains($positioning)) {
+            $this->positioning->removeElement($positioning);
+            // set the owning side to null (unless already changed)
+            if ($positioning->getCompany() === $this) {
+                $positioning->setCompany(null);
+            }
+        }
 
         return $this;
     }

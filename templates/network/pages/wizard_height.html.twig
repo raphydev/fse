@@ -1,0 +1,152 @@
+{% extends 'network/member.html.twig' %}
+
+{% block title %}{{ 'Dashboard |' }}
+    {% if app.user|length > 0 %} {{ app.user.username }} {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="main-content">
+        <div class="row min-h-fullscreen center-vh p-20 m-0">
+            <div class="col-12">
+                <div class="card card-shadowed  py-30 w-900px mx-auto" style="max-width: 100%">
+                    <div class="card">
+                        <header class="header bg-ui-general">
+                            <div class="align-center mt-5" style="display: block;">
+                                <img src="{{ asset('build/back/static/pme_sengage.png') }}" alt="" class="img-responsive">
+                            </div>
+                            <div class="text-center py-10">
+                                <h6>
+                                    {{ 'Programme de Renforcement des Capacités des PME'|upper }}
+                                </h6>
+                            </div>
+                        </header><!--/.header -->
+                        <div class="card-body px-100">
+                            <div class="col-12">
+                                <ul class="nav nav-process nav-process-circle">
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-secondary">
+                                                {{ '1'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '2'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '3'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '4'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '5'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '6'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item complete">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '7'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                    <li class="nav-item processing">
+                                        <span class="nav-title">
+                                            <span class="badge badge-pill badge-default">
+                                                {{ '8'|capitalize }}
+                                            </span>
+                                        </span>
+                                        <a class="nav-link" href="#"></a>
+                                    </li>
+                                </ul>
+                                <div class="col-lg-12">
+                                    <p class="text-center fs-25 text-muted">
+                                        {{ 'Informations démographiques'|upper }}
+                                    </p>
+                                    <hr class="w-100px">
+                                </div>
+                                <div class="card">
+                                    <h4 class="card-title">
+                                        <span class="badge badge-primary">2</span>
+                                        <strong>{{ 'Organisation et équipe' }}</strong>
+                                    </h4>
+                                    <div id="loader" class="gap-2 align-self-center form-loader-hidden">
+                                        <div class="col-md-6 col-lg-4">
+                                            <svg class="spinner-circle-material-svg" viewBox="0 0 50 50">
+                                                <circle class="circle" cx="25" cy="25" r="20"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div id="form-fse-steps">
+                                        {{ form_start(form,
+                                            { 'method': 'POST',
+                                                'action': path('second_member'),
+                                                'attr': {
+                                                'class': 'card form-steps',
+                                                'id': 'department-steps-form',
+                                                novalidate: 'novalidate'
+                                            } } ) }}
+                                        <div class="card-body">
+                                            <div class="row">
+                                                {{ form_row(form) }}
+                                            </div>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <footer class="card-footer text-right">
+                                            <button class="btn btn-info"
+                                                    type="submit"
+                                                    id="steps-formBtn">
+                                                {{ 'Enregistrer & ajouter un nouveau' }}
+                                            </button> ou
+                                            <a href="{{ path('third_member') }}"
+                                               id="department-next"
+                                               class="btn btn-primary"
+                                               title="Suivant">{{ 'Passer au Suivant' }}
+                                            </a>
+                                        </footer>
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js
+"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
+{% endblock %}

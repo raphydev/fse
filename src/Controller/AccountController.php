@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Company;
 use App\Entity\Department;
+use App\Entity\Shareholder;
 use App\Entity\Users;
 use App\Form\CompanyType;
 use App\Form\DepartmentType;
+use App\Form\ShareholderType;
 use App\Service\HelperSerializer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -118,9 +120,38 @@ class AccountController extends Controller
      * @param Request $request
      * @param EntityManagerInterface $em
      * @Route("/info-third", name="third_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function ThirdPartInfo(Request $request, EntityManagerInterface $em) {
-        return new Response('Third part Form');
+    public function ThirdPartInfo(Request $request, EntityManagerInterface $em)
+    {
+        if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
+        $shareholder = new Shareholder();
+        $form = $this->createForm(ShareholderType::class, $shareholder);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->isXmlHttpRequest()) {
+                $this->ManagerShareholderEntity($request, $shareholder, $em);
+                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('fourth_member')];
+                return $this->CustomJsonResponse($data);
+            } else {
+                $this->ManagerShareholderEntity($request, $shareholder, $em);
+                return $this->redirectToRoute('fourth_member');
+            }
+        } else {
+            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
+        }
+        return $this->render('network/pages/wizard_third.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @Route("/info-fourth", name="fourth_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     */
+    public function FourthPartInfo(Request $request, EntityManagerInterface $em) {
+        return new Response("fourth Page");
     }
 
     /**
@@ -155,6 +186,22 @@ class AccountController extends Controller
         if ($company instanceof Company) {
             $company->addDepartment($department);
             $em->persist($department);
+            $em->flush();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Shareholder $shareholder
+     * @param EntityManagerInterface $em
+     */
+    private function ManagerShareholderEntity(Request $request, Shareholder $shareholder, EntityManagerInterface $em)
+    {
+        $session = $request->getSession();
+        $company = $em->getRepository(Company::class)->find($session->get('companyId'));
+        if ($company instanceof Company) {
+            $company->addShareholder($shareholder);
+            $em->persist($shareholder);
             $em->flush();
         }
     }

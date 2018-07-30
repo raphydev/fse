@@ -14,19 +14,17 @@ class ShareholderType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => "Nom de l'actionnaire",
+                'label' => "Actionnaire",
                 'required' => true,
                 'attr' => [
-                    'class' => 'col-md-10 col-xl-8',
-                    'placeholder' => 'shareholder'
+                    'placeholder' => 'Nom & prénom de l\'actionnaire'
                 ]
             ])
             ->add('part', TextType::class, [
-                'label' => "Nombre de part ou pourcentage",
+                'label' => "Nombre d'action",
                 'required' => true,
                 'attr' => [
-                    'class' => 'col-md-3 col-xl-2',
-                    'placeholder' => '...%'
+                    'placeholder' => 'Nbre de part en %'
                 ]
             ])
         ;
