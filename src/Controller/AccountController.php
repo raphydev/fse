@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Company;
 use App\Entity\Department;
+use App\Entity\Positioning;
 use App\Entity\Shareholder;
 use App\Entity\Users;
 use App\Form\CompanyType;
 use App\Form\DepartmentType;
+use App\Form\PositioningType;
 use App\Form\ShareholderType;
 use App\Service\HelperSerializer;
 use Doctrine\ORM\EntityManagerInterface;
@@ -90,10 +92,40 @@ class AccountController extends Controller
     /**
      * @param Request $request
      * @param EntityManagerInterface $em
-     * @return Response
      * @Route("/info-second", name="second_member", methods={"GET","POST"}, schemes={"%secure_channel%"}, options={"expose"=true})
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function SecondPartInfo(Request $request, EntityManagerInterface $em)
+    {
+        if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
+        $shareholder = new Shareholder();
+        $form = $this->createForm(ShareholderType::class, $shareholder);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->isXmlHttpRequest()) {
+                $this->ManagerShareholderEntity($request, $shareholder, $em);
+                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('third_member')];
+                return $this->CustomJsonResponse($data);
+            } else {
+                $this->ManagerShareholderEntity($request, $shareholder, $em);
+                return $this->redirectToRoute('third_member');
+            }
+        } else {
+            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
+        }
+        return $this->render('network/pages/wizard_second.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @Route("/info-third", name="third_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function ThirdPartInfo(Request $request, EntityManagerInterface $em)
     {
         if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
         $department = new Department();
@@ -111,35 +143,6 @@ class AccountController extends Controller
         } else {
             if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
         }
-        return $this->render('network/pages/wizard_second.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @param EntityManagerInterface $em
-     * @Route("/info-third", name="third_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse|Response
-     */
-    public function ThirdPartInfo(Request $request, EntityManagerInterface $em)
-    {
-        if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
-        $shareholder = new Shareholder();
-        $form = $this->createForm(ShareholderType::class, $shareholder);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($request->isXmlHttpRequest()) {
-                $this->ManagerShareholderEntity($request, $shareholder, $em);
-                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('fourth_member')];
-                return $this->CustomJsonResponse($data);
-            } else {
-                $this->ManagerShareholderEntity($request, $shareholder, $em);
-                return $this->redirectToRoute('fourth_member');
-            }
-        } else {
-            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
-        }
         return $this->render('network/pages/wizard_third.html.twig', [
             'form' => $form->createView()
         ]);
@@ -149,9 +152,38 @@ class AccountController extends Controller
      * @param Request $request
      * @param EntityManagerInterface $em
      * @Route("/info-fourth", name="fourth_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function FourthPartInfo(Request $request, EntityManagerInterface $em) {
-        return new Response("fourth Page");
+        if ($this->checkSession($request, 'companyId') === false) return $this->redirectToRoute('start_member');
+        $positioning = new Positioning();
+        $form = $this->createForm(PositioningType::class, $positioning);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->isXmlHttpRequest()) {
+                $this->ManagerPositioningEntity($request, $positioning, $em);
+                $data = ['stateSubmit' => true, 'url' => $this->generateUrl('five_member')];
+                return $this->CustomJsonResponse($data);
+            } else {
+                $this->ManagerPositioningEntity($request, $positioning, $em);
+                return $this->redirectToRoute('five_member');
+            }
+        } else {
+            if ($request->isXmlHttpRequest()) return $this->CustomJsonResponse();
+        }
+        return $this->render('network/pages/wizard_fourth.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @Route("/info-five", name="five_member", methods={"GET","POST"}, schemes={"%secure_channel%"},options={"expose"=true})
+     */
+    public function FivePartInfo(Request $request, EntityManagerInterface $em)
+    {
+        die('ok');
     }
 
     /**
@@ -202,6 +234,22 @@ class AccountController extends Controller
         if ($company instanceof Company) {
             $company->addShareholder($shareholder);
             $em->persist($shareholder);
+            $em->flush();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Positioning $positioning
+     * @param EntityManagerInterface $em
+     */
+    private function ManagerPositioningEntity(Request $request, Positioning $positioning, EntityManagerInterface $em)
+    {
+        $session = $request->getSession();
+        $company = $em->getRepository(Company::class)->find($session->get('companyId'));
+        if ($company instanceof Company) {
+            $company->addPositioning($positioning);
+            $em->persist($positioning);
             $em->flush();
         }
     }

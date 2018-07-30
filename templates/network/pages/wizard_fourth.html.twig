@@ -90,14 +90,14 @@
                                 </ul>
                                 <div class="col-lg-12">
                                     <p class="text-center fs-25 text-muted">
-                                        {{ 'Informations démographiques'|upper }}
+                                        {{ 'Marché, Offres & stratégie'|upper }}
                                     </p>
                                     <hr class="w-100px">
                                 </div>
                                 <div class="card">
                                     <h4 class="card-title">
-                                        <span class="badge badge-primary">2</span>
-                                        <strong>{{ 'Organisation et équipe' }}</strong>
+                                        <span class="badge badge-primary">4</span>
+                                        <strong>{{ 'Positionnement de l\'entreprise' }}</strong>
                                     </h4>
                                     <div id="loader" class="gap-2 align-self-center form-loader-hidden">
                                         <div class="col-md-6 col-lg-4">
@@ -109,15 +109,54 @@
                                     <div id="form-fse-steps">
                                         {{ form_start(form,
                                             { 'method': 'POST',
-                                                'action': path('second_member'),
+                                                'action': path('fourth_member'),
                                                 'attr': {
                                                 'class': 'card form-steps',
-                                                'id': 'department-steps-form',
+                                                'id': 'positioning-steps-form',
                                                 novalidate: 'novalidate'
                                             } } ) }}
                                         <div class="card-body">
                                             <div class="row">
-                                                {{ form_row(form) }}
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.product_service) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.client_market) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.concurrent) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.principe_objectif) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.strategie) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.besoin) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.program_help) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="clear"></div>
@@ -127,7 +166,7 @@
                                                     id="steps-formBtn">
                                                 {{ 'Enregistrer & ajouter un nouveau' }}
                                             </button> ou
-                                            <a href="{{ path('third_member') }}"
+                                            <a href="{{ path('five_member') }}"
                                                id="department-next"
                                                class="btn btn-primary"
                                                title="Suivant">{{ 'Passer au Suivant' }}

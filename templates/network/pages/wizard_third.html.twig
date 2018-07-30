@@ -90,14 +90,14 @@
                                 </ul>
                                 <div class="col-lg-12">
                                     <p class="text-center fs-25 text-muted">
-                                        {{ 'Informations démographiques'|upper }}
+                                        {{ 'Organisation et équipe '|upper }}
                                     </p>
                                     <hr class="w-100px">
                                 </div>
                                 <div class="card">
                                     <h4 class="card-title">
                                         <span class="badge badge-primary">3</span>
-                                        <strong>{{ 'Informations Actionnaires' }}</strong>
+                                        <strong>{{ 'Comment est structurée votre entreprise ?' }}</strong>
                                     </h4>
                                     <div id="loader" class="gap-2 align-self-center form-loader-hidden">
                                         <div class="col-md-6 col-lg-4">
@@ -112,7 +112,7 @@
                                                 'action': path('third_member'),
                                                 'attr': {
                                                 'class': 'card form-steps',
-                                                'id': 'shareholer-steps-form',
+                                                'id': 'department-steps-form',
                                                 novalidate: 'novalidate'
                                             } } ) }}
                                         <div class="card-body">
@@ -122,7 +122,31 @@
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                                 <div class="form-group col-md-3">
-                                                    {{ form_row(form.part) }}
+                                                    {{ form_row(form.number_employer) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-9">
+                                                    {{ form_row(form.manager_name) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.mission) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.manager_profile_experience) }}
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    {{ form_row(form.manager_strength_weaknesses) }}
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
@@ -152,9 +176,9 @@
     </div>
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
+    {{ parent() }}
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js
 "></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>    <script src="{{ asset('build/back/js/script/bundle.js', 'back') }}"></script>
 {% endblock %}
+
