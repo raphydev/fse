@@ -71,6 +71,14 @@ Encore
     .enableBuildNotifications()
     //.addEntry('js/script/editor', './assets/back/js/editor.js')
     .addStyleEntry('css/custom', './assets/web/sass/demos/index/custom.scss')
+    .addStyleEntry('css/global', [
+        './assets/web/assets/plugins/socicon/socicon.css',
+        './assets/web/assets/plugins/bootstrap-social/bootstrap-social.css',
+        './assets/web/assets/plugins/font-awesome/css/font-awesome.min.css',
+        './assets/web/assets/plugins/simple-line-icons/simple-line-icons.min.css',
+        './assets/web/assets/plugins/animate/animate.min.css',
+        './assets/web/assets/plugins/bootstrap/css/bootstrap.min.css'
+    ])
     .enableSassLoader()
     .enableSourceMaps(!Encore.isProduction())
     .enableSourceMaps(true)

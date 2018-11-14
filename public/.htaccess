@@ -10,4 +10,8 @@
     RewriteRule    ^JUMP/(.+)$   http://$1 [R,L]
     # Rewrite all other queries to the front controller.
     RewriteRule .? %{ENV:BASE}/index.php [L]
+
+    AddType video/ogg  .ogv
+    AddType video/mp4  .mp4
+    AddType video/webm .webm
 </IfModule>

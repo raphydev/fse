@@ -1,5 +1,5 @@
 <!-- BEGIN: HEADER -->
-<header class="c-layout-header {{ nav_class|default('c-layout-header-2 c-layout-header-dark-mobile c-header-transparent-dark') }}" data-minimize-offset="80">
+<header class="c-layout-header c-layout-header-onepage c-layout-header-4 c-bordered c-layout-header-default-mobile c-header-transparent-dark" data-minimize-offset="80">
     <div class="c-navbar">
         <div class="container">
             <!-- BEGIN: BRAND -->
@@ -24,61 +24,58 @@
                 <nav class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
                     <ul class="nav navbar-nav c-theme-nav">
                         <li class="c-menu-type-classic">
-                            <a href="{{ path('homepage') }}" class="c-link dropdown-toggle">{{ 'A propos' }}<span class="c-arrow c-toggler"></span></a>
+                            <a href="{{ path('homepage') }}" class="c-link dropdown-toggle">
+                                {{ 'L\'initiative' }}<span class="c-arrow c-toggler"></span>
+                            </a>
                             <ul class="dropdown-menu c-menu-type-classic c-pull-left">
                                 <li class="dropdown-submenu">
-                                    <a href="{{ path('initiative') }}">{{ 'L\'initiative' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="{{ path('organizer') }}">{{ 'Les organisateurs' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="{{ path('intervenant_page') }}">{{ 'Les intervenants' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="{{ path('partner_page') }}">{{ 'Les partenaires' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="{{ path('rapport_page') }}">{{ 'Les données pour la croissance' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="#">{{ 'Les témoignages des participants' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="{{ path('gallery_page') }}">{{ 'Les galeries photos' }}<span class="c-arrow c-toggler"></span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="c-menu-type-classic">
-                            <a href="#" class="c-link dropdown-toggle">{{ 'pme' }}<span class="c-arrow c-toggler"></span></a>
-                            <ul class="dropdown-menu c-menu-type-classic c-pull-left">
-                                <li class="dropdown-submenu">
-                                    <a href="#">
-                                        {{ 'Les PME s\'engagent' }}<span class="c-arrow c-toggler"></span>
+                                    <a href="{{ path('initiative') }}">{{ 'A propos' }}
+                                        <span class="c-arrow c-toggler"></span>
                                     </a>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a href="{{ path('dashboard_member') }}" title="Renforcement des Capacités">{{ 'Programme de Renforcement des capacités'}}<span class="c-arrow c-toggler"></span></a>
+                                    <a href="">{{ 'Institutions financières' }}
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a href="{{ path('education_page') }}">{{ 'Programme d\'Education Financière' }}<span class="c-arrow c-toggler"></span></a>
+                                    <a href="">{{ 'PME' }}
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="c-menu-type-classic">
-                            <a href="#" class="c-link dropdown-toggle">{{ 'Institutions financières'}}<span class="c-arrow c-toggler"></span></a>
+                            <a href="#" class="c-link dropdown-toggle">{{ 'FSE 2018' }}
+                                <span class="c-arrow c-toggler"></span>
+                            </a>
                             <ul class="dropdown-menu c-menu-type-classic c-pull-left">
                                 <li class="dropdown-submenu">
-                                    <a href="#">{{ 'Engagements' }}<span class="c-arrow c-toggler"></span></a>
+                                    <a href="#">
+                                        {{ 'Programmation' }}<span class="c-arrow c-toggler"></span>
+                                    </a>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a href="#">{{ 'Awards' }}<span class="c-arrow c-toggler"></span></a>
+                                    <a href="{{ path('intervenant_page') }}" title="intervenants">
+                                        {{ 'Intervenants'}}
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="c-menu-type-classic">
-                            <a href="{{ path('page_new') }}" class="c-link">
-                                {{ 'Portail du financement' }}
+                            <a href="#" class="c-link dropdown-toggle">
+                                {{ 'Portail du financement'}}<span class="c-arrow c-toggler"></span>
+                            </a>
+                        </li>
+                        <li class="c-menu-type-classic">
+                            <a href="#" class="c-link">
+                                {{ 'Presse' }}
+                            </a>
+                        </li>
+                        <li class="c-menu-type-classic">
+                            <a href="#" class="c-link">
+                                {{ 'Archives' }}
                             </a>
                         </li>
                         <li>
@@ -95,9 +92,9 @@
                                     </a>
                                 {% endif %}
                             {% else %}
-                                <a href="{{ path('register') }}" class="c-btn btn-no-focus c-btn-header btn c-btn-green-1 btn-sm  c-btn-white c-btn-circle c-btn-uppercase c-btn-sbold">
+                                <a href="{{ path('signin_page') }}" class="c-btn btn-no-focus c-btn-header btn c-btn-green-1 btn-sm  c-btn-white c-btn-circle c-btn-uppercase c-btn-sbold">
                                     <i class="icon-user"></i>
-                                    {{ 's\'inscrire' }}
+                                    {{ 'connexion' }}
                                 </a>
                             {% endif %}
                         </li>

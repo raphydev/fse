@@ -28,8 +28,8 @@ a:active {
   text-decoration: none; }
 
 /*
- Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't 
- properly apply the media queries in Bootstrap's CSS. To address this, 
+ Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't
+ properly apply the media queries in Bootstrap's CSS. To address this,
  you can optionally include the following CSS and JavaScript to work around this problem until Microsoft issues a fix.
 */
 @-webkit-viewport {
@@ -48,8 +48,8 @@ a:active {
   width: device-width; }
 
 /*
- Internet Explorer 10 doesn't differentiate device width from viewport width, 
- and thus doesn't properly apply the media queries in Bootstrap's CSS. To address this, following CSS code applied 
+ Internet Explorer 10 doesn't differentiate device width from viewport width,
+ and thus doesn't properly apply the media queries in Bootstrap's CSS. To address this, following CSS code applied
 */
 @-ms-viewport {
   width: auto !important; }
@@ -234,7 +234,9 @@ h1 {
 .c-center,
 .c-font-center {
   text-align: center; }
-
+.c-width {
+   width: auto !important;
+}
 .c-right,
 .c-font-right {
   text-align: right; }
@@ -8203,7 +8205,7 @@ h1 {
   color: #ffffff;
   background-color: #F48A38;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 2.5rem;
   display: inline-block; }
   .c-content-label.c-font-uppercase {
     font-size: 14px; }

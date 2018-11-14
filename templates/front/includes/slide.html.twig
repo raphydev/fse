@@ -1,28 +1,16 @@
 <!-- BEGIN: CONTENT/MISC/LATEST-ITEMS-4 -->
 <div class="c-center">
-    <div class="col-md-8" style="padding: 0 !important;">
+    <div class="col-md-12" style="padding: 0 !important;">
         <div class="c-content-media-2-slider" data-slider="owl">
-            <div class="owl-carousel owl-theme c-theme owl-single" data-single-item="true" data-auto-play="50000" data-rtl="false">
-                <div class="item">
-                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides1.jpg') }}); min-height: 480px;">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides2.jpg') }}); min-height: 480px;">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="c-content-media-2 c-bg-img-center" style="background-image: url({{ asset('build/web/static/slides3.jpg') }}); min-height: 480px;">
-                    </div>
-                </div>
+            <div class="video-wrap" style="min-width:100%;">
+                <video id="slide-video" poster="{{ asset('build/front/static/bg_full_old_page.jpg') }}" preload="auto" loop autoplay muted style="width: 100%;">
+                    <source src='{{ asset('build/front/static/videos/explorer.webm') }}' type='video/webm'/>
+                    <source src='{{ asset('build/front/static/videos/explorer.mp4') }}' type='video/mp4'/>
+                </video>
+                <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4" style="padding: 0 !important;">
-        <div class="c-content-media-1 c-bg-green-1" style="height: 480px;">
-            <a href="#" class="c-title c-font-uppercase  c-font-bold c-font-white c-theme-on-hover c-center" style="padding-top: 15rem;">{{ 'La finance s\'engage' }}</a>
-            <div class="c-content-label c-font-uppercase c-font-bold c-bg-green-1 c-center">{{ 'initiative pour le financement des PME' }}</div>
         </div>
     </div>
 </div>
 <!-- END: CONTENT/MISC/LATEST-ITEMS-4 -->
+
