@@ -64,7 +64,7 @@ class HomeController extends Controller
             'organizers' => $this->organizerRepository->findAll(),
             'rapports'   => $this->rapportRepository->findAll(),
             //'intervenants' => $this->intervenantRepository->findAllGreaterThanIntervenant(),
-            //'classifications'   => $this->classificationRepository->findAllByPosition()
+            'classifications'   => $this->classificationRepository->findAllByPosition()
         ]);
     }
 

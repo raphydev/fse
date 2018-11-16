@@ -1,0 +1,18 @@
+<div class="c-content-title-4 c-padding-20">
+    <h3 class="c-font-uppercase c-center c-font-bold c-font-white c-line-strike">
+        <span class="c-bg-green">{{ classification.title|upper }}</span>
+    </h3>
+</div>
+<div class="row c-margin-b-50">
+    {% for partner in classification.partner %}
+        <div class="col-md-3 c-margin-b-20">
+            <div class="card mb-4 box-shadow c-shadow">
+                <a href="{{ partner.website }}" target="_blank">
+                    <div class="card-header">
+                        <img class="card-img-top custom-center" src="{{ asset(partner.assertPath|imagine_filter('thumb_back_small_300x200'))}}" alt="{{ partner.name }}" style="width: 90%;">
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -2,9 +2,7 @@
 {% block title %}
     {{ 'L\'Ecosystème la finance s\'engage' }}
 {% endblock %}
-{% block class_header %}
-    c-layout-header-fullscreen
-{% endblock %}
+{% block class_header %} c-layout-header-fullscreen {% endblock %}
 {% block base_nav %}
     {{ include('front/includes/nav.html.twig', { 'nav_class': 'c-layout-header-onepage c-layout-header-4 c-bordered c-layout-header-default-mobile c-header-transparent-dark' }) }}
 {% endblock %}
@@ -83,6 +81,22 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url({{ asset('build/web/static/bg_partners.jpg') }}">
+    <div class="container">
+        <div class="c-content-feature-9">
+            <!-- Begin: Title 1 component -->
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Partenaires de reférences' }}</h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <!-- End-->
+            {% for classification in classifications %}
+                {{ include('home_front/includes/partners.html.twig') }}
+            {% endfor %}
+            <div class="clear"></div>
+        </div>
+    </div>
     </div>
 {% endblock %}
 {% block javascripts %}
