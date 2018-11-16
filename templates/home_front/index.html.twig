@@ -83,22 +83,51 @@
         </div>
     </div>
     <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url({{ asset('build/web/static/bg_partners.jpg') }}">
-    <div class="container">
-        <div class="c-content-feature-9">
-            <!-- Begin: Title 1 component -->
-            <div class="c-content-title-1">
-                <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Partenaires de reférences' }}</h3>
-                <div class="c-line-center c-theme-bg"></div>
+        <div class="container">
+            <div class="c-content-feature-9">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Partenaires de reférences' }}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <!-- End-->
+                {% for classification in classifications %}
+                    {{ include('home_front/includes/partners.html.twig') }}
+                {% endfor %}
+                <div class="clear"></div>
             </div>
-            <!-- End-->
-            {% for classification in classifications %}
-                {{ include('home_front/includes/partners.html.twig') }}
-            {% endfor %}
-            <div class="clear"></div>
         </div>
     </div>
+    {{ include('home_front/includes/savethedate.html.twig') }}
+
+    <div class="c-content-box c-size-md c-bg-grey-1">
+        <div class="container">
+            <!-- Begin: Testimonals 1 component -->
+            <div class="c-content-person-1-slider" data-slider="owl" data-navigation-dots="true">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1 wow animated fadeIn">
+                    <h3 class="c-center c-font-uppercase c-font-white c-font-bold">
+                        <span class="c-content-label c-bg-green-1">{{ 'Les intervenants'|upper }}</span>
+                    </h3>
+                    <div class="c-line c-dot c-dot-center c-theme-bg c-theme-bg-after c-line-short"></div>
+                </div>
+                <!-- End-->
+                <div class="owl-carousel owl-theme c-theme c-owl-nav-center c-margin-t-40"
+                     data-items="4" data-slide-speed="2000" data-rtl="false"  data-auto-play-hover-pause="true">
+                    {% for intervenant in intervenants %}
+                        {{ include('home_front/includes/intervenants.html.twig', { 'intervenant': intervenant }) }}
+                    {% endfor %}
+                </div>
+                <div class="c-center">
+                    <a href="" target="_blank" class="c-margin-t-10 btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">explorer</a>
+                </div>
+            </div>
+            <!-- End-->
+        </div>
     </div>
+
 {% endblock %}
 {% block javascripts %}
+    {{ parent() }}
     <script src="{{ asset('build/layout/assets/base/js/slide.js') }}" type="text/javascript"></script>
 {% endblock %}

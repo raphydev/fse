@@ -5388,7 +5388,7 @@ label.control-label {
   margin-left: -30px;
   width: calc(100% + 60px); }
   .owl-theme:not(.owl-single):not(.owl-bordered) .owl-wrapper .owl-item, .owl-theme:not(.owl-single):not(.owl-bordered) .owl-stage-outer .owl-item {
-    padding: 0 30px; }
+    padding: 0 15px; }
 
 .owl-theme.owl-theme-white .owl-pagination .owl-page span {
   background: #ffffff;
