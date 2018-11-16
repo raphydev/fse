@@ -1,5 +1,5 @@
 <!-- BEGIN: HEADER -->
-<header class="c-layout-header c-layout-header-onepage c-layout-header-4 c-bordered c-layout-header-default-mobile c-header-transparent-dark" data-minimize-offset="80">
+<header class="c-layout-header {{ nav_class|default('c-layout-header-4 c-layout-header-default-mobile') }}" data-minimize-offset="80">
     <div class="c-navbar">
         <div class="container">
             <!-- BEGIN: BRAND -->
@@ -29,7 +29,7 @@
                             </a>
                             <ul class="dropdown-menu c-menu-type-classic c-pull-left">
                                 <li class="dropdown-submenu">
-                                    <a href="{{ path('initiative') }}">{{ 'A propos' }}
+                                    <a href="{{ path('apropos_page') }}#fse">{{ 'A propos' }}
                                         <span class="c-arrow c-toggler"></span>
                                     </a>
                                 </li>

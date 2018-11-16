@@ -2,8 +2,11 @@
 {% block title %}
     {{ 'L\'Ecosystème la finance s\'engage' }}
 {% endblock %}
+{% block class_header %}
+    c-layout-header-fullscreen
+{% endblock %}
 {% block base_nav %}
-    {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }}
+    {{ include('front/includes/nav.html.twig', { 'nav_class': 'c-layout-header-onepage c-layout-header-4 c-bordered c-layout-header-default-mobile c-header-transparent-dark' }) }}
 {% endblock %}
 {% block slide %}
     {{ include('front/includes/slide.html.twig') }}
@@ -32,31 +35,56 @@
                 </div>
             </div>
             <!-- end statistique clé -->
+            <!-- start data top -->
+            <div class="c-content-box c-size-md c-bg-grey">
+                <div class="container">
+                    <div class="c-content-title-1">
+                        <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                            <span class="c-content-label">{{ 'Donnée de la croissance' }}</span>
+                        </h3>
+                        <div class="c-line-center c-theme-bg"></div>
+                    </div>
+                    <div class="c-content-bar-2 c-opt-1">
+                        <div class="row" data-auto-height="true">
+                            {% for rapport in rapports %}
+                                {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end data top -->
         </div>
     <!-- END INITIATIVE -->
-
-    <div class="c-content-box c-size-md c-bg-grey">
+    <div class="c-content-box c-size-md">
         <div class="container">
-            <div class="c-content-title-1">
-                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
-                    <span class="c-content-label">{{ 'Donnée de la croissance' }}</span>
-                </h3>
-                <div class="c-line-center c-theme-bg"></div>
-            </div>
-            <div class="c-content-bar-2 c-opt-1">
-                <div class="row" data-auto-height="true">
-                    {% for rapport in rapports %}
-                        {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
-                    {% endfor %}
+            <div class="c-content-counter-1">
+                <div class="container">
+                    <div class="c-content-title-2">
+                        <h3 class="c-center c-font-uppercase c-font-white c-font-bold">
+                            <span class="c-content-label c-bg-green-1">{{ 'les organisateurs'|upper }}</span>
+                        </h3>
+                        <div class="c-line c-dot c-dot-center c-theme-bg c-theme-bg-after c-line-short"></div>
+                        <div class="row c-margin-t-40">
+                            <div class="c-content-blog-post-card-1-grid">
+                                <div class="row">
+                                    {% if organizers|length > 0 %}
+                                        {% for organizer in organizers %}
+                                            {{ include('home_front/includes/organisateur.html.twig', {
+                                                'organizer':organizer
+                                            }) }}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="c-content-box c-size-md">
-    <div class="container">
-        {{ include('home_front/includes/organisateur.html.twig') }}
-    </div>
-    </div>{% endblock %}
+{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/layout/assets/base/js/slide.js') }}" type="text/javascript"></script>
 {% endblock %}

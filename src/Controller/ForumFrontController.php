@@ -60,6 +60,16 @@ class ForumFrontController extends AbstractController
         $this->rapportRepository = $rapportRepository;
     }
 
+
+    /**
+     * @Route("/abouts-us", name="apropos_page", methods={"GET"}, schemes={"%secure_channel%"})
+     */
+    public function AproposAction()
+    {
+        return $this->render('home_front/abouts.html.twig');
+    }
+
+
     /**
      * @Route("/initiative", methods={"GET"}, name="initiative", schemes={"%secure_channel%"})
      */
