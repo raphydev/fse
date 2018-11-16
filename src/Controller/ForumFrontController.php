@@ -20,6 +20,9 @@ use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -39,10 +42,22 @@ class ForumFrontController extends AbstractController
      */
     private $organizerRepository;
 
-    public function __construct(PostRepository $postRepository, OrganizerRepository $organizerRepository )
+    /**
+     * @var RapportRepository
+     */
+    private $rapportRepository;
+
+    /**
+     * ForumFrontController constructor.
+     * @param PostRepository $postRepository
+     * @param OrganizerRepository $organizerRepository
+     * @param RapportRepository $rapportRepository
+     */
+    public function __construct(PostRepository $postRepository, OrganizerRepository $organizerRepository, RapportRepository $rapportRepository )
     {
         $this->postRepository = $postRepository;
         $this->organizerRepository = $organizerRepository;
+        $this->rapportRepository = $rapportRepository;
     }
 
     /**
@@ -52,6 +67,22 @@ class ForumFrontController extends AbstractController
         return $this->render('front/forum/initiative.html.twig',[
             'posts' => $this->postRepository->getPostLimited(5)
         ]);
+    }
+
+    /**
+     * @param Rapport $rapport
+     * @Route("/drive/file/{slug}", methods={"GET"}, name="file_download", schemes={"%secure_channel%"})
+     * @return Response
+     */
+    public function downloadAction(Rapport $rapport)
+    {
+      $rapport = $this->rapportRepository->find($rapport);
+      if (!$rapport) {
+          throw $this->createNotFoundException('Le Fichier est introuvable .');
+      }
+      $response = new BinaryFileResponse($rapport->getAssertPath());
+      $response->headers->set('Content-Type', 'application/pdf');
+      return $response;
     }
 
     /**

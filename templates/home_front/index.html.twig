@@ -6,45 +6,57 @@
     {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }}
 {% endblock %}
 {% block slide %}
-{{ include('front/includes/slide.html.twig') }}
-    <div class="c-center">
-        <img src="{{ asset('build/web/static/banner_lancement.jpg') }}" alt=""
-             srcset="{{ asset('build/web/static/banner_lancement.jpg') }} 1280w,
-{{ asset('build/web/static/banner_lancement.jpg') }} 1024w,
-{{ asset('build/web/static/banner_lancement.jpg') }} 640w,
-{{ asset('build/web/static/banner_lancement.jpg') }} 320w"
-             sizes="(min-width: 1180px) 1180px, 100vw"
-        >
-    </div>
+    {{ include('front/includes/slide.html.twig') }}
+    <p>&nbsp;</p>
 {% endblock %}
 {% block body %}
-    <!-- initiative -->
-    <div class="c-content-box c-size-md c-bg-grey-1">
-	    <div class="container">
-            <div class="c-content-feature-2-grid" data-auto-height="true" data-mode="base-height">
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
-                        <span class="c-bg-green-1 c-content-label">{{ 'l\'initiative' }}</span>
-                    </h3>
-                    <div class="c-line-center"></div>
+    <!-- START INITIATIVE -->
+        <div id="initiative">
+            <!-- Start initiative detail-->
+            <div class="c-content-box c-size-md">
+                <div class="container">
+                    <div class="c-content-title-1">
+                        <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                            <span class="c-content-label">{{ 'Une initiative privée pour le financement des PME' }}</span>
+                        </h3>
+                        <div class="c-line-center c-theme-bg"></div>
+                    </div>
                 </div>
             </div>
+            {% include('home_front/includes/initiative_inc.html.twig') %}
+            <!-- end initiative detail -->
+            <!-- start statistique clé -->
+            <div class="c-content-box c-size-md">
+                <div class="container">
+                    {{ include('home_front/includes/stats.html.twig') }}
+                </div>
+            </div>
+            <!-- end statistique clé -->
         </div>
-    </div>
-    <!-- statistique clé -->
-    <div class="c-content-box c-size-md c-bg-white">
+    <!-- END INITIATIVE -->
+
+    <div class="c-content-box c-size-md c-bg-grey">
         <div class="container">
-            <div class="c-content-feature-2-grid" data-auto-height="true" data-mode="base-height">
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
-                        <span class="c-bg-green-1 c-content-label">{{ 'Statistiques clés' }}</span>
-                    </h3>
-                    <div class="c-line-center"></div>
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                    <span class="c-content-label">{{ 'Donnée de la croissance' }}</span>
+                </h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <div class="c-content-bar-2 c-opt-1">
+                <div class="row" data-auto-height="true">
+                    {% for rapport in rapports %}
+                        {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
+    <div class="c-content-box c-size-md">
+    <div class="container">
+        {{ include('home_front/includes/organisateur.html.twig') }}
+    </div>
+    </div>{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/layout/assets/base/js/slide.js') }}" type="text/javascript"></script>
 {% endblock %}

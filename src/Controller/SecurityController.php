@@ -56,11 +56,10 @@ class SecurityController extends Controller
 
     /**
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/secure/register", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(Request $request)
     {
         $users = new Users();
         $form = $this->createForm(RegisterType::class, $users);

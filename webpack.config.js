@@ -69,7 +69,7 @@ Encore
     .setPublicPath('/build/web')
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
-    //.addEntry('js/script/editor', './assets/back/js/editor.js')
+    .addEntry('js/apps', './assets/web/js/apps.js')
     .addStyleEntry('css/custom', './assets/web/sass/demos/index/custom.scss')
     .addStyleEntry('css/global', [
         './assets/web/assets/plugins/socicon/socicon.css',

@@ -39,41 +39,29 @@ class Rapport
     protected $created;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ajoutez une description")
-     */
-    protected $content;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Intégré le lien du document")
-     */
-    protected $doc_link;
-
-    /**
+     * @Assert\NotBlank(message="Uploadez le plan")
      * @Assert\File(
      *     maxSize="3M",
-     *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
+     *     mimeTypes={"application/pdf"}
      * )
-     * @Vich\UploadableField(mapping="rapport_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="rapport_file", fileNameProperty="fileName", size="fileSize")
      * @var File $imageFile
      */
-    protected $imageFile;
+    protected $docFile;
 
     /**
      * @ORM\Column(type="integer")
      *
      * @var integer
      */
-    protected $imageSize;
-
+    protected $fileSize;
 
     /**
-     * @var string $imageName
+     * @var string $fileName
      *
      * @ORM\Column(type="string", length=255)
      */
-    protected $imageName;
+    protected $fileName;
 
 
     public function __construct()
@@ -110,30 +98,6 @@ class Rapport
         return $this;
     }
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getDocLink(): ?string
-    {
-        return $this->doc_link;
-    }
-
-    public function setDocLink(?string $doc_link): self
-    {
-        $this->doc_link = $doc_link;
-
-        return $this;
-    }
-
     public function getCreated(): ?\DateTime
     {
         return $this->created;
@@ -152,29 +116,48 @@ class Rapport
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $file
      * @throws \Exception
      */
-    public function setImageFile(?File $image = null): void
+    public function setDocFile(?File $file = null): void
     {
-        $this->imageFile = $image;
-
-        if (null !== $image) {
+        $this->docFile = $file;
+        if (null !== $file) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->created = new \DateTimeImmutable();
         }
     }
 
-    public function getImageFile(): ?File
+    public function getDocFile(): ?File
     {
-        return $this->imageFile;
+        return $this->docFile;
+    }
+
+    public function setFileName(?string $fileName): void
+    {
+        $this->fileName = $fileName;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    public function setFileSize(?int $fileSize): void
+    {
+        $this->fileSize = $fileSize;
+    }
+
+    public function getFileSize(): ?int
+    {
+        return $this->fileSize;
     }
 
     public function getUploadDir()
     {
         // On retourne le chemin relatif vers l'image pour un navigateur
-        return 'images/rapport';
+        return 'files_reader/rapport';
     }
     protected function getUploadRootDir()
     {
@@ -186,30 +169,6 @@ class Rapport
      */
     public function getAssertPath()
     {
-        return $this->getUploadDir().'/'.$this->imageName;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
-    }
-
-    public function setImageSize(int $imageSize): self
-    {
-        $this->imageSize = $imageSize;
-
-        return $this;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    public function setImageName(string $imageName): self
-    {
-        $this->imageName = $imageName;
-
-        return $this;
+        return $this->getUploadDir().'/'.$this->fileName;
     }
 }

@@ -1,4 +1,5 @@
 {
+  "build/web/js/apps.js": "/build/web/js/apps.js",
   "build/web/css/global.css": "/build/web/css/global.css",
   "build/web/css/custom.css": "/build/web/css/custom.css"
 }

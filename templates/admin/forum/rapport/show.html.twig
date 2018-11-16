@@ -5,10 +5,9 @@
 <div class="col-6">
     <div class="card">
         <header class="card-header">
-            <h4 class="card-title">{{ 'Rapport détail'|upper }}</h4>
+            <h4 class="card-title">{{ 'Rapport détail - Docs inclus'|upper }}</h4>
             {{ include('admin/forum/rapport/_delete_form.html.twig') }}
         </header>
-        <img class="card-img-top" src="{{ asset(rapport.assertPath) }}" alt="Card image cap">
     <div class="card-body">
         <table class="table">
             <tbody>
@@ -19,14 +18,6 @@
                 <tr>
                     <th>{{ 'Date de creation' }}</th>
                     <td>{{ rapport.created ? rapport.created|date('Y-m-d H:i:s') : '' }}</td>
-                </tr>
-                <tr>
-                    <th>{{ 'Resumé du rapport' }}</th>
-                    <td>{{ rapport.content|raw }}</td>
-                </tr>
-                <tr>
-                    <th>Document</th>
-                    <td>{{ rapport.docLink|raw }}</td>
                 </tr>
             </tbody>
         </table>

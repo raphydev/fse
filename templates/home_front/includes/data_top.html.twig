@@ -1,0 +1,13 @@
+<div class="col-md-6">
+    <div class="c-content-v-center c-bg-white" data-height="height">
+        <div class="c-wrapper">
+            <div class="c-body">
+                <h3 class="c-font-dark-1 c-font-bold">{{ rapport.title }}</h3>
+                <p class="c-font-sbold">{{ 'Une cartographie détaillée, des perspectives clé et des recommandations concrètes pour le secteur privé ivoirien.' }}</p>
+                <div class="c-center">
+                    <a href="{{ path('file_download', { 'slug': rapport.slug }) }}" target="_blank" class="c-margin-t-10 btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">{{ 'télécharger' }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

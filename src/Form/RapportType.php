@@ -16,25 +16,16 @@ class RapportType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Renseignez le Titre',
+                'label' => 'Titre du document',
                 'attr' => ['placeholder' => 'Titre du rapport']
             ])
-            ->add('imageFile', VichImageType::class, [
+            ->add('docFile', VichImageType::class, [
                 'label' => false,
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
                 'image_uri' => true,
                 'attr'  => ['data-provide' => 'dropify']
-            ])
-            ->add('docLink', TextType::class, [
-                'label' => 'Insérez le lien du document'
-            ])
-            ->add('content', TextareaType::class, [
-                'label' => 'Description',
-                'attr' => [
-                    'class' => 'ckeditor',
-                ]
             ])
         ;
     }

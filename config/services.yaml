@@ -4,7 +4,7 @@ parameters:
     locale: '%env(APP_LOCAL)%'
     secure_channel: '%env(SECURE_CHANNEL)%'
     gallery_directory: '%kernel.project_dir%/public/uploads/gallery'
-    docfile_directory: '%kernel.project_dir%/public/uploads/docs'
+    # docfile_directory: '%kernel.project_dir%/public/uploads/docs'
 
 services:
     # default configuration for services in *this* file
