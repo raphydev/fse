@@ -48,16 +48,23 @@ class ForumFrontController extends AbstractController
     private $rapportRepository;
 
     /**
+     * @var ClassificationRepository
+     */
+    private $classificationRepository;
+
+    /**
      * ForumFrontController constructor.
      * @param PostRepository $postRepository
      * @param OrganizerRepository $organizerRepository
      * @param RapportRepository $rapportRepository
+     * @param ClassificationRepository $classificationRepository
      */
-    public function __construct(PostRepository $postRepository, OrganizerRepository $organizerRepository, RapportRepository $rapportRepository )
+    public function __construct(PostRepository $postRepository, OrganizerRepository $organizerRepository, RapportRepository $rapportRepository, ClassificationRepository $classificationRepository )
     {
         $this->postRepository = $postRepository;
         $this->organizerRepository = $organizerRepository;
         $this->rapportRepository = $rapportRepository;
+        $this->classificationRepository = $classificationRepository;
     }
 
 
@@ -66,8 +73,24 @@ class ForumFrontController extends AbstractController
      */
     public function AproposAction()
     {
-        return $this->render('home_front/abouts.html.twig');
+        return $this->render('home_front/abouts.html.twig',[
+            'organizers' => $this->organizerRepository->findAll(),
+            'classifications'   => $this->classificationRepository->findAllByPosition()
+        ]);
     }
+
+    /**
+     * @param IntervenantRepository $intervenantRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
+     */
+    public function intervenantPage(IntervenantRepository $intervenantRepository)
+    {
+        return $this->render('home_front/intervenant.html.twig',[
+            'intervenants' => $intervenantRepository->findAll()
+        ]);
+    }
+
 
 
     /**
@@ -117,17 +140,6 @@ class ForumFrontController extends AbstractController
         ]);
     }
 
-    /**
-     * @param IntervenantRepository $intervenantRepository
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
-     */
-    public function intervenantPage(IntervenantRepository $intervenantRepository)
-    {
-        return $this->render('front/forum/intervenant.html.twig',[
-            'intervenants' => $intervenantRepository->findAll()
-        ]);
-    }
 
     /**
      * @param RapportRepository $rapportRepository

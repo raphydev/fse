@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Les intervenants du forum' }}{% endblock %}
-{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig') }} {% endblock %}
 {% block body %}
     <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
     <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_intervenant.jpg') }})">
@@ -20,9 +20,9 @@
     <div class="c-content-box c-size-md c-bg-grey-1">
         <div class="container">
             <!-- Begin: Testimonals 1 component -->
-            <div class="c-content-team-1-slider" data-slider="owl" data-items="3">
+            <div class="c-content-team-1-slider" data-slider="owl" data-items="4">
                 {% for intervenant in intervenants %}
-                    <div class="col-md-4 col-sm-6 c-margin-b-30" style="height: 550px;">
+                    <div class="col-md-3 col-sm-6 c-margin-b-30" style="height: 550px;">
                         <div class="c-content-person-1 c-option-2">
                             <div class="c-caption c-content-overlay">
                                 <div class="c-overlay-wrapper">

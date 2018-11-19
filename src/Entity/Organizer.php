@@ -54,6 +54,13 @@ class Organizer
     protected $name;
 
     /**
+     * @var
+     * @ORM\Column(type="string", length=100, nullable=false)
+     * @Assert\NotNull(message="Entrez le nom Abbrégé de l'organisateur")
+     */
+    protected $abbrName;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull(message="Entrez le website l'organisateur")
      */
@@ -202,5 +209,17 @@ class Organizer
     public function getAssertPath()
     {
         return $this->getUploadDir().'/'.$this->imageName;
+    }
+
+    public function getAbbrName(): ?string
+    {
+        return $this->abbrName;
+    }
+
+    public function setAbbrName(string $abbrName): self
+    {
+        $this->abbrName = $abbrName;
+
+        return $this;
     }
 }

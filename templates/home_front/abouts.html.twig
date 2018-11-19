@@ -6,19 +6,49 @@
     {{ include('front/includes/nav.html.twig') }}
 {% endblock %}
 {% block slide %}
-    {{ include('home_front/includes/banner.html.twig') }}
-    <p>&nbsp;</p>
+    <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url({{ asset('build/web/static/banner_partner.jpg') }})">
+        <div class="container">
+            <div class="c-page-title c-pull-left c-content-title-1">
+                <h3 class="c-left c-font-uppercase c-font-bold c-font-white c-font-20 c-font-slim">{{ 'A propos' }}</h3>
+                <div class="c-line-left c-theme-bg"></div>
+            </div>
+            <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+                <li><a href="{{ path('homepage') }}" class="c-font-white">{{ 'Accueil' }}</a></li>
+                <li class="c-font-white">/</li>
+                <li class="c-font-white">{{ 'A propos' }}</li>
+            </ul>
+        </div>
+    </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
 {% endblock %}
 {% block body %}
     <div id="fse">
-        <h1>Title Page</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        </p>
+        <div class="c-content-box c-size-md c-overflow-hide c-bg-grey-1" style="padding-bottom: 0 !important;">
+            <div class="container">
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                        <span class="c-content-label c-bg-green-1">{{ 'Les organisateurs' }}</span>
+                    </h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+            </div>
+            {{ include('home_front/includes/organizer_detail.html.twig', { 'organizers' : organizers }) }}
+        </div>
+    </div>
+    <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url({{ asset('build/web/static/bg_partners.jpg') }}">
+        <div class="container">
+            <div class="c-content-feature-9">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-center c-font-bold">{{ 'Partenaires de reférences' }}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <!-- End-->
+                {% for classification in classifications %}
+                    {{ include('home_front/includes/partners.html.twig', { 'class' : 'c-bg-green-1'}) }}
+                {% endfor %}
+                <div class="clear"></div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block javascripts %}

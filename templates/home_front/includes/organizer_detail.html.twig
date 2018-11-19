@@ -1,0 +1,47 @@
+
+    <div class="c-container">
+        <div class="c-content-tab-3 c-opt-1">
+            <div>
+                <ul class="nav c-theme-nav">
+                    {% for organizer in organizers %}
+                        <li {% if loop.first %} class="active" {% endif %}>
+                            <a class="c-font-16 c-theme-font c-font-bold" href="#c-tab3-{{ organizer.id }}" data-toggle="tab">
+                                {{ organizer.abbrName }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="c-tab-content">
+                <div class="container">
+                    <div class="tab-content">
+                        {% for organizerInfo in organizers %}
+                            <div class="tab-pane fade {% if loop.first %} in active {% endif %}" id="c-tab3-{{ organizerInfo.id }}">
+                                <div class="col-md-7 col-sm-12">
+                                    <div class="c-content-title-1">
+                                        <h3 class="c-font-bold">{{ organizerInfo.name }}</h3>
+                                        <div class="c-line-left c-theme-bg"></div>
+                                    </div>
+                                    <div class="text-justify">
+                                        {{ organizerInfo.content|raw }}
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12">
+                                    <div class="c-person c-margin-t-50">
+                                        <a href="{{ organizerInfo.website }}" target="_blank">
+                                            <img class="c-overlay-object img-responsive custom-center"
+                                                 src="{{ organizerInfo.assertPath|imagine_filter('thumb_medium') }}"
+                                                 alt="{{ organizerInfo.name }}">
+                                        </a>
+                                    </div>
+                                    <div class="c-center c-margin-t-10">
+                                        <a href="{{ path('apropos_page') }}#fse" title="{{ organizerInfo.name }}" target="_blank" class="btn btn-sm c-btn-green-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{{  'plus de détail' }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

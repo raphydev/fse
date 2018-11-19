@@ -7,6 +7,7 @@ use App\Repository\IntervenantRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
+use App\Repository\ScheculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,13 +39,19 @@ class HomeController extends Controller
      */
     private $rapportRepository;
 
+    /**
+     * @var
+     */
+    private $scheculeRepository;
+
 
     public function __construct(
         OrganizerRepository $organizerRepository,
         IntervenantRepository $intervenantRepository,
         ClassificationRepository $classificationRepository,
         PostRepository $postRepository,
-        RapportRepository $rapportRepository
+        RapportRepository $rapportRepository,
+        ScheculeRepository $scheculeRepository
     )
     {
         $this->organizerRepository = $organizerRepository;
@@ -52,6 +59,7 @@ class HomeController extends Controller
         $this->classificationRepository = $classificationRepository;
         $this->postRepository = $postRepository;
         $this->rapportRepository = $rapportRepository;
+        $this->scheculeRepository = $scheculeRepository;
     }
 
     /**
@@ -64,7 +72,8 @@ class HomeController extends Controller
             'organizers' => $this->organizerRepository->findAll(),
             'rapports'   => $this->rapportRepository->findAll(),
             'intervenants' => $this->intervenantRepository->findAllGreaterThanIntervenant(),
-            'classifications'   => $this->classificationRepository->findAllByPosition()
+            'classifications'   => $this->classificationRepository->findAllByPosition(),
+            'schecules'  => $this->scheculeRepository->findAllWithPrograms()
         ]);
     }
 

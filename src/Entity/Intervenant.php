@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints AS Assert;
 use Symfony\Component\HttpFoundation\File\File;
@@ -66,7 +68,6 @@ class Intervenant
      */
     protected $position;
 
-
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -78,6 +79,7 @@ class Intervenant
     public function __construct()
     {
         $this->created = new \DateTime('now');
+        $this->programs = new ArrayCollection();
     }
 
 
@@ -203,4 +205,5 @@ class Intervenant
 
         return $this;
     }
+
 }

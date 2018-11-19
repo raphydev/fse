@@ -11327,7 +11327,7 @@ h1 {
 .c-content-tab-3 .nav {
   text-align: center;
   width: 1170px;
-  margin: auto; }
+  margin: 0 35%; }
   .c-content-tab-3 .nav > li {
     float: left;
     display: inline-block; }

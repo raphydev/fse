@@ -15,6 +15,10 @@ class OrganizerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('abbrName', TextType::class, [
+                'label' => 'Renseignez le nom Abrégé de l\'organisateur',
+                'attr' => ['placeholder' => 'CGECI']
+            ])
             ->add('name', TextType::class, [
                 'label' => 'Renseignez le nom de l\'organisateur',
                 'attr' => ['placeholder' => 'Nom de l\' organisateur']
