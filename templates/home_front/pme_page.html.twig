@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'La finance s\'engage | L\'initiative - PME' }}
+{% endblock %}
+{% block base_nav %}
+    {{ include('front/includes/nav.html.twig') }}
+{% endblock %}
+{% block body %}
+    <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-sbold">{{ 'PME' }}</h3>
+            </div>
+            <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+                <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                <li>/</li>
+                <li><a href="javascript:;">{{ 'PME' }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    {{ include('home_front/includes/pme_content.html.twig') }}
+{% endblock %}
+
+

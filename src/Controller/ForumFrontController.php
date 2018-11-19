@@ -89,6 +89,14 @@ class ForumFrontController extends AbstractController
     }
 
     /**
+     * @Route("/forum/pme", name="pme_page", methods={"GET"}, schemes={"%secure_channel%"})
+     */
+    public function PmePage()
+    {
+        return $this->render('home_front/pme_page.html.twig');
+    }
+
+    /**
      * @param IntervenantRepository $intervenantRepository
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
