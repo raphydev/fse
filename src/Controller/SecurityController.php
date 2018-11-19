@@ -29,10 +29,13 @@ class SecurityController extends Controller
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
         $checker = $this->get('security.authorization_checker');
-        if (TRUE === $checker->isGranted('ROLE_ADMIN')){
+        if (TRUE === $checker->isGranted('ROLE_SUPER_ADMIN')){
             return $this->redirectToRoute('admin');
         }
-        if (TRUE === $checker->isGranted('ROLE_USER')){
+        if (
+            TRUE === $checker->isGranted('ROLE_USER') ||
+            TRUE === $checker->isGranted('ROLE_ADMIN')
+        ){
             return $this->redirectToRoute('account');
         }
         return $this->render('security/signin_page.html.twig', [
