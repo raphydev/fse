@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'Galeries photos |' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig',{'nav_class':'c-layout-header-4 c-layout-header-default-mobile'}) }} {% endblock %}
+{% block body %}
+<div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold">
+    <div class="container">
+        <div class="c-page-title c-pull-left">
+            <h3 class="c-font-uppercase c-font-sbold">Archives / Medias / Photos </h3>
+        </div>
+        <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+            <li><a href="{{ path('homepage') }}">{{ 'Accueil' }}</a></li>
+            <li>/</li>
+            <li><a href="{{ path('archive') }}">{{ 'Galeries' }}</a></li>
+            <li>/</li>
+            <li class="c-state_active">{{ media.name }}</li>
+        </ul>
+    </div>
+</div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    <!-- BEGIN: CONTENT/PORTFOLIO/LATEST-WORKS-2 -->
+    <div class="c-content-box c-size-md c-bg-white">
+        <div class="container">
+            <div class="c-content-title-1">
+                <h3 class="c-center c-font-uppercase c-font-bold">{{ media.name }}</h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <div class="cbp-panel">
+                <!-- SEE: components.js:ContentCubeLatestPortfolio -->
+                <div class="c-content-latest-works cbp cbp-l-grid-masonry-projects">
+                    {% for photo in media.medias %}
+                    <div class="cbp-item graphic wow animate fadeInLeft">
+                        <div class="cbp-caption">
+                            <div class="cbp-caption-defaultWrap">
+                                <img src="{{ photo.assertPath|imagine_filter('thumb_auto') }}" alt="{{ media.name }}">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="c-masonry-border"></div>
+                                <div class="cbp-l-caption-alignCenter">
+                                    <div class="cbp-l-caption-body">
+                                        <a href="{{ photo.assertPath|imagine_filter('thumb_auto') }}" class="cbp-lightbox cbp-l-caption-buttonRight btn c-btn-square c-btn-border-1x c-btn-white c-btn-bold c-btn-uppercase" data-title="{{ media.name }}">zoom</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: CONTENT/PORTFOLIO/LATEST-WORKS-2 -->
+{% endblock %}
+

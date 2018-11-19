@@ -108,15 +108,6 @@ class ForumFrontController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/forum/archive", name="archive", methods={"GET"}, schemes={"%secure_channel%"})
-     */
-    public function archivePage()
-    {
-        return $this->render('home_front/archive.html.twig');
-    }
-
-
 
     /**
      * @Route("/initiative", methods={"GET"}, name="initiative", schemes={"%secure_channel%"})
@@ -193,21 +184,21 @@ class ForumFrontController extends AbstractController
     }
 
     /**
-     * @Route("/medias/photos", name="gallery_page", methods={"GET"}, schemes={"%secure_channel%"})
+     * @Route("/archive/medias", name="archive", methods={"GET"}, schemes={"%secure_channel%"})
      * @param TagRepository $tagRepository
      * @param GalleryRepository $galleryRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function galleryPage(TagRepository $tagRepository, GalleryRepository $galleryRepository)
     {
-        return $this->render('front/forum/gallery.html.twig',[
+        return $this->render('home_front/gallery.html.twig',[
             'tags' => $tagRepository->findByGalleryOnline(),
             'galleries' => $galleryRepository->findAll()
         ]);
     }
 
     /**
-     * @Route("/medias/photos/{slug}", name="gallery_detail", methods={"GET"}, schemes={"%secure_channel%"})
+     * @Route("/archive/medias/photos/{slug}", name="gallery_detail", methods={"GET"}, schemes={"%secure_channel%"})
      * @param Gallery $gallery
      * @param GalleryRepository $galleryRepository
      * @return \Symfony\Component\HttpFoundation\Response
@@ -216,7 +207,7 @@ class ForumFrontController extends AbstractController
     public function galleryDetail(Gallery $gallery, GalleryRepository $galleryRepository)
     {
         $media = $galleryRepository->getOneGalleryById($gallery);
-        return $this->render('front/forum/gallery_detail.html.twig', [
+        return $this->render('home_front/gallery_detail.html.twig', [
             'media' => $media
         ]);
     }
