@@ -36,22 +36,8 @@ class AccountController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(TokenStorageInterface $storage, Request $request)
+    public function index()
     {
-        $user = $storage->getToken()->getUser();
-        if ($user instanceof Users){
-            if ($user->getIsActive() === true){
-                return $this->redirectToRoute('dashboard_member', array(), 301);
-            }
-        }
-        if ($this->isCsrfTokenValid('validate'.$user->getUsername(),
-            $request->request->get('_token')))
-        {
-            $em = $this->getDoctrine()->getManager();
-            $user->setIsActive(true);
-            $em->flush();
-            return $this->redirectToRoute('start_member');
-        }
         return $this->render('network/pages/account_page.html.twig');
     }
 
@@ -190,7 +176,7 @@ class AccountController extends Controller
      * @Route("/dashboard", name="dashboard_member", methods={"GET"}, schemes={"%secure_channel%"})
      */
     public function dashboard(){
-        return new Response("Page dashboard User");
+        return $this->render('network/user_dash.html.twig');
     }
 
     /**

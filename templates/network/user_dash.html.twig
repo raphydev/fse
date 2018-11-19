@@ -1,0 +1,26 @@
+{% extends 'network/member.html.twig' %}
+{% block bg %}
+    background-image: url({{ asset('build/front/static/security/bg_signup.jpg') }})
+{% endblock %}
+{% block body %}
+    <h1><img src="{{ asset('build/front/static/logo@2x.png') }}" alt="logo"></h1>
+
+    <br><br><br><br><br>
+
+    <h2 class="text-uppercase text-white fs-50 d-none d-md-block">
+        <span class="fs-70 fw-900 text-primary">Portail du financement</span><br>
+        <span>{{ 'Bientôt en ligne' }}</span>
+        <span class="text-primary fs-70">.</span>
+    </h2>
+
+    <h2 class="text-uppercase text-white fs-30 d-md-none">
+        <span class="fs-50 fw-900">Launching</span><br>
+        <span>{{ 'Bientôt en ligne' }}</span>
+        <span class="text-primary fs-50">.</span>
+    </h2>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
