@@ -15,6 +15,7 @@ use App\Entity\Rapport;
 use App\Repository\ClassificationRepository;
 use App\Repository\GalleryRepository;
 use App\Repository\IntervenantRepository;
+use App\Repository\LogoRepository;
 use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
@@ -105,6 +106,21 @@ class ForumFrontController extends AbstractController
     {
         return $this->render('home_front/intervenant.html.twig',[
             'intervenants' => $intervenantRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/forum/presse", name="presse_page", methods={"GET"}, schemes={"%secure_channel%"})
+     * @param TagRepository $tagRepository
+     * @param LogoRepository $logoRepository
+     * @return Response
+     */
+    public function pressePage(TagRepository $tagRepository, LogoRepository $logoRepository)
+    {
+        return $this->render('home_front/presse.html.twig',[
+            'logos' => $logoRepository->findAll(),
+            'tags' => $tagRepository->findRapportByTagName('#presse'),
+            'tagRapports' => $tagRepository->findRapportByTagName('#rapport'),
         ]);
     }
 

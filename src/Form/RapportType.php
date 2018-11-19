@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Rapport;
+use App\Entity\Tag;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,6 +17,11 @@ class RapportType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('tag', EntityType::class, [
+                'label' => 'Ajouter un Tag aux documents pour mieux les organisers',
+                'choice_label' => 'name',
+                'class' => Tag::class
+            ])
             ->add('title', TextType::class, [
                 'label' => 'Titre du document',
                 'attr' => ['placeholder' => 'Titre du rapport']

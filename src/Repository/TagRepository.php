@@ -32,6 +32,21 @@ class TagRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param null $name
+     * @return mixed
+     */
+    public function findRapportByTagName($name = null)
+    {
+        return $qb = $this->createQueryBuilder('t')
+            ->leftJoin('t.rapports', 'r')
+            ->addSelect('r')
+            ->where('t.hash = :name')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Tag[] Returns an array of Tag objects
 //     */

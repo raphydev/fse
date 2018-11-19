@@ -44,8 +44,10 @@
                     </div>
                     <div class="c-content-bar-2 c-opt-1">
                         <div class="row" data-auto-height="true">
-                            {% for rapport in rapports %}
-                                {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                            {% for tag in tags  %}
+                                {% for rapport in tag.rapports %}
+                                    {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                                {% endfor %}
                             {% endfor %}
                         </div>
                     </div>

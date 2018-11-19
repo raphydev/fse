@@ -8,6 +8,7 @@ use App\Repository\OrganizerRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
 use App\Repository\ScheculeRepository;
+use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,13 +46,20 @@ class HomeController extends Controller
     private $scheculeRepository;
 
 
+    /**
+     * @var TagRepository
+     */
+    private $tagRepository;
+
+
     public function __construct(
         OrganizerRepository $organizerRepository,
         IntervenantRepository $intervenantRepository,
         ClassificationRepository $classificationRepository,
         PostRepository $postRepository,
         RapportRepository $rapportRepository,
-        ScheculeRepository $scheculeRepository
+        ScheculeRepository $scheculeRepository,
+        TagRepository $tagRepository
     )
     {
         $this->organizerRepository = $organizerRepository;
@@ -60,6 +68,7 @@ class HomeController extends Controller
         $this->postRepository = $postRepository;
         $this->rapportRepository = $rapportRepository;
         $this->scheculeRepository = $scheculeRepository;
+        $this->tagRepository = $tagRepository;
     }
 
     /**
@@ -70,7 +79,7 @@ class HomeController extends Controller
         return $this->render('home_front/index.html.twig',[
             //'posts' => $this->postRepository->getPostLimited(5),
             'organizers' => $this->organizerRepository->findAll(),
-            'rapports'   => $this->rapportRepository->findAll(),
+            'tags'   => $this->tagRepository->findRapportByTagName('#rapport'),
             'intervenants' => $this->intervenantRepository->findAllGreaterThanIntervenant(),
             'classifications'   => $this->classificationRepository->findAllByPosition(),
             'schecules'  => $this->scheculeRepository->findAllWithPrograms()

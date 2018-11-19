@@ -39,7 +39,6 @@ class Rapport
     protected $created;
 
     /**
-     * @Assert\NotBlank(message="Uploadez le plan")
      * @Assert\File(
      *     maxSize="3M",
      *     mimeTypes={"application/pdf"}
@@ -62,6 +61,12 @@ class Rapport
      * @ORM\Column(type="string", length=255)
      */
     protected $fileName;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tag", inversedBy="rapports")
+     */
+    protected $tag;
 
 
     public function __construct()
@@ -170,5 +175,17 @@ class Rapport
     public function getAssertPath()
     {
         return $this->getUploadDir().'/'.$this->fileName;
+    }
+
+    public function getTag(): ?Tag
+    {
+        return $this->tag;
+    }
+
+    public function setTag(?Tag $tag): self
+    {
+        $this->tag = $tag;
+
+        return $this;
     }
 }

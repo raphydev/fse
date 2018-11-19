@@ -1,23 +1,76 @@
-<!-- BEGIN: LAYOUT/FOOTERS/FOOTER-2 -->
-<a name="footer"></a>
-<footer class="c-layout-footer c-layout-footer-1">
-    <div class="c-postfooter">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <p class="c-copyright c-font-oswald c-font-14">
-                        Copyright &copy; {{ 'La finance s\'engage' }} ™ | {{ 'now'|date('Y') }}
-                    </p>
+<footer class="c-layout-footer c-layout-footer-7">
+    <div class="container">
+        <div class="c-prefooter">
+            <div class="c-body">
+                <div class="row">
+                    <div class="col-md-5 col-sm-6 col-xs-12">
+                        <div class="c-content-title-1 c-title-md">
+                            <h3 class="c-title c-font-uppercase c-font-bold">{{ 'Site maps' }}</h3>
+                            <div class="c-line-left hide"></div>
+                        </div>
+                        <ul class="c-links c-theme-ul">
+                            <li><a href="{{ path('apropos_page') }}">{{ 'A propos'|upper }}</a></li>
+                            <li><a href="{{ path('finance_institute') }}">{{ 'Institution financières'|upper }}</a></li>
+                            <li><a href="{{ path('pme_page') }}">{{ 'PME'|upper }}</a></li>
+                            <li><a href="{{ path('intervenant_page') }}">{{ 'Intervenants'|upper }}</a></li>
+                            <li><a href="#">{{ 'Portail du financement'|upper }}</a></li>
+                            <li><a href="#">{{ 'Presse'|upper }}</a></li>
+                            <li><a href="{{ path('archive') }}">{{ 'Archive'|upper }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="c-content-title-1 c-title-md">
+                            <h3 class="c-title c-font-uppercase c-font-bold">{{ 'Lien Utiles' }}</h3>
+                            <div class="c-line-left hide"></div>
+                        </div>
+                        <ul class="c-links c-theme-ul">
+                            <li>
+                                <a href="http://www.espartners.com"
+                                   alt="Entrepreneurial Solutions Partners"
+                                   target="_blank">ESPARTNERS</a>
+                            </li>
+                            <li><a href="https://www.cgeci.com" target="_blank" alt="CGECI | Confédération Générale des Entreprises de Côte d'Ivoire">CGECI</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="c-content-title-1 c-title-md">
+                            <h3 class="c-title c-font-uppercase c-font-bold">Nos Contacts </h3>
+                            <div class="c-line-left hide"></div>
+                        </div>
+                        <p class="c-address c-font-16">{{ 'Avenue Lamblin, Abidjan, Côte d\'Ivoire' }}<br/>
+                            Tel: +225 2242 7954 <br/>
+                            Email: <a href="mailto:info@lafinancesengage.com">
+                                <span class="c-theme-color">info@lafinancesengage.com</span>
+                            </a>
+                        </p>
+                        <div class="c-line"></div>
+                        <div class="c-head">
+                            <div class="c-left">
+                                <div class="socicon">
+                                    <a href="#" class="socicon-btn socicon-btn-circle socicon-solid c-font-dark-1 c-theme-on-hover socicon-facebook tooltips" data-original-title="Facebook" data-container="body"></a>
+                                    <a href="#" class="socicon-btn socicon-btn-circle socicon-solid c-font-dark-1 c-theme-on-hover socicon-twitter tooltips" data-original-title="Twitter" data-container="body"></a>
+                                    <a href="#" class="socicon-btn socicon-btn-circle socicon-solid c-font-dark-1 c-theme-on-hover socicon-youtube tooltips" data-original-title="Youtube" data-container="body"></a>
+                                    <a href="#" class="socicon-btn socicon-btn-circle socicon-solid c-font-dark-1 c-theme-on-hover socicon-tumblr tooltips" data-original-title="Tumblr" data-container="body"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    <ul class="c-socials">
-                        <li><a href="#"><i class="icon-social-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-social-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-social-youtube"></i></a></li>
-                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="c-postfooter c-bg-dark-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 c-col">
+                    <p class="c-copyright c-font-grey">{{ 'now'|date('Y') }} &copy; La Finance s'engage
+                        <span class="c-font-grey-3">Tous Droits Reservés.</span> |
+                        <a href="@mailto:raphaelsampan@gmail.com">
+                            <span class="c-font-grey-3">Design by Raphael Blehoue</span>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-<!-- END: LAYOUT/FOOTERS/FOOTER-2 -->

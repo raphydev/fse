@@ -35,9 +35,18 @@ class Tag
      */
     protected $galleries;
 
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Rapport", mappedBy="tag")
+     */
+    protected $rapports;
+
+
     public function __construct()
     {
         $this->galleries = new ArrayCollection();
+        $this->rapports = new ArrayCollection();
     }
 
     public function getId()
@@ -94,6 +103,37 @@ class Tag
             // set the owning side to null (unless already changed)
             if ($gallery->getTag() === $this) {
                 $gallery->setTag(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rapport[]
+     */
+    public function getRapports(): Collection
+    {
+        return $this->rapports;
+    }
+
+    public function addRapport(Rapport $rapport): self
+    {
+        if (!$this->rapports->contains($rapport)) {
+            $this->rapports[] = $rapport;
+            $rapport->setTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRapport(Rapport $rapport): self
+    {
+        if ($this->rapports->contains($rapport)) {
+            $this->rapports->removeElement($rapport);
+            // set the owning side to null (unless already changed)
+            if ($rapport->getTag() === $this) {
+                $rapport->setTag(null);
             }
         }
 

@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'Les intervenants du forum' }}{% endblock %}
+{% block base_nav %} {{ include('front/includes/nav.html.twig') }} {% endblock %}
+{% block body %}
+
+    <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-sbold">{{ 'Presse' }}</h3>
+            </div>
+            <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+                <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                <li>/</li>
+                <li><a href="javascript:;">{{ 'Presse' }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-1 -->
+    <!-- start data top -->
+    <div class="c-content-box c-size-md c-bg-grey">
+        <div class="container">
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                    <span class="c-content-label c-bg-green-1">{{ 'Donnée de la croissance' }}</span>
+                </h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <div class="c-content-bar-2 c-opt-1">
+                <div class="row" data-auto-height="true">
+                    {% for tagRapport in tagRapports  %}
+                        {% for rapport in tagRapport.rapports %}
+                            {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end data top -->
+    <!-- start communiquez de presse  -->
+    <div class="c-content-box c-size-md">
+        <div class="container">
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                    <span class="c-content-label c-bg-green-1">{{ 'Logo la finance s\'engage' }}</span>
+                </h3>
+                <div class="c-line-center c-theme-bg"></div>
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-2" style="padding: 0 !important;">
+                        <div class="c-content-media-2-slider">
+                            {% for logo in logos %}
+                                <div class="card mb-4 box-shadow c-shadow">
+                                    <a href="" target="_blank">
+                                        <div class="card-header">
+                                            <img src="{{ logo.assertPath|imagine_filter("thumb_medium") }}" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="c-center c-margin-t-50">
+                            <a href="#" target="_blank" class="c-margin-t-10 btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">{{ 'télécharger' }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end communiquez de presse  -->
+    <!-- start logo  -->
+    <div class="c-content-box c-size-md c-bg-grey">
+        <div class="container">
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                    <span class="c-content-label c-bg-green-1">{{ 'Communiqué de presse' }}</span>
+                </h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <div class="c-content-bar-2 c-opt-1">
+                <div class="row" data-auto-height="true">
+                    {% for tag in tags  %}
+                        {% for rapport in tag.rapports %}
+                            {{ include('home_front/includes/data_top.html.twig', { 'rapport': rapport }) }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end logo  -->
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

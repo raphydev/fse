@@ -1,0 +1,39 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+
+{% block title %} {{ 'Logo' }} {% endblock %}
+{% block forum_title %} {{ '| Logo'|upper }}{% endblock %}
+{% block forum_content %}
+    <div class="col-6">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Informations sur Logo'|upper }}</h4>
+                {{ include('/admin/forum/logo/_delete_form.html.twig') }}
+            </header>
+            <img class="card-img-top" src="{{ asset(logo.assertPath) }}" alt="Card image cap">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>{{ 'Reference' }}</th>
+                        <td>{{ logo.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Date de creation' }}</th>
+                        <td>{{ logo.created|date('d m Y') }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-label btn-dark" href="{{ path('logo_index') }}">
+                    <label><i class="ti-arrow-left"></i></label>
+                    {{ 'Retour à la liste'}}
+                </a>
+                <a class="btn btn-label btn-danger" href="{{ path('logo_edit', {'id': logo.id}) }}">
+                    <label><i class="ti-pencil-alt"></i></label>
+                    {{ 'Modifier' }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

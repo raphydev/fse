@@ -1,0 +1,20 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+
+{% block title %} {{ 'Logos' }} {% endblock %}
+{% block forum_title %} {{ '| Logos'|upper }}{% endblock %}
+
+{% block forum_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'ajouter un nouveau logo'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('logo_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('/admin/forum/logo/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
