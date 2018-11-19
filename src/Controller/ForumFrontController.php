@@ -80,6 +80,15 @@ class ForumFrontController extends AbstractController
     }
 
     /**
+     * @return Response
+     * @Route("/financial_institute", name="finance_institute", methods={"GET"}, schemes={"%secure_channel%"})
+     */
+    public function institueFinancePage()
+    {
+        return $this->render('home_front/institue_financial.html.twig');
+    }
+
+    /**
      * @param IntervenantRepository $intervenantRepository
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
@@ -89,6 +98,14 @@ class ForumFrontController extends AbstractController
         return $this->render('home_front/intervenant.html.twig',[
             'intervenants' => $intervenantRepository->findAll()
         ]);
+    }
+
+    /**
+     * @Route("/forum/archive", name="archive", methods={"GET"}, schemes={"%secure_channel%"})
+     */
+    public function archivePage()
+    {
+        return $this->render('home_front/archive.html.twig');
     }
 
 
