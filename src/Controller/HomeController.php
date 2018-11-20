@@ -72,6 +72,7 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/", name="homepage", schemes={"%secure_channel%"}, methods={"GET"})
+     * @param PartRepository $partRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(PartRepository $partRepository)

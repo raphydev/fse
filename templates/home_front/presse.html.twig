@@ -46,24 +46,24 @@
                 </h3>
                 <div class="c-line-center c-theme-bg"></div>
                 <div class="row">
-                    <div class="col-md-5 col-md-offset-2" style="padding: 0 !important;">
-                        <div class="c-content-media-2-slider">
-                            {% for logo in logos %}
-                                <div class="card mb-4 box-shadow c-shadow">
-                                    <a href="" target="_blank">
-                                        <div class="card-header">
-                                            <img src="{{ logo.assertPath|imagine_filter("thumb_medium") }}" alt="">
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endfor %}
+                    {% for logo in logos %}
+                        <div class="col-md-5 col-md-offset-2" style="padding: 0 !important;">
+                            <div class="c-content-media-2-slider">
+                                    <div class="card mb-4 box-shadow c-shadow">
+                                        <a href="" target="_blank">
+                                            <div class="card-header">
+                                                <img src="{{ logo.assertPath|imagine_filter("thumb_medium") }}" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="c-center c-margin-t-50">
-                            <a href="#" target="_blank" class="c-margin-t-10 btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">{{ 'télécharger' }}</a>
+                        <div class="col-md-3">
+                            <div class="c-center c-margin-t-50">
+                                <a href="{{ path('logo_download', {'id' : logo.id }) }}" target="_blank" class="c-margin-t-10 btn btn-lg c-btn-green-1 c-btn-uppercase c-btn-square c-font-white c-font-white-hover c-bg-green-hover c-btn-product">{{ 'télécharger' }}</a>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

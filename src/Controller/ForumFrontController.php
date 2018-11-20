@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Gallery;
+use App\Entity\Logo;
 use App\Entity\Post;
 use App\Entity\Rapport;
 use App\Repository\ClassificationRepository;
@@ -17,8 +18,10 @@ use App\Repository\GalleryRepository;
 use App\Repository\IntervenantRepository;
 use App\Repository\LogoRepository;
 use App\Repository\OrganizerRepository;
+use App\Repository\PartRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
+use App\Repository\SectionRepository;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -98,6 +101,20 @@ class ForumFrontController extends AbstractController
     }
 
     /**
+     * @Route("/programs", methods={"GET"}, name="program_page", schemes={"%secure_channel%"})
+     * @param SectionRepository $sectionRepository
+     * @param PartRepository $partRepository
+     * @return Response
+     */
+    public function programAction(SectionRepository $sectionRepository, PartRepository $partRepository)
+    {
+        return $this->render('home_front/program_page.html.twig',[
+            'sections' => $sectionRepository->findAll(),
+            'parts'    => $partRepository->findPartAndProgramBySection()
+        ]);
+    }
+
+    /**
      * @param IntervenantRepository $intervenantRepository
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/intervenants", methods={"GET"}, name="intervenant_page", schemes={"%secure_channel%"})
@@ -148,6 +165,23 @@ class ForumFrontController extends AbstractController
       $response = new BinaryFileResponse($rapport->getAssertPath());
       $response->headers->set('Content-Type', 'application/pdf');
       return $response;
+    }
+
+    /**
+     * @Route("/drive/image/{id}", methods={"GET"}, name="logo_download", schemes={"%secure_channel%"})
+     * @param Logo $logo
+     * @param LogoRepository $logoRepository
+     * @return Response
+     */
+    public function downloadLogoAction(Logo $logo, LogoRepository $logoRepository)
+    {
+        $logo = $logoRepository->find($logo);
+        if (!$logo) {
+            throw $this->createNotFoundException('Le Fichier est introuvable .');
+        }
+        $response = new BinaryFileResponse($logo->getAssertPath());
+        $response->headers->set('Content-Type', 'image/jpg');
+        return $response;
     }
 
     /**
