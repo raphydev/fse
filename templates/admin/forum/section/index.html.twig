@@ -1,0 +1,62 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+
+{% block title %} {{ 'Section du forum' }} {% endblock %}
+{% block forum_title %} {{ '| Section du forum'|upper }}{% endblock %}
+
+{% block forum_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des sections'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('section_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>{{ 'Interval Horaire' }}</th>
+                        <th>{{ 'Titre' }}</th>
+                        <th>{{ 'Lieu' }}</th>
+                        <th>{{ 'Nom du tag' }}</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>{{ 'Interval Horaire' }}</th>
+                        <th>{{ 'Titre' }}</th>
+                        <th>{{ 'Lieu' }}</th>
+                        <th>{{ 'Nom du tag' }}</th>
+                        <th>actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for section in sections %}
+                        <tr>
+                            <td>{{ section.intervalHoraire }}</td>
+                            <td>{{ section.title }}</td>
+                            <td>{{ section.lieu }}</td>
+                            <td>{{ section.tagName }}</td>
+                            <td>
+                                <a class="btn btn-square btn-info" href="{{ path('section_show', {'id': section.id}) }}">
+                                    <i class="ti-pencil"></i>
+                                </a>
+                                <a class="btn btn-square btn-danger" href="{{ path('section_edit', {'id': section.id}) }}">
+                                    <i class="ti-close"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">Aucun de resulat trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,5 +1,5 @@
-<div class="card card-round card-shadowed px-50 py-30 w-700px mb-0" style="max-width: 100%">
-    <h5 class="text-uppercase">{{ 'Creer les dates' }}</h5>
+<div class="card card-round card-shadowed px-50 py-30 w-600px mb-0" style="max-width: 100%">
+    <h5 class="text-uppercase">{{ 'Créer la section de la cérémonie' }}</h5>
     <br>
     {{ form_start(form, {'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
     <div class="form-group">
@@ -9,7 +9,7 @@
             <label><i class="ti-save"></i></label>
             {{ button_label|default('Enregister') }}
         </button>
-        <a class="btn btn-label btn-dark" href="{{ path('schecule_index') }}">
+        <a class="btn btn-label btn-dark" href="{{ path('section_index') }}">
             <label><i class="ti-arrow-left"></i></label>
             {{ 'Retour à la liste'}}
         </a>

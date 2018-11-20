@@ -79,7 +79,6 @@ class Intervenant
     public function __construct()
     {
         $this->created = new \DateTime('now');
-        $this->programs = new ArrayCollection();
     }
 
 

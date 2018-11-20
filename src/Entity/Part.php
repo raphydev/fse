@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ScheculeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PartRepository")
  */
-class Schecule
+class Part
 {
     /**
      * @ORM\Id()
@@ -19,38 +20,39 @@ class Schecule
     protected $id;
 
     /**
-     * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="schecule")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Entrez le titre")
      */
-    protected $programs;
+    protected $title;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="part")
      */
-    protected $dateName;
+    protected $programs;
 
     public function __construct()
     {
         $this->programs = new ArrayCollection();
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDateName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->dateName;
+        return $this->title;
     }
 
-    public function setDateName(string $dateName): self
+    public function setTitle(string $title): self
     {
-        $this->dateName = $dateName;
+        $this->title = $title;
 
         return $this;
     }
-
+    
     /**
      * @return Collection|Program[]
      */
@@ -63,7 +65,7 @@ class Schecule
     {
         if (!$this->programs->contains($program)) {
             $this->programs[] = $program;
-            $program->setSchecule($this);
+            $program->setPart($this);
         }
 
         return $this;
@@ -74,8 +76,8 @@ class Schecule
         if ($this->programs->contains($program)) {
             $this->programs->removeElement($program);
             // set the owning side to null (unless already changed)
-            if ($program->getSchecule() === $this) {
-                $program->setSchecule(null);
+            if ($program->getPart() === $this) {
+                $program->setPart(null);
             }
         }
 

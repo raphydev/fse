@@ -17,37 +17,31 @@ class Program
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
-    protected $title;
+    protected $hours;
+
+    /**
+     * @ORM\Column(type="text", nullable=false)
+     */
+    protected $content;
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="App\Entity\Schecule", inversedBy="programs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Part", inversedBy="programs")
      */
-    protected $schecule;
-
+    protected $part;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Section", inversedBy="programs")
      */
-    protected $hours;
+    protected $section;
+
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     public function getHours(): ?string
@@ -62,27 +56,40 @@ class Program
         return $this;
     }
 
-    public function getSchecule(): ?Schecule
+    public function getContent(): ?string
     {
-        return $this->schecule;
+        return $this->content;
     }
 
-    public function setSchecule(?Schecule $schecule): self
+    public function setContent(string $content): self
     {
-        $this->schecule = $schecule;
+        $this->content = $content;
 
         return $this;
     }
 
-    public function getIntervenant(): ?Intervenant
+    public function getPart(): ?Part
     {
-        return $this->intervenant;
+        return $this->part;
     }
 
-    public function setIntervenant(?Intervenant $intervenant): self
+    public function setPart(?Part $part): self
     {
-        $this->intervenant = $intervenant;
+        $this->part = $part;
 
         return $this;
     }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
 }

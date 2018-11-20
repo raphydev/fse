@@ -5,15 +5,15 @@ namespace App\Controller;
 use App\Repository\ClassificationRepository;
 use App\Repository\IntervenantRepository;
 use App\Repository\OrganizerRepository;
+use App\Repository\PartRepository;
 use App\Repository\PostRepository;
 use App\Repository\RapportRepository;
-use App\Repository\ScheculeRepository;
+use App\Repository\SectionRepository;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends Controller
+class HomeController extends AbstractController
 {
     /**
      * @var OrganizerRepository
@@ -41,15 +41,14 @@ class HomeController extends Controller
     private $rapportRepository;
 
     /**
-     * @var
-     */
-    private $scheculeRepository;
-
-
-    /**
      * @var TagRepository
      */
     private $tagRepository;
+
+    /**
+     * @var SectionRepository
+     */
+    private $sectionRepository;
 
 
     public function __construct(
@@ -58,8 +57,8 @@ class HomeController extends Controller
         ClassificationRepository $classificationRepository,
         PostRepository $postRepository,
         RapportRepository $rapportRepository,
-        ScheculeRepository $scheculeRepository,
-        TagRepository $tagRepository
+        TagRepository $tagRepository,
+        SectionRepository $sectionRepository
     )
     {
         $this->organizerRepository = $organizerRepository;
@@ -67,14 +66,15 @@ class HomeController extends Controller
         $this->classificationRepository = $classificationRepository;
         $this->postRepository = $postRepository;
         $this->rapportRepository = $rapportRepository;
-        $this->scheculeRepository = $scheculeRepository;
         $this->tagRepository = $tagRepository;
+        $this->sectionRepository = $sectionRepository;
     }
 
     /**
      * @Route("/", name="homepage", schemes={"%secure_channel%"}, methods={"GET"})
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(PartRepository $partRepository)
     {
         return $this->render('home_front/index.html.twig',[
             //'posts' => $this->postRepository->getPostLimited(5),
@@ -82,7 +82,8 @@ class HomeController extends Controller
             'tags'   => $this->tagRepository->findRapportByTagName('#rapport'),
             'intervenants' => $this->intervenantRepository->findAllGreaterThanIntervenant(),
             'classifications'   => $this->classificationRepository->findAllByPosition(),
-            'schecules'  => $this->scheculeRepository->findAllWithPrograms()
+            'sections' => $this->sectionRepository->findAll(),
+            'parts'    => $partRepository->findPartAndProgramBySection()
         ]);
     }
 

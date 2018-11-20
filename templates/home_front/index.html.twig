@@ -127,6 +127,54 @@
             <!-- End-->
         </div>
     </div>
+    <div class="c-content-box c-size-md c-overflow-hide c-bg-grey-1">
+        <div class="container">
+            <div class="c-content-title-1">
+                <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
+                    <span class="c-content-label">{{ 'Programme du forum' }}</span>
+                </h3>
+                <div class="c-line-center c-theme-bg"></div>
+            </div>
+            <div class="c-container">
+                <div class="c-content-tab-3 c-opt-1">
+                    <div>
+                        <ul class="nav c-theme-nav" style="margin: 0 auto !important;">
+                            {% for section in  sections %}
+                                <li {% if loop.first %} class="active" {% endif %}>
+                                    <a class="c-font-16 c-theme-font c-font-bold"
+                                       href="#c-tab3-{{ section.id }}" data-toggle="tab">
+                                        {{ section.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="c-tab-content">
+                        <div class="container">
+                            <div class="tab-content">
+                                {% for sectionProgram in sections %}
+                                    <div class="tab-pane fade in {% if loop.first %} active {% endif %}" id="c-tab3-{{ sectionProgram.id }}">
+                                        <div class="c-content-panel">
+                                            <div class="c-label" style="margin-left: 2%;">
+                                                {{ sectionProgram.intervalHoraire }} - {{ sectionProgram.lieu |upper }}
+                                            </div>
+                                            <div class="c-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {{ include('home_front/includes/program.html.twig', {'sectionId' : sectionProgram.id }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

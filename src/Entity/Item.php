@@ -15,29 +15,36 @@ class Item
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Gedmo\Slug(fields={"name", "id"}, separator="_", updatable=false)
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $time;
+    protected $time;
 
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="App\Entity\Former", inversedBy="item")
      */
-    private $former;
+    protected $former;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $title;
+
+
 
     public function getId()
     {
@@ -91,4 +98,17 @@ class Item
 
         return $this;
     }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
 }

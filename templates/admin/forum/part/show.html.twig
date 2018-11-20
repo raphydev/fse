@@ -1,29 +1,30 @@
 {% extends 'admin/forum/forum_layout.html.twig' %}
-{% block title %} {{ 'Dates du forum' }} {% endblock %}
-{% block forum_title %} {{ '| Dates'|upper }}{% endblock %}
+
+{% block title %} {{ 'Partie de la cérémonie' }} {% endblock %}
+{% block forum_title %} {{ '| Partie de la cérémonie'|upper }}{% endblock %}
 {% block forum_content %}
     <div class="col-6">
         <div class="card">
             <header class="card-header">
-                <h4 class="card-title">{{ 'Dates détail'|upper }}</h4>
-                {{ include('admin/forum/schecule/_delete_form.html.twig') }}
+                <h4 class="card-title">{{ 'Informations sur la partie'|upper }}</h4>
+                {{ include('/admin/forum/part/_delete_form.html.twig') }}
             </header>
             <div class="card-body">
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>{{ 'Nommage de la date' }}</th>
-                        <td>{{ schecule.dateName }}</td>
+                        <th>{{ 'Titre' }}</th>
+                        <td>{{ part.title }}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
-                <a class="btn btn-label btn-dark" href="{{ path('schecule_index') }}">
+                <a class="btn btn-label btn-dark" href="{{ path('part_index') }}">
                     <label><i class="ti-arrow-left"></i></label>
                     {{ 'Retour à la liste'}}
                 </a>
-                <a class="btn btn-label btn-danger" href="{{ path('schecule_edit', {'id': schecule.id}) }}">
+                <a class="btn btn-label btn-danger" href="{{ path('part_edit', {'id': part.id}) }}">
                     <label><i class="ti-pencil-alt"></i></label>
                     {{ 'Modifier' }}
                 </a>
@@ -31,3 +32,4 @@
         </div>
     </div>
 {% endblock %}
+

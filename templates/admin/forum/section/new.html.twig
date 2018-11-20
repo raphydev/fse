@@ -1,0 +1,18 @@
+{% extends 'admin/forum/forum_layout.html.twig' %}
+{% block title %} {{ 'Section du forum' }} {% endblock %}
+{% block forum_title %} {{ '| Section du forum'|upper }}{% endblock %}
+{% block forum_content %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér une nouvelle section'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('section_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('/admin/forum/section/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

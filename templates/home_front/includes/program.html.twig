@@ -1,59 +1,30 @@
-<div class="c-content-box c-size-md c-overflow-hide c-bg-grey-1">
-    <div class="container">
-        <div class="c-content-title-1">
-            <h3 class="c-font-uppercase c-font-bold c-center c-font-white">
-                <span class="c-content-label">{{ 'Programme du forum' }}</span>
-            </h3>
-            <div class="c-line-center c-theme-bg"></div>
-        </div>
+{% for part in parts %}
+    {% if part.programs|length > 0 %}
+    <div class="c-content-title-1">
+        <h5 class="c-font-uppercase c-bg-green-1 c-font-bold c-center c-font-white">
+            <span class="c-font-16">
+                {{ part.title }}
+            </span>
+        </h5>
+        <div class="c-line-center c-bg-green-1"></div>
     </div>
-    <div class="c-container">
-        <div class="c-content-tab-3 c-opt-1">
-            <div>
-                <ul class="nav c-theme-nav">
-                    {% for schecule in schecules %}
-                        <li {% if loop.first %} class="active" {% endif %}>
-                            <a class="c-font-16 c-theme-font c-font-bold" href="#c-tab3-{{ schecule.id }}" data-toggle="tab">
-                                {{ schecule.dateName }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="c-tab-content">
-                <div class="container">
-                    <div class="tab-content">
-                        {% for schecule_program in schecules %}
-                            {% set scheculeId = schecule_program.id %}
-                            <div class="tab-pane fade in active" id="c-tab3-{{ scheculeId }}">
-                                <div class="col-md-9 col-sm-12">
-                                    <ul class="c-items">
-                                        {% for program in schecule_program.programs %}
-                                            <li>
-                                                <h4 class="c-font-20">
-                                                    <i class="fa fa-clock-o"></i>
-                                                    {{ program.hours }}
-                                                </h4>
-                                                <p>{{ program.title }}</p>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3 col-sm-12">
-                                    <div class="c-person">
-                                        <img src="../../assets/base/img/content/avatars/team1.jpg" class="img-responsive">
-                                        <div class="c-person-detail c-font-uppercase">
-                                            <h4 class="c-name">Mark Doe</h4>
-                                            <p class="c-position c-font-bold c-theme-font">CFO, Walmart</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'Horaires' }}</th>
+                <th>{{ 'Déroulement' }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for program in  part.programs %}
+            {% if program.section.id == sectionId %}
+                <tr {% if loop.index is odd %} class="active" {% endif %}>
+                    <th style="width: 15%;" scope="row">{{ program.hours }}</th>
+                    <td style="width: 85%;">{{ program.content|raw }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endfor %}
