@@ -68,6 +68,11 @@ class Rapport
      */
     protected $tag;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $libelle;
+
 
     public function __construct()
     {
@@ -185,6 +190,18 @@ class Rapport
     public function setTag(?Tag $tag): self
     {
         $this->tag = $tag;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): self
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }

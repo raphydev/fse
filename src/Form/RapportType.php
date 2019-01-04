@@ -26,6 +26,10 @@ class RapportType extends AbstractType
                 'label' => 'Titre du document',
                 'attr' => ['placeholder' => 'Titre du rapport']
             ])
+            ->add('libelle', TextareaType::class, [
+                'label' => 'contenu du document',
+                'attr' => ['placeholder' => 'contenu du rapport']
+            ])
             ->add('docFile', VichImageType::class, [
                 'label' => false,
                 'required' => false,
