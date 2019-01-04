@@ -57,6 +57,7 @@ class Gallery
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="App\Entity\Tag", inversedBy="galleries")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     protected $tag;
 
