@@ -22,30 +22,34 @@
                 <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
                     {{ 'Tout' }}
                 </div> /
-                {% for tag in tags %}
-                    <div data-filter=".{{ tag.name }}" class="cbp-filter-item">
-                        {{ tag.name|capitalize }} <div class="cbp-filter-counter">{{ tag.galleries|length }}</div>
-                    </div> /
-                {% endfor %}
+                {% if tags|length > 0 %}
+                    {% for tag in tags %}
+                        <div data-filter=".{{ tag.name }}" class="cbp-filter-item">
+                            {{ tag.name|capitalize }} <div class="cbp-filter-counter">{{ tag.galleries|length }}</div>
+                        </div> /
+                    {% endfor %}
+                {% endif %}
             </div>
             <div id="grid-container" class="cbp cbp-l-grid-agency">
-                {% for gallery in galleries %}
-                    <div class="cbp-item graphic {{ gallery.tag.name }}">
-                        <a href="{{ path('gallery_detail', { 'slug': gallery.slug }) }}">
-                            <div class="cbp-caption">
-                                <div class="cbp-caption-defaultWrap">
-                                    {% for media in gallery.medias %}
-                                        {% if loop.first %}
-                                            <img src="{{ media.assertPath|imagine_filter('thumb_280_280') }}" alt="{{ gallery.name }}">
-                                        {% endif %}
-                                    {% endfor %}
+                {% if galleries|length > 0 %}
+                    {% for gallery in galleries %}
+                        <div class="cbp-item graphic {{ gallery.tag.name }}">
+                            <a href="{{ path('gallery_detail', { 'slug': gallery.slug }) }}">
+                                <div class="cbp-caption">
+                                    <div class="cbp-caption-defaultWrap">
+                                        {% for media in gallery.medias %}
+                                            {% if loop.first %}
+                                                <img src="{{ media.assertPath|imagine_filter('thumb_280_280') }}" alt="{{ gallery.name }}">
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="cbp-l-grid-agency-title">{{ gallery.name|capitalize }}</div>
-                            <div class="cbp-l-grid-agency-desc">{{ gallery.tag.name|upper }}</div>
-                        </a>
-                    </div>
-                {% endfor %}
+                                <div class="cbp-l-grid-agency-title">{{ gallery.name|capitalize }}</div>
+                                <div class="cbp-l-grid-agency-desc">{{ gallery.tag.name|upper }}</div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
