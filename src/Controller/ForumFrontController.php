@@ -241,12 +241,10 @@ class ForumFrontController extends AbstractController
      */
     public function galleryPage(TagRepository $tagRepository, GalleryRepository $galleryRepository)
     {
-        dump($tagRepository->findByGalleryOnline());
-        dump($galleryRepository->findAll());
-        /*return $this->render('home_front/gallery.html.twig',[
+        return $this->render('home_front/gallery.html.twig',[
             'tags' => $tagRepository->findByGalleryOnline(),
             'galleries' => $galleryRepository->findAll()
-        ]);*/
+        ]);
     }
 
     /**

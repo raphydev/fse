@@ -33,7 +33,7 @@
             <div id="grid-container" class="cbp cbp-l-grid-agency">
                 {% if galleries|length > 0 %}
                     {% for gallery in galleries %}
-                        <div class="cbp-item graphic {{ gallery.tag.name }}">
+                        <div class="cbp-item graphic">
                             <a href="{{ path('gallery_detail', { 'slug': gallery.slug }) }}">
                                 <div class="cbp-caption">
                                     <div class="cbp-caption-defaultWrap">
