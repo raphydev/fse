@@ -85,11 +85,5 @@
             "id": "01C9PFWW7DAMCQWR4W7010SPHP",
             "allow-contrib": true
         }
-    },
-    "resolutions": {
-        "**/**/lodash": "@^4.17.13",
-        "**/**/lodash.mergewith": "@^4.6.2",
-        "**/**/mem": "@^4.0.0",
-        "**/**/jquery": ">=3.4.0"
     }
 }
